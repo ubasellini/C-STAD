@@ -1,0 +1,562 @@
+\documentclass[11pt, a4paper]{article} 
+\usepackage{graphicx}
+\usepackage[parfill]{parskip}
+\usepackage{natbib}
+\usepackage[a4paper, margin=1.3in]{geometry}
+\usepackage{caption}
+\usepackage{chngcntr}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{authblk}
+\usepackage{booktabs}   %% for TABLE
+\usepackage{multirow}	%% for TABLE
+\usepackage{hhline}		%% for TABLE
+\usepackage{tabularx,ragged2e}	%% for TABLE
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{xcolor, colortbl}
+\usepackage{lscape}
+\definecolor{my-grey}{RGB}{220,220,220}   %% COLORS
+\definecolor{my-white}{RGB}{255,255,255}  %% COLORS	
+\definecolor{my-darkgreen}{RGB}{0,100,0}  %% COLORS
+\setlength\parindent{20pt}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor=blue,
+}
+
+\begin{document}
+	
+	\captionsetup[figure]{labelfont={bf},name={Figure},labelsep=period}
+	\captionsetup[table]{labelfont={bf},name={Table},labelsep=period}
+	
+	\title{An age-at-death distribution approach \\ to forecast cohort mortality}	
+	
+	\author[1,2]{Ugofilippo Basellini}
+	\author[2]{S{\o}ren Kj{\ae}rgaard}
+	\author[1]{Carlo Giovanni Camarda}
+	\affil[1]{\small \textit{Institut national d'\'{e}tudes d\'emographiques (INED), Paris}}
+	\affil[2]{\small \textit{Interdisciplinary Centre on Population Dynamics (CPop), Department of Public Health, University of Southern Denmark, Odense}}
+	
+	\maketitle 
+ 
+\begin{abstract}
+
+Mortality forecasting has received increasing interest during recent decades due to the negative financial effects of continuous longevity improvements on public and private institutions' liabilities. However, little attention has been paid to forecasting mortality from a cohort perspective. In this article, we introduce a novel methodology to forecast adult cohort mortality from age-at-death distributions. We propose a relational model that associates a time-invariant standard to a series of fully and partially observed distributions. Relation is achieved via a transformation of the age-axis. We show that cohort forecasts can improve our understandings of mortality developments by capturing peculiar cohort effects, which might be overlooked by a conventional age-period perspective. Moreover, mortality experience of partially observed cohorts are routinely completed. We illustrate our methodology on adult female mortality for cohorts born between 1835 and 1970 in two high-longevity countries using data from the Human Mortality Database.
+
+\end{abstract}
+
+%% KEYWORDS
+\noindent \textbf{Keywords:} Mortality forecasting$\;\cdot\;$Mortality modelling$\;\cdot\;$Relational models$\;\cdot\;$Cohort life table$\;\cdot\;$Smoothing	
+
+\section{Introduction}
+\label{Sec:Intro}	 
+Continuous and widespread gains in life expectancy \citep{riley2001rising,oeppen2002broken} are increasingly challenging governments and insurance companies to provide adequate pension products and elderly health care in ageing societies. Mortality forecasting has thus gained relevant prominence during the last decades, as relatively small differences in the expected lifetimes of pensioners can have significant effects on financial institutions' liabilities. \par
+
+A growing number of models have recently been proposed to forecast human mortality using stochastic methodologies that produce probabilistic assessments of the future. For comprehensive reviews, see \cite{booth2006demographic} and \cite{shang2011point}. Unsurprisingly, the vast majority of these techniques are based on \textit{period} mortality: financial institutions are typically interested in the mortality developments of groups of individuals that comprise different birth cohorts. In addition, cohort data can be outdated, unavailable or incomplete, hence period life tables have been developed to analyse a hypothetical cohort if its age-specific death rates pertained throughout its life \citep{preston2001demogr}. \par 
+ 
+\textit{Cohort} forecasts of mortality are nonetheless interesting and worth exploring for two main reasons. First, survival in real birth cohorts is different from survival in the hypothetical situation of unchanged period mortality rates because of: (i) tempo effects, (ii) cohort effects and (iii) selection \cite[for a full discussion, see][Sect.~2]{borgan2018cohort}. As such, analysing and forecasting cohort mortality can provide different insights on mortality developments than analyses based on the period perspective. Second, due to the nature of the data, cohort forecasts can be employed to complete the mortality experience of partially observed cohorts. \par  
+
+In this article, we propose a novel methodology to forecast adult cohort mortality that is based on the distribution of deaths. Age-at-death distributions have recently received increasing attention in mortality forecasting \citep{oeppen2008coherent,bergeron2017coherent,basellini2019modeling,pascariu2019maximum}. As we will show, the distribution of deaths has convenient features that makes it particularly suitable to forecast cohort mortality; we thus propose a new extension of a recently proposed methodology to model and forecast adult age-at-death distributions \citep{basellini2019modeling}, and we employ our model to analyse and forecast cohort mortality. \par 
+ 
+This paper is organized as follows. In Section \ref{Sec:Methods}, we review the methodology proposed in this article, and the data that we employ for the analyses. Section \ref{Sec:Results} presents two applications of our model to Swedish and Danish female adult mortality for the cohorts 1835-1970. In Section \ref{Sec:Discussion}, we discuss the results of our methods and conclude. 
+
+\section{Methods \& Data}
+\label{Sec:Methods}
+\subsection{The C-STAD model}
+\label{Subsec:C-STADmodel}
+Suppose we have two adult age-at-death distributions defined on the age range $x \geq 40$. Specifically, let $f(x)$ be a ``standard'', or reference, distribution and $g(x)$ an observed distribution. Let $t(x;\bm{\theta})$ be a transformation function of the age axis and a vector of parameters $\bm{\theta}$ such that:
+\begin{equation}\label{Eq:gxftx}
+g(x) = f\left[t(x;\bm{\theta})\right]\,, 
+\end{equation}  
+i.e.~the distribution $g(x)$ is derived from a warping transformation of the age axis of $f(x)$. In particular, the term ``warping'' originates in Functional Data Analysis \citep{ramsay2005FDA} and refers to the transformation of a time axis to achieve close alignment of functions. \par
+
+We propose a parsimonious yet flexible transformation function $t(x;\bm{\theta})$ that captures adult mortality developments across cohorts rigorously. Let $\bm{\theta}' = \left[s,b_{L},c_{L},d_{L},b_{U}\right]$ be a vector containing the model's parameters, where $s = M^{g} - M^{f}$ is the difference between the modal ages at death of the unimodal distributions $g(x)$ and $f(x)$. The proposed \emph{Cohort Segmented Transformation Age-at-death Distributions} (C-STAD) model can be written as: 
+\begin{equation}\label{Eq:tx}
+t(x;\bm{\theta}) = \left\{ \begin{array}{ll}
+M^{f} + b_{L}\,\tilde{x} + c_{L}\,\tilde{x}^2 + d_{L}\,\tilde{x}^3 \quad & \mathrm{if} \; x \leq M^{g} \, \\
+M^{f} + b_{U}\,\tilde{x} \quad & \mathrm{if} \; x > M^{g} \\
+\end{array}
+\right.
+\end{equation} 
+where $\tilde{x}=x - s - M^{f}$, and the subscripts $_L$ and $_U$ refer to the \textit{Lower} and \textit{Upper} parts of the segmented transformation (i.e.~before and after $M^{g}$), respectively. \par
+
+The warping function $t(x;\bm{\theta})$ takes the form of a segmented transformation model which breaks at the value of $M^{g}$. Below $M^{g}$, the transformation function is cubic, while it is linear above $M^{g}$. Although acting on $t(x;\bm{\theta})$, the model's parameters are directly related to the summary measures of the age-at-death distributions. Specifically, while $s$ captures the difference in modal ages between $g(x)$ and $f(x)$, $b_L$ and $b_U$ measure the change in variability before and after the modal ages of the two distributions. For the ages below $M^{g}$, $c_L$ and $d_L$ further measure differences in terms of asymmetry and heaviness of the left tail between $g(x)$ and $f(x)$, respectively. In terms of mathematical moments, the parameters $b_L$ and $b_U$ can be related to the variance of the distribution before and after the mode, while $c_L$ and $d_L$ to the skewness and kurtosis of the distribution. \par
+
+Figure~\ref{Fig:CSTADmodel} provides a graphical illustration of the C-STAD model. For simplicity, we start from the simple case in which $b_L = b_U = 1$ and $c_L = d_L = 0$. Substitution of these parameters in Eq.~(\ref{Eq:tx}) yields a unique transformation function $t(x,\bm{\theta})=x-s$, and a corresponding distribution $g_1(x) = f(x-s)$ via Eq.~(\ref{Eq:gxftx}). In the left panel of Fig.~\ref{Fig:CSTADmodel}, the standard distribution (grey line) is shifted to the right by an amount equal to $s$, and $g_1(x)$ (blue line) maintains the original shape of $f(x)$. The right panel shows the transformation function related to this simple shifting scenario. Note that a left-shift could be simply obtained with a negative value of $s$. \par
+
+\begin{figure}[t]
+	\begin{center}
+		\includegraphics[scale=0.57]{./Figures/F1.pdf} 
+		\caption{A schematic overview of the \emph{Cohort Segmented Transformation Age-at-death Distributions} model.\label{Fig:CSTADmodel}}    
+	\end{center}
+\end{figure}
+
+Different parameters' values allow to capture broader mortality developments than the simple shifting scenario described above. While $b_L$ and $b_U$ modify the variability of the distribution $g_2(x)=f\left[t(x;\bm{\theta})\right]$ (orange line, left panel) w.r.t.~$f(x)$ before and after the modal age at death, $c_L$ and $d_L$ affect the asymmetry and heaviness of the left tail of $g_2(x)$ as compared to $f(x)$. In the example shown in Fig.~\ref{Fig:CSTADmodel}, $b_L > 1$ reduces the variability of $g_2(x)$ before $M^g$ w.r.t.~$f(x)$, while $b_U < 1$ increases the variability of $g_2(x)$ after $M^g$ w.r.t.~$f(x)$. The effects of $c_L$ and $d_L$ are difficult to discern from the left panel. However, the right panel shows the warping transformation $t(x,\bm{\theta})$ applied to $f(x)$ to derive $g_2(x)$; the transformation (orange line) is composed by a cubic function (due to non-zero values of $c_L$ and $d_L$) before the cut-off point $M^g$, and by a linear function above $M^g$. \par
+
+\subsection{Data}
+\label{Subsec:Data}
+In this article, we aim to estimate and forecast adult cohort mortality for females in two high-longevity countries, namely Sweden and Denmark. Long-term series of high quality data are available for both countries, even at the very old ages \citep{vaupel1994longer,wilmoth1996extreme}[XXX add reference for DNK data], and the two countries display different mortality developments. We therefore test the goodness-of-fit and forecast accuracy of our model with respect to different mortality trajectories. The data are derived from the \citeauthor{HMD} (HMD, \citeyear{HMD}), which provides free access to historical mortality data for 43 different territories and countries. The HMD is a collection of detailed, consistent and high quality human mortality data that were subject to a uniform set of procedures, which allow cross-national comparability of the information \citep{barbieri2015data}. \par \par 
+Our interest in this article is restricted to the senescent component of mortality, hence we start our analyses from age 40. Specifically, we employ two $m$x$n$ matrices $D_{x,c}$ and $E_{x,c}$ containing observed death counts and exposure-to-risk, respectively, classified by age at death $x=40,\ldots, 110+$ and birth cohort $c=1835,\ldots,1970$. On one hand, we select 1835 as starting cohort of analysis for both populations because it is the first cohort with observed data at all ages in Denmark, and to compare the results for the two countries using the same fitting period. On the other hand, 1970 is the final cohort because it contains enough observed data points in both countries (seven in Sweden, six in Denmark) to estimate the three low parameters accurately (cf.~Section \ref{Subsec:EstimForeC-STAD}). \par
+Estimation and forecasting of the C-STAD parameters (Section \ref{Subsec:EstimForeC-STAD}) is performed on three different groups of cohorts. The first group contains the fully observed cohorts $c_1 =1835,\ldots,1905$, i.e.~for this group, $D_{x,c_1}$ and $E_{x,c_1}$ have been observed at all ages $x$. The second group is composed by cohorts $c_2 =1906, \ldots, \tilde{c}$, where $\tilde{c}$ denotes the last cohort for which two age-groups above the adult modal age at death have been observed. In other words, $D_{x,c_2}$ and $E_{x,c_2}$ are incomplete, but $D_x$ and $E_x$ have been observed for at least two data points above the age $x=M$ for all cohorts in $c_2$. Also here, the choice of two age groups is dictated by the estimation of the parameter above the mode (cf.~Section \ref{Subsec:EstimForeC-STAD}). For the two populations analysed here, $\tilde{c}$ is 1925 and 1927 for Sweden and Denmark, respectively. Finally, the third group is composed by the remaining cohorts $c_3 =\tilde{c}+1, \ldots, 1970$. Figure \ref{Fig:Lexis} below provides an illustration of the divisions of cohorts into the three groups by means of a Lexis diagram. Figure \ref{Fig:DxExample} shows an example of the observed and missing data for three age-at-death distributions belonging to the different groups of cohorts. \par
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.7]{./Figures/F2.pdf} 
+		\caption{A Lexis diagram illustrating the division of cohorts into three groups. 2015 is the most recent year of data collection, while the last cohort with observed mode $M$ is $\tilde{c}=1925$ ($M=2015-\tilde{c}=90$, brown line). The three groups are then $c_1=1835, \ldots, 1905$, $c_2=1906, \ldots, 1925$ and $c_3=1926, \ldots, 1970$. The two colours in the forecast years correspond to different parameters' derivations (cf.~Section \ref{Subsec:EstimForeC-STAD}): estimation with missing data (light green) and forecasting (dark green). \label{Fig:Lexis}}    
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.7]{./Figures/F3.pdf} 
+		\caption{Example of observed, estimated and forecast data for three age-at-death distributions belonging to the groups of cohorts $c_1$, $c_2$ and $c_3$.\label{Fig:DxExample}}    
+	\end{center}
+\end{figure}
+
+\subsection{Estimation and forecast of the C-STAD parameters}
+\label{Subsec:EstimForeC-STAD}
+The first step needed to fit the C-STAD model is the derivation of the standard distribution $f(x)$. The C-STAD can be interpreted as a relational model \citep{brass1971scale}, hence it is desirable to include the representative features of the observed data for all cohorts in the computation of $f(x)$. To do so, we first derive the age-at-death distribution for each cohort 1835-1970 by adapting the two-dimensional (2D) $P$-splines smoothing approach of \cite{currie2004smoothing} to cohort mortality. Specifically, we assume that death counts $D_{x,c}$ at given age $x$ and cohort $c$ follow a Poisson distribution:
+\begin{equation}\label{Eq:Poisson}
+D_{x,c} \sim \mathcal{P}(E_{x,c} \; \mu_{x,c}) 
+\end{equation}
+where $E_{x,c}$ is the exposure-to-risk and $\mu_{x,c}$ the hazard or force of mortality \citep{brillinger1986biometrics}. We thus smooth observed death counts over cohorts using a 2D tensor product of  $B$-splines, age- and cohort-specific smoothing parameters, and exposures as an offset \citep{eilers1996flexible}. The smoothing parameters are chosen by BIC minimization, and missing data are estimated by $P$-spline extrapolation. The \texttt{R} package \texttt{MortalitySmooth} provides a direct implementation of this procedure \citep{camarda2012mortalitysmooth}. \par 
+
+The estimated smooth mortality surface allows us to derive smooth densities and corresponding modal ages at death for each cohort analysed. We then align each density to the distribution of the first cohort, and we derive $f(x)$ as the mean of the aligned distributions. This landmark registration procedure has been suggested elsewhere as it enhances the goodness-of fit of the model \cite[for additional details, see][]{basellini2019modeling}. Importantly, it should be noted that for cohorts in $c_2$ and $c_3$, we only use the part of the aligned distribution corresponding to the observed data (for example, for $\tilde{c}$ we only use the part of the distribution corresponding to the ages below the mode). We can then express $f(x)$ as a linear combination of equally spaced $B$-spline basis $\bm{B}(x)$ over ages $x$ and coefficients $\bm{\beta}_{f}$ specific to the standard distribution:
+\begin{equation}\label{Eq:standPsplines}
+f(x) = \exp\left[ \bm{B}(x) \, \bm{\beta}_{f} \right] \, .
+\end{equation} \par
+
+Next, we can derive the C-STAD parameters $\bm{\theta}'=\left[s,b_{L},c_{L},d_{L},b_{U}\right]$ for each cohort in 1835-1970. As anticipated in Section \ref{Subsec:Data}, we use three different approaches to estimate $\bm{\theta}$, depending on the data available for each cohort; we thus divide cohorts into three groups, as shown in Figure \ref{Fig:Lexis}. \par
+
+For the first group of fully observed cohort $c_1$, we start by estimating the $\bm{s}$ parameter. Rather than using the 2D smooth estimates obtained from the alignment procedure, we employ a one-dimensional $P$-spline approach, i.e.~we smooth mortality for each cohort independently \cite[as typically done in period analyses, see, for example,][]{ouellette2011changes}. Similar to the 2D approach, this allows us to extract modal ages at death for each cohort, and hence to estimate the parameter $\hat{s}_c=M_c - M_f$, where $M_f$ denotes the mode of the standard distribution. We favour this over the 2D approach because it allows us to capture cohort-specific mortality fluctuations, which are typically smoothed over cohorts in the 2D estimates. \par
+
+Having derived an estimate of the shifting parameter $\hat{\bm{s}}$, we can estimate the remaining parameters $\tilde{\bm{\theta}}'=\left[b_{L},c_{L},d_{L},b_{U}\right]$. We take advantage of the Poisson assumption in Eq.~(\ref{Eq:Poisson}) and maximise the following log-likelihood function:
+\begin{equation}\label{Eq:loglikeC1}
+\ln\mathcal{L}_1\left(\tilde{\bm{\theta}}_c | \, D_{x,c} , E_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
+\right) \propto \sum_{x} \left[  D_{x,c} \,
+\mathrm{log} \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - E_{x,c}
+\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
+\end{equation}
+for each cohort in $c=1835,\ldots,1905$, where $\mu^{\texttt{C-STAD}}_{x,c}$ denotes
+the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\tilde{\bm{\theta}}}_c$ for each cohort that produces an age-at-death distribution $\hat{g}_c(x)=f\left[t\left(x;\left[ \hat{s}_{c} \,, \hat{\tilde{\bm{\theta}}}_c\right]\right)\right]$ whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The hazard is derived numerically from the distribution $\hat{g}_c(x)$.
+
+For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the 1D smoothing approach produces an estimate of $M$ and $\hat{s}_c$ for each cohort in $c_2$. With respect to $\tilde{\bm{\theta}}$, we modify Eq.~(\ref{Eq:loglikeC1}) to take into account the missing data above the mode. Let $W_{x,c}$ be a matrix of weights at given age $x$ and cohort $c$, whose elements are equal to one if the corresponding death counts $D_{x,c}$ and exposures $E_{x,c}$ have been observed, and zero otherwise. Then, we estimate $\tilde{\bm{\theta}}$ by maximizing the log-likelihood:
+\begin{equation}\label{Eq:loglikeC2}
+\ln\mathcal{L}_2\left(\tilde{\bm{\theta}}_c | \, D_{x,c} , E_{x,c} , W_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
+\right) \propto \sum_{x} W_{x,c} \, \left[  D_{x,c} \,
+\mathrm{log} \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - E_{x,c}
+\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
+\end{equation}
+for each cohort in $c=1906,\ldots,\tilde{c}$. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group.  \par
+
+Finally, for the third group of partially observed cohorts in $c_3$, we employ a mixture of forecasting and estimation for the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihoods in Eq.~(\ref{Eq:loglikeC1}) and (\ref{Eq:loglikeC2}). As such, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ in $c_1$ and $c_2$. From a theoretical perspective, these two parameters are related by the fact that only mortality changes occurring above the mode can modify its value \cite[cf.~Appendix B in][]{canudas2010three}. Correlation analyses for the two countries analysed confirm the strong relation between the two series (Pearson correlation of 0.96 and 0.90 for the time-series in first differences for Sweden and Denmark, respectively). As such, we specify a vector autoregressive (VAR) model of order one with constant for the two (differenced) parameters, and we forecast their values for all cohorts in $c_3$. The \texttt{R} package \texttt{vars} allows us to perform model selection and estimation, while parameters' forecast are computed via the \texttt{forecast} package  \citep{pfaff2008analysis,pfaff2008var,hyndman2018forecastR}  \par
+
+%and we forecast their future values for all cohorts in $c_3$ using the best fitting univariate ARIMA($p$,$d$,$q$) model. The orders of the ARIMA model are chosen via the automatic algorithm available in the \texttt{R} package \texttt{forecast}, which is based on the minimization of the corrected Akaike Information Criterion \citep{hyndman2008automatic,hyndman2018forecastR}.
+
+Then, we take the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ as given, and we estimate the remaining parameters $\breve{\bm{\theta}}'=\left[b_{L},c_{L},d_{L}\right]$ by maximizing the log-likelihood:
+\begin{equation}\label{Eq:loglikeC3}
+\begin{aligned}
+\ln\mathcal{L}_3\left(\breve{\bm{\theta}}_c | \, D_{x,c} , E_{x,c} , W_{x,c} , \hat{s}_{c}, \hat{b}_{U_{c}} , \bm{\beta}_{f} \right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} W_{x,c} \, \left[  D_{x,c} \,
+\mathrm{log} \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - E_{x,c}
+\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
+\end{aligned}
+\end{equation}
+for each cohort in $c=\tilde{c}+1,\ldots,1970$. In contrast to the estimation procedure in $c_2$, here the missing data influence the estimation of the \textit{Lower} parameters $\breve{\bm{\theta}}$. \par
+
+The estimate $\hat{\bm{\theta}}_c$ for each cohort in 1835-1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $c_3$)}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty of the C-STAD estimates as well as of the forecast values of the time-series of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$. On one hand, the first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. On the other hand, the second source is considered by simulating future values of the VAR model. We employ 25 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 25 future values of $\bm{s}$ and $\bm{b}_U$. From the 625 resulting total simulations, we take the lower and higher deciles to construct 80\% confidence intervals [XXX increase simulations for final paper].
+
+
+%For the second group of cohorts, we employ the same estimation procedure, with only a small modification. On one hand, since the modal age at death has been observed, there are no problems in the estimation of the parameter $s_c$. On the other hand, $D_{x,c}$ and $E_{x,c}$ are not observed at all ages; Eq.~(\ref{Eq:loglike}) can nonetheless be computed by giving zero weights to the unobserved data. This can be achieved by replacing zeros to the elements of $\bm{w}$ corresponding to the missing data.  \par
+
+%Finally, for the third group of partially observed cohorts in $c_3$, we forecast the C-STAD parameters using the estimates of the first two groups. The lack of knowledge about the modal age at death indeed makes it impossible to estimate the parameter $s_c$ from the partially observed data, compute the log-likelihood function in Eq.~(\ref{Eq:loglike}) and estimate the remaining parameters. As such, we specify two different multivariate vector autoregressive time-series models for the C-STAD parameters. The first model is fitted to the parameters $s$ and $b_U$. From a theoretical perspective, these parameters are related by the fact that mortality changes occurring above the mode could modify its value \cite[see][Appendix B]{canudas2010three}. The second model is specified for $b_L$, $c_L$ and $d_L$: these three parameters are theoretically related to each other since they pertain to the same segment of the age-at-death distribution. The results for the countries analysed indeed confirm these hypotheses, showing high correlation between the two set of parameters and low correlation between the other combinations (see Fig.~\ref{Fig:correlation} in Appendix \ref{Appendix:AdditResults}).    
+
+\section{Results}
+\label{Sec:Results}
+
+\subsection{Out-of-sample validation of the C-STAD model}
+\label{Subsec:Out-of-sample}
+Before completing the mortality experience of partially observed cohorts, we first assess the accuracy of the C-STAD model by performing six predictive out-of-sample validation exercises on Swedish and Danish adult females. Specifically, we pretend that the last year of collected data is $2015 - \delta$, where $\delta=10,15,20,25,30$ and 35 years. We then fit the C-STAD model to the fully observed cohorts $c_1=1835,\ldots,1905-\delta$ and we forecast mortality $\delta$ years ahead. We then compare the forecast life expectancy at age 40 ($e_{40}$) and the Gini coefficient at age 40 ($g_{40}$) with the observed values. Both measures of longevity (the former) and lifespan variability (the latter) are indeed useful to evaluate the accuracy of mortality forecasts \citep{bohk2017lifespan}. \par
+
+%and the logarithm of the unobserved age-specific mortality rates at age $x$ and cohort $c$ ($\ln(m_{x,c})$)
+
+An explicative example of this procedure is useful to clarify the out-of-sample exercises. Let us consider $\delta=10$: then, the last year of fully observed data is 2005. We fit the C-STAD to the fully observed cohorts $c_1=1835,\ldots,1895$, and we forecast 10-year ahead. By doing so, we complete the mortality experience of the partially observed cohorts $1896,\ldots,1905$, and for each of these, we compute and compare the estimated $e_{40}$ and $g_{40}$ with the observed ones. 
+
+%Moreover, we compare the forecast unobserved $\ln(m_{x,c})$ (i.e.~ $\ln(m_{110+;1896,\ldots,1905})$, $\ln(m_{109;1897,\ldots,1905})$, $\ln(m_{108;1898,\ldots,1905}),\ldots$) with the true values.  \par
+
+It is worth mentioning at this point that, for the lower values of $\delta$, forecasting is achieved simply by fitting the C-STAD on the partially observed cohorts $c_2$. In the explicative example above, where the last data collection occurred in 2005, the cohort 1896, for instance, has been observed at all ages except 110. We thus take advantage of the nature of cohort data and consider all possible observations to complete the mortality experience of this partial cohort.  Conversely, for higher values of $\delta$, forecasting is achieved by considering also the cohorts $c_3$, which require the combination of forecasting and estimation of the C-STAD parameters. 
+
+In addition to the C-STAD, we perform the same out-of-sample exercises with the 2D $P$-splines approach of \cite{currie2004smoothing}. This is indeed the only model that, up to our knowledge, has been employed to forecast cohort mortality from a cohort perspective \citep{cmi2007stochastic} and is readily implemented in the \texttt{R} software.
+
+Table \ref{Table:RMSE} presents the results of our analysis. The first and second columns contain the cohorts used for fitting and forecasting the C-STAD and 2D $P$-splines models, respectively. The third column contains the time horizon of the out-of-sample exercise, while the fourth column the measure analysed ($e_{40}$ and $g_{40}$). Results are shown in the last four columns. We assess the accuracy of the point forecasts by computing the root mean square error (RMSE):
+\begin{equation}\label{Eq:RMSE}
+\mathrm{RMSE}=\sqrt{\frac{ \sum_{c=1}^{\delta} \left(\hat{y}_c-y_c\right)^2}{\delta}}
+\end{equation} 
+where $\delta$ is the forecasting horizon, and $\hat{y}_c$ and $y_c$ are the forecast and observed values of either $e_{40}$ or $g_{40}$. For this analysis, we multiplied the values of $g_{40}$ by 100 in order to have comparable magnitude between the two indicators. \par 
+
+%For $\ln(m_{x,c})$, the RMSE is calculated as follows:
+%\begin{equation}\label{Eq:RMSE_lmx}
+%\mathrm{RMSE}=\frac{1}{\delta}\sum_{c=1}^{\delta}\sqrt{\frac{\sum_{x\in\chi} \left(\ln(\hat{m}_{x,c})-\ln (m_{x,c})\right)^2}{\mathrm{dim}(\chi)}}
+%\end{equation} 
+%where $\ln(\hat{m}_{x,c})$ and $\ln (m_{x,c})$ are the forecast and observed rates, and $\chi$ denotes the set of unobserved rates, whose length is equal to $\mathrm{dim}(\chi)$ and depends on the cohort analysed. As an explicative example, when $\delta=10$, $\chi$ contains one element in the forecast cohort 1896 ($\ln(m_{110+,1896})$), two elements in the cohort 1897 ($\ln(m_{109,110+;1897})$), and so forth until ten elements in the last cohort 1905 ($\ln(m_{101,\ldots,110+;1896})$).
+
+% WITHOUT LMX %%  WITHOUT LMX %%  WITHOUT LMX
+% WITHOUT LMX %%  WITHOUT LMX %%  WITHOUT LMX
+
+% TABLE TOTAL: 10, 20, 30 YEARS
+\begin{table}[h!]
+	\small
+	\centering
+	\begin{tabular}{C{1.2cm}C{1.2cm}cccc|cc}
+		\toprule
+		& & & &   \multicolumn{2}{c}{\textbf{Sweden}}    & \multicolumn{2}{c}{\textbf{Denmark}} \\
+		
+		\cmidrule{5-8}	
+		
+		Fitting cohorts & Forecast cohorts & Horizon &  Measure     &  C-STAD   & 2D P-spline &  C-STAD   & 2D P-spline     \\ 
+		\midrule	
+		%%%% FIRST EXERCISE	
+		\rowcolor{my-white} 
+		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & \textbf{0.05} & 0.08  & \textbf{0.05} &  0.08      \\
+		\rowcolor{my-white} 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835-1895}}  &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1896-1905}}  & 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$g_{40}$} & \textbf{0.02} &   0.11 & \textbf{0.02} &  0.09  \\
+		
+		%%%% SECOND EXERCISE	
+		\hhline{|--------|}
+		\rowcolor{my-grey} 
+		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
+		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.04} &  0.09  & \textbf{0.05} &  0.08  \\
+		\rowcolor{my-grey}       \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835-1890}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1891-1905}}               &
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$g_{40}$} & \textbf{0.02} &  0.10 & \textbf{0.03} & 0.12        \\ 
+		
+		%%%% THIRD EXERCISE
+		\hhline{|--------|}
+		\rowcolor{my-white} 
+		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.03} & 0.09 & \textbf{0.04} & 0.08 \\
+		\rowcolor{my-white}            
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835-1885}}           &
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1886-1905}}               &
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$g_{40}$} & \textbf{0.04} & 0.11 & \textbf{0.04} & 0.13  \\
+		
+		%%%% FOURTH EXERCISE	
+		\hhline{|--------|}
+		\rowcolor{my-grey} 
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.02} & 0.08  & \textbf{0.04} &  0.08     \\
+		\rowcolor{my-grey} 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835-1880}}                 &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1881-1905}}  & 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$g_{40}$} & \textbf{0.05} & 0.11 & \textbf{0.08} & 0.13      \\
+		
+		%%%% FIFTH EXERCISE
+		\hhline{|--------|}
+		\rowcolor{my-white} 
+		\multicolumn{1}{c}{\cellcolor{my-white}}             &
+		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.03} & 0.10 & \textbf{0.05} &  0.11   \\
+		\rowcolor{my-white} 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835-1875}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1876-1905}}               &
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$g_{40}$} & \textbf{0.06} &  0.14 & \textbf{0.10} & 0.19        \\
+		
+		%%%% SIXTH EXERCISE
+		\hhline{|--------|}
+		\rowcolor{my-grey} 
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.10 & \textbf{0.09} & \textbf{0.08} & 0.15  \\
+		\rowcolor{my-grey}           
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835-1870}}           &
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1871-1905}}               &
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$g_{40}$} & \textbf{0.10} & 0.15 & \textbf{0.17} & 0.21   \\		
+		
+		\bottomrule 
+		
+	\end{tabular}
+	\caption{Root mean squared errors of the C-STAD forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years.}\label{Table:RMSE}
+\end{table}
+
+%% TABLE TOTAL: 10, 20, 30 YEARS
+%\begin{table}[h!]
+%	\small
+%	\centering
+%	\begin{tabular}{C{1.2cm}C{1.2cm}cccc|cc}
+%		\toprule
+%		
+%		 
+%		& & & &   \multicolumn{2}{c}{\textbf{Sweden}}    & \multicolumn{2}{c}{\textbf{Denmark}} \\
+%		
+%		\cmidrule{5-8}	
+%		
+%		Fitting cohorts & Forecast cohorts & Horizon &  Measure     &  C-STAD   & 2D P-spline &  C-STAD   & 2D P-spline     \\ 
+%		\midrule	
+%		
+%		%%%% FIRST EXERCISE	
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & XXX    & XXX  & XXX    & XXX       \\
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835-1895}}                 &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1896-1905}}  & 
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}  & \multicolumn{1}{c|}{\cellcolor{my-white}$g_{40}$} & XXX      & XXX & XXX    & XXX  \\
+%		
+%		%%%% SECOND EXERCISE	
+%		\hhline{|--------|}
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}             & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}             & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & XXX   & XXX  & XXX    & XXX  \\
+%		\rowcolor{my-grey}       \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835-1890}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1891-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$g_{40}$} & XXX  & XXX  & XXX    & XXX         \\ 
+%		
+%		%%%% THIRD EXERCISE
+%		\hhline{|--------|}
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & XXX   & XXX & XXX    & XXX \\
+%		\rowcolor{my-white}            
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835-1885}}           &
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1886-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$g_{40}$} & XXX   & XXX & XXX    & XXX   \\
+%		
+%		%%%% FOURTH EXERCISE	
+%		\hhline{|--------|}
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & XXX   & XXX   & XXX    & XXX     \\
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835-1880}}                 &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1881-1905}}  & 
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$g_{40}$} & XXX   & XXX  & XXX    & XXX      \\
+%		
+%		%%%% FIFTH EXERCISE
+%		\hhline{|--------|}
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}             &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & XXX   & XXX & XXX    & XXX   \\
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835-1875}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1876-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$g_{40}$} & XXX    & XXX  & XXX    & XXX         \\
+%		
+%		%%%% SIXTH EXERCISE
+%		\hhline{|--------|}
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & XXX   & XXX & XXX    & XXX  \\
+%		\rowcolor{my-grey}           
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835-1870}}           &
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1871-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$g_{40}$} & XXX   & XXX & XXX    & XXX   \\		
+%		
+%		\bottomrule 
+%		
+%	\end{tabular}
+%	\caption{Root mean squared errors of the C-STAD forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years.}\label{Table:RMSE}
+%\end{table}
+
+			
+% WITH LMX %%  WITH LMX %%  WITH LMX
+% WITH LMX %%  WITH LMX %%  WITH LMX
+%\begin{table}[h!]
+%	\centering
+%	\begin{tabular}{llccrr}
+%		\toprule	
+%		Fitting cohorts & Forecast cohorts & Horizon &  Measure     &  SWE   & DNK      \\ 
+%		\midrule	
+%		
+%		%%%% FIRST EXERCISE	
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c}{\cellcolor{my-white}$e_{40}$} & XXX  & XXX       \\
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c}{\cellcolor{my-white}$G_{40}$} & XXX  & XXX       \\
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}1835-1895}}                 &  \multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}1896-1905}}  & 
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}10y}}  & \multicolumn{1}{c}{\cellcolor{my-white}$\ln(m_{x,c})$} & XXX  & XXX   \\
+%		
+%		%%%% SECOND EXERCISE	
+%		\hhline{|------|}
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}             & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}             & \multicolumn{1}{c}{\cellcolor{my-grey}$e_{40}$} & XXX  & XXX   \\
+%				\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}             & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}             & \multicolumn{1}{c}{\cellcolor{my-grey}$G_{40}$} & 	XXX  & XXX      \\
+%		\rowcolor{my-grey}       \multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}1835-1890}} &      \multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}1891-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c}{\cellcolor{my-grey}$\ln(m_{x,c})$} & XXX  & XXX        \\
+%		
+%		%%%% THIRD EXERCISE
+%		\hhline{|------|}
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c}{\cellcolor{my-white}$e_{40}$} & XXX  & XXX \\
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c}{\cellcolor{my-white}$G_{40}$} & XXX  & XXX  \\
+%		\rowcolor{my-white}            
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}1835-1885}}           &
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}1886-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c}{\cellcolor{my-white}$\ln(m_{x,c})$} & XXX  & XXX    \\
+%		
+%		%%%% FOURTH EXERCISE	
+%		\hhline{|------|}
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c}{\cellcolor{my-grey}$e_{40}$} & 	XXX  & XXX     \\
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c}{\cellcolor{my-grey}$G_{40}$} & 	XXX  & XXX     \\
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}1835-1880}}                 &  \multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}1881-1905}}  & 
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c}{\cellcolor{my-grey}$\ln(m_{x,c})$} & XXX  & XXX      \\
+%		
+%		%%%% FIFTH EXERCISE
+%		\hhline{|------|}
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}             &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}$e_{40}$} & XXX  & XXX    \\
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\cellcolor{my-white}}             &
+%		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}$G_{40}$} & 	XXX  & XXX    \\		
+%		\rowcolor{my-white} 
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}1835-1875}} &      \multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}1876-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c}{\cellcolor{my-white}$\ln(m_{x,c})$} & 	XXX  & XXX	       \\
+%		
+%		%%%% SIXTH EXERCISE
+%		\hhline{|------|}
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c}{\cellcolor{my-grey}$e_{40}$} & XXX  & XXX   \\
+%		\rowcolor{my-grey} 
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
+%		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c}{\cellcolor{my-grey}$G_{40}$} & XXX  & XXX     \\
+%		\rowcolor{my-grey}           
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}1835-1870}}           &
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}1871-1905}}               &
+%		\multicolumn{1}{c}{\multirow{-3}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c}{\cellcolor{my-grey}$\ln(m_{x,c})$} & 	XXX  & XXX       \\		
+%		
+%		\bottomrule 
+%		
+%	\end{tabular}
+%	\caption{Root mean squared errors of the C-STAD forecasts of $e_{40}$, $G_{40}$ and $\ln(m_{x,c})$ for adult females in Sweden (SWE) and Switzerland (CHE) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years.}\label{Table:RMSE}
+%\end{table}
+
+The table shows that the C-STAD forecasts are accurate in completing the mortality experience of partially observed cohorts. The RMSE values of the two indicators are low, and they do not increase significantly with the forecasting horizon. This is probably due to the fact that the completion of the mortality experience takes into account the partially observed data, even for the long term forecasts. Very similar results would be obtained if we employed a different prediction accuracy measure (e.g.~MAPE, MAE). [XXXX revise this after analysis] \par
+
+\begin{center}
+	XXXXXX ?? INTERVAL FORECAST ACCURACY ?? XXXXXX
+
+\end{center}
+%It is finally worth mentioning that the results are robust to the choice of the fitting period. Indeed, we performed a sensitivity analysis by modifying the fitting period in each exercise. Specifically, we fixed 1860 as the starting cohort for each exercise, and we fitted the C-STAD on the available fully observed cohorts (e.g.~1860-1895 for the first exercise, 1860-1870 for the last one). The results of this analysis are very similar to those shown in Table \ref{Table:RMSE}.
+
+\subsection{Mortality developments for Swedish and Danish females, cohorts 1835-1970}
+\label{Subsec:ForecastC-STAD}
+Here, we show the results of employing the C-STAD model to estimate and forecast adult female cohort mortality in Sweden and Denmark for the cohorts 1835-1970. The estimated and forecast parameters are  shown and discussed in Appendix \ref{Appendix:AdditResults}. Figure \ref{Fig:CSTADfitE40G40} shows the observed and fitted remaining life expectancies at age 40 ($e_{40}$) and Gini coefficient at age 40 ($g_{40}$) in the two population analysed for the fully observed cohorts $c_1$ (1835-1905). The two graphs provide evidence on the goodness-of-fit of the C-STAD model, whose estimates are very close to the observed values for both measures in the two populations. Inspection of the deviance residuals (shown in Appendix \ref{Appendix:AdditResults}) provides additional evidence on the adequacy of the C-STAD model. \par
+
+\begin{figure}[t]
+	\begin{center}
+		\includegraphics[scale=0.57]{./Figures/F4.pdf} 
+		\caption{Observed and C-STAD estimated remaining life expectancies at age 40 ($e_{40}$, left panel) and Gini coefficient at age 40 ($G_{40}$, right panel) for adult females in Sweden and Switzerland for the fully observed cohorts 1835-1905.\label{Fig:CSTADfitE40G40}}    
+	\end{center}
+\end{figure}
+
+Figure \ref{Fig:CSTADforeE40G40} shows the observed (cohorts $c_1$) and completed ($c_2$ and $c_3$) $e_{40}$ and $g_{40}$ computed with the C-STAD (with 80\% confidence intervals) and 2D $P$-spline model for the two population analysed. Despite sharing similar country trends in the fully observed cohorts $c_1$, it is interesting to observe the different mortality developments in the partially observed cohorts $c_2$: while Swedish adult females show continuous improvements in longevity and lifespan equality, Danish ones display a stagnation of $e_{40}$ and an increase in lifespan inequality. The trends of the mortality measures for the partially observed cohorts are similar across the models, with the exception of Danish $e_{40}$: the 2D $P$-spline forecast is much faster then the C-STAD one, resulting in a crossover among the two populations. With respect to C-STAD forecasts, it is moreover interesting to observe how confidence intervals are rather narrow for both countries in $c_2$ (as the great majority of data is observed for these cohorts), while they increase in the cohorts $c_3$ proportionally to the amount of missing data.   
+
+\begin{figure}[t]
+	\begin{center}
+		\includegraphics[scale=0.57]{./Figures/F5.pdf} 
+		\caption{Observed (cohorts $c_1$) and completed ($c_2$ and $c_3$) remaining life expectancies at age 40 ($e_{40}$, left panel) and Gini coefficient at age 40 ($g_{40}$, right panel) for the C-STAD (with 80\% confidence intervals) and 2D $P$-spline models for adult females in Sweden and Denmark for the cohorts 1835-1970.\label{Fig:CSTADforeE40G40}}    
+	\end{center}
+\end{figure}
+
+The age-specific mortality rates analysis shown in Figure \ref{Fig:CSTADforeMx} offers additional insights on cohort mortality developments of the two populations. In the top panels, observed, fitted and forecast mortality rates over cohorts are shown for some selected ages. In addition to the goodness-of-fit of the C-STAD model, the graphs highlight diverse age-specific developments in the two countries: for example, mortality at ages 40 and 60 of Danish cohorts born at the beginning of the twentieth century did not improve, resulting in the atypical trends of the summary measures shown in Figure \ref{Fig:CSTADforeE40G40} (stagnation of $e_{40}$ and increase in lifespan inequality). In the bottom panels, mortality rates over all ages are shown for some selected cohorts. This second perspective shows how the shape of the mortality curve, appropriately captured by the C-STAD model, changed over time: for example, for the 1835 cohort, maternal mortality was still high in both countries, with age-specific rates showing small increases in the age range 40-50. The subsequent reduction of maternal mortality over cohorts clearly emerges in the top panels (at age 40) and in the other cohorts of the bottom panels. An interesting observation that emerges from Figure \ref{Fig:CSTADforeMx} is that the confidence intervals of the C-STAD widens as expected: for example, variability increases with age for the completed cohorts, as fewer age-specific data have been observed at higher ages. Finally, Figure \ref{Fig:CSTADforeDx} shows the observed and C-STAD age-at-death distributions for the three cohorts analysed in the previous panels. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.57]{./Figures/F6a.pdf} 
+		\includegraphics[scale=0.57]{./Figures/F6b.pdf} 
+		\caption{Observed, fitted and forecast age-specific mortality rates for selected ages (top panels) and for selected cohorts (bottom panels) with 80\% confidence intervals for females in Sweden and Denmark aged 40-110+ for the cohorts 1835-1970.\label{Fig:CSTADforeMx}}    
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[scale=0.57]{./Figures/F7.pdf}  
+		\caption{Observed, fitted and forecast age-at-death distributions for selected cohorts (bottom panels) with 80\% confidence intervals for females in Sweden and Denmark aged 40-110+.\label{Fig:CSTADforeDx}}    
+	\end{center}
+\end{figure}
+
+\section{Discussion [XXX to work on in June]} 
+\label{Sec:Discussion}
+Mortality forecasting has drawn considerable interest in recent decades among academics and financial sector practitioners due to the increasing challenges posed by population ageing. Advances in the field have almost exclusively been made on period mortality, as the most recent and innovative techniques are based on modelling and forecasting different functions of period life tables. \par   
+In this article, we take an alternative perspective and introduce a new methodology to model and forecast adult cohort mortality. Our approach focuses on cohort age-at-death distributions: specifically, we propose a cubic segmented transformation of the age-axis of a standard distribution to describe and forecast mortality developments. By looking at the cohort perspective, we denote our methodology \emph{Cohort Segmented Transformation Age-at-death Distributions} (C-STAD) model. \par 
+We have shown the results of fitting and forecasting mortality with the C-STAD model for Swedish and Danish adult females for the cohorts 1835-1970. Our methodology is accurate from a point forecast perspective: for each population, we performed six out-of-sample validation exercises of different forecast horizons. The resulting point forecast errors as measured by the RMSE are generally small, even for the longer forecast horizons. \par
+Models to forecast cohort mortality are relatively few because of heavy data demand; however, this problem is reduced when only adult mortality is considered \citep{booth2006demographic}. Our interest in this article is restricted to adult mortality, so this issue does not affect us to a great extent. In addition, we believe that forecasts of cohort mortality are interesting beyond period forecasts in two regards: (i) cohort mortality developments are \textit{actually} observed, and thus they differ from the hypothetical ones assumed in period life tables, and (ii) cohort forecast can be exploited to complete the mortality experience of partially observed cohorts. \par 
+Our approach is inspired by the Segmented Transformation Age-at-death Distributions (STAD) model recently proposed by \cite{basellini2019modeling} to forecast adult age-at-death distributions. In addition to shifting the focus from period to cohort mortality, our methodology extends the STAD to a cubic transformation before the modal age at death. The additional parameters $c_L$ and $d_L$ are indeed necessary to adequately describe cohort mortality developments at young adult ages. A possible explanation for this could be the significant improvements in maternal mortality across the cohorts that we analyse. Non-linear functions above the mode were tested too, but they did not provide a better fit compared to a linear function. We plan to investigate in more details the reasons for the need of the additional parameters at lower ages. \par
+Future work is currently foreseen along different directions. First, we will derive prediction intervals for the C-STAD forecasts. A residual bootstrapping approach is under development for this purpose. The derivation of prediction intervals will allow us to complement the point forecast accuracy analysis in Section \ref{Subsec:Out-of-sample} with the assessment of interval forecast accuracy. Second, we will compare the C-STAD forecasts with those derived from other approaches. A possible candidate for this comparison is a cohort adaptation of the two-dimensional smoothing and forecasting $P$-splines method proposed by \cite{currie2004smoothing}. Third, we will include cohort mortality rates as a third indicator to assess forecasts' accuracy in the out-of-sample exercises. Finally, we plan to: (i) perform sensitivity analyses on the choice of the cut-off cohort $\tilde{c}$ between $c_2$ and $c_3$; (ii) compute the C-STAD forecast summary measures of \textit{period} mortality implied by the cohort forecasts, and compare them with those of other approaches, such as the \cite{lee1992modeling} model; and (iii) extend these analyses to other populations.
+
+\begin{itemize}
+	\item remember to add Rune's references on the increase of lifespan variability using APC models
+	\item discuss the advantage of reconstructing cohort mortality forecast, ie can reconstruct the trends in f5
+	\item cite JASA paper (x2)
+	\item cite Lucia EM paper (thesis)
+\end{itemize}
+
+% BIBLIOGRAPHY: 
+\bibliographystyle{apalike}
+\small
+\bibliography{Biblio_CSTAD} 
+
+\appendix
+\counterwithin{figure}{section}
+\normalsize
+
+\section{Deviance residuals and bootstrap death counts}
+\label{Appendix:ResidualDeath}     
+Model residuals are routinely analysed to explore the goodness-of-fit of a model as well as the adequacy of assumptions about error terms. Within a GLM setting (such as the Poisson considered here), the deviance is often used to measure discrepancy between fitted and actual data. Deviance residuals for the Poisson distribution are given by: 
+\begin{equation}\label{Eq:DevRes}
+r_{\mathrm{D}}= \mathrm{sign} (D_{x,c}-\hat{D}_{x,c}) \, \sqrt{2} \, 
+\left[D_{x,c} \ln \left(\frac{D_{x,c}}{\hat{D}_{x,c}}\right) - 
+\left(D_{x,c}-\hat{D}_{x,c}\right)
+\right]^{1/2}
+\end{equation}
+where $D_{x,c}$ and $\hat{D}_{x,c}$ denote the observed and fitted death counts at age $x$ and for cohort $c$, respectively \citep{mccullagh1989glm}. 
+
+Deviance residuals can be further employed to take into account the uncertainty related to the estimation of a model parameters as suggested by \cite{koissi2006evaluating}. Specifically, bootstrap death counts can be computed by resampling deviance residuals with replacement and mapping them to corresponding death counts. We refer the interested reader to \cite{renshaw2008simulation} for details on the inverse formulas, which are based on the seminal work of \cite{efron1994introduction}.  
+
+\section{Section \ref{Subsec:ForecastC-STAD}: additional results}
+\label{Appendix:AdditResults}     
+
+%Figure \ref{Fig:correlation} shows the absolute correlation of the estimated C-STAD parameters in first differences for Swedish and Swiss adult females for cohorts 1880-$\tilde{c}$, where $\tilde{c}$ is 1925 and 1924 for Sweden and Switzerland, respectively. The graph shows that the parameters of the two VAR models, $s$ and $b_U$ on one hand, and $b_L$, $c_L$ and $d_L$ on the other, are highly related to each other (light blue colours). Conversely, the correlation between the other combinations of parameters is rather low (dark blue colours).
+%
+%\begin{figure}[h!]
+%	\begin{center}
+%		\includegraphics[scale=0.58]{./Figures/FA1.pdf} 
+%		\caption{Absolute correlation of the C-STAD parameters estimates (in first differences) for Swedish and Swiss adult females for cohorts 1880-$\tilde{c}$.\label{Fig:correlation}}    
+%	\end{center}
+%\end{figure}
+
+Figure \ref{Fig:CSTADparams} shows the fitted and forecast C-STAD parameters with 80\% confidence intervals for Swedish and Danish adult females for cohorts 1835-1970.
+
+We performed diagnostic checks on the fitted C-STAD model for the two populations analysed in this paper by using Equation (\ref{Eq:DevRes}). Poisson deviance residuals for the two populations are shown in Figure \ref{Fig:CSTADresid}. No clear patterns (except for the Spanish flu) emerge from this graphical analysis.
+
+\begin{landscape}
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.92]{./Figures/FA1.pdf} 
+			\caption{Estimated and forecast C-STAD parameters for adult females in Sweden and Denmark for the cohorts 1835-1970.\label{Fig:CSTADparams}}    
+		\end{center}
+	\end{figure}
+\end{landscape}
+ 
+\begin{landscape}
+	\begin{figure}[h!]
+		\begin{center}
+			\includegraphics[scale=0.92]{./Figures/FA2.pdf} 
+			\caption{Poisson deviance residuals of the C-STAD model for adult females in Sweden and Denmark for the cohorts 1835-1970.\label{Fig:CSTADresid}}    
+		\end{center}
+	\end{figure}
+\end{landscape}
+
+
+ 
+\end{document} 

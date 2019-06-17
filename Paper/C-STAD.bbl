@@ -1,0 +1,200 @@
+\begin{thebibliography}{}
+
+\bibitem[Barbieri et~al., 2015]{barbieri2015data}
+Barbieri, M., Wilmoth, J.~R., Shkolnikov, V.~M., Glei, D., Jasilionis, D.,
+  Jdanov, D., Boe, C., Riffe, T., Grigoriev, P., and Winant, C. (2015).
+\newblock {Data Resource Profile: The Human Mortality Database (HMD)}.
+\newblock {\em International Journal of Epidemiology}, 44(5):1549--1556.
+
+\bibitem[Basellini and Camarda, 2019]{basellini2019modeling}
+Basellini, U. and Camarda, C.~G. (2019).
+\newblock Modelling and forecasting adult age-at-death distributions.
+\newblock {\em Population Studies}, 73(1):119--138.
+
+\bibitem[Bergeron-Boucher et~al., 2017]{bergeron2017coherent}
+Bergeron-Boucher, M.-P., Canudas-Romo, V., Oeppen, J., and Vaupel, J.~W.
+  (2017).
+\newblock Coherent forecasts of mortality with compositional data analysis.
+\newblock {\em Demographic Research}, 37(17):527--566.
+
+\bibitem[Bohk-Ewald et~al., 2017]{bohk2017lifespan}
+Bohk-Ewald, C., Ebeling, M., and Rau, R. (2017).
+\newblock {Lifespan Disparity as an Additional Indicator for Evaluating
+  Mortality Forecasts}.
+\newblock {\em Demography}, 54(4):1559--1577.
+
+\bibitem[Booth, 2006]{booth2006demographic}
+Booth, H. (2006).
+\newblock Demographic forecasting: 1980 to 2005 in review.
+\newblock {\em International Journal of Forecasting}, 22(3):547--581.
+
+\bibitem[Borgan and Keilman, 2018]{borgan2018cohort}
+Borgan, {\O}. and Keilman, N. (2018).
+\newblock {Do Japanese and Italian Women Live Longer than Women in
+  Scandinavia?}
+\newblock {\em European Journal of Population}.
+
+\bibitem[Brass, 1971]{brass1971scale}
+Brass, W. (1971).
+\newblock {O}n the {S}cale of {M}ortality.
+\newblock In Brass, W., editor, {\em Biological Aspect of Demography}. Taylor
+  \& Francis, London.
+
+\bibitem[Brillinger, 1986]{brillinger1986biometrics}
+Brillinger, D.~R. (1986).
+\newblock A biometrics invited paper with discussion: The natural variability
+  of vital rates and associated statistics.
+\newblock {\em Biometrics}, 42(4):693--734.
+
+\bibitem[Camarda, 2012]{camarda2012mortalitysmooth}
+Camarda, C.~G. (2012).
+\newblock {MortalitySmooth: An \texttt{R} Package for Smoothing Poisson Counts
+  with $P$-Splines}.
+\newblock {\em Journal of Statistical Software}, 50:1--24.
+\newblock Available on \texttt{www.jstatsoft.org/v50/i01}.
+
+\bibitem[Canudas-Romo, 2010]{canudas2010three}
+Canudas-Romo, V. (2010).
+\newblock Three measures of longevity: Time trends and record values.
+\newblock {\em Demography}, 47(2):299--312.
+
+\bibitem[{Continuous Mortality Investigation}, 2007]{cmi2007stochastic}
+{Continuous Mortality Investigation} (2007).
+\newblock {Stochastic projection methodologies: Further progress and $P$-Spline
+  model features, example results and implications}.
+\newblock {Revised Working Paper 20 (November 2007)}.
+
+\bibitem[Currie et~al., 2004]{currie2004smoothing}
+Currie, I.~D., Durban, M., and Eilers, P.~H. (2004).
+\newblock Smoothing and forecasting mortality rates.
+\newblock {\em Statistical Modelling}, 4(4):279--298.
+
+\bibitem[Efron and Tibshirani, 1994]{efron1994introduction}
+Efron, B. and Tibshirani, R.~J. (1994).
+\newblock {\em An introduction to the bootstrap}.
+\newblock CRC press.
+
+\bibitem[Eilers and Marx, 1996]{eilers1996flexible}
+Eilers, P.~H. and Marx, B.~D. (1996).
+\newblock Flexible smoothing with {B}-splines and penalties.
+\newblock {\em Statistical Science}, pages 89--102.
+
+\bibitem[{Human Mortality Database}, 2019]{HMD}
+{Human Mortality Database} (2019).
+\newblock {{University of California, Berkeley (USA)}} and {Max Planck
+  Institute for Demographic Research (Germany)}.
+\newblock Available at www.mortality.org or www.humanmortality.de (data
+  downloaded on 8 May 2019).
+
+\bibitem[Hyndman et~al., 2018]{hyndman2018forecastR}
+Hyndman, R., Athanasopoulos, G., Bergmeir, C., Caceres, G., Chhay, L.,
+  O'Hara-Wild, M., Petropoulos, F., Razbash, S., Wang, E., and Yasmeen, F.
+  (2018).
+\newblock {\em {forecast}: {F}orecasting functions for time series and linear
+  models}.
+\newblock R package version 8.4.
+
+\bibitem[Keilman and Pham, 2006]{keilman2006prediction}
+Keilman, N. and Pham, D. (2006).
+\newblock Prediction intervals for {Lee–Carter}-based mortalityforecasts.
+\newblock In {\em European Population Conference 2006, Liverpool, June 21--24,
+  2006}.
+
+\bibitem[Koissi et~al., 2006]{koissi2006evaluating}
+Koissi, M.-C., Shapiro, A.~F., and Högnäs, G. (2006).
+\newblock {Evaluating and extending the Lee{\textendash}Carter model for
+  mortality forecasting: Bootstrap confidence interval}.
+\newblock {\em Insurance: Mathematics and Economics}, 38(1):1--20.
+
+\bibitem[Lee and Carter, 1992]{lee1992modeling}
+Lee, R.~D. and Carter, L.~R. (1992).
+\newblock {Modeling and forecasting US mortality}.
+\newblock {\em Journal of the American Statistical Association},
+  87(419):659--671.
+
+\bibitem[McCullagh and Nelder, 1989]{mccullagh1989glm}
+McCullagh, P. and Nelder, J. (1989).
+\newblock {\em Generalized Linear Models}.
+\newblock London: Chapman and Hall.
+
+\bibitem[Oeppen, 2008]{oeppen2008coherent}
+Oeppen, J. (2008).
+\newblock Coherent forecasting of multiple-decrement life tables: a test using
+  {J}apanese cause of death data.
+\newblock In {\em Compositional Data Analysis Conference}.
+
+\bibitem[Oeppen and Vaupel, 2002]{oeppen2002broken}
+Oeppen, J. and Vaupel, J.~W. (2002).
+\newblock Broken limits to life expectancy.
+\newblock {\em Science}, 296(5570):1029--1031.
+
+\bibitem[Ouellette and Bourbeau, 2011]{ouellette2011changes}
+Ouellette, N. and Bourbeau, R. (2011).
+\newblock Changes in the age-at-death distribution in four low mortality
+  countries: {A} nonparametric approach.
+\newblock {\em Demographic Research}, 25:595--628.
+
+\bibitem[Ouellette et~al., 2012]{ouellette2012regional}
+Ouellette, N., Bourbeau, R., and Camarda, C.~G. (2012).
+\newblock Regional disparities in {C}anadian adult and old-age mortality: A
+  comparative study based on smoothed mortality ratio surfaces and age at death
+  distributions.
+\newblock {\em Canadian Studies in Population}, 39(3-4):79--106.
+
+\bibitem[Pascariu et~al., 2019]{pascariu2019maximum}
+Pascariu, M.~D., Lenart, A., and Canudas-Romo, V. (2019).
+\newblock The maximum entropy mortality model: forecasting mortality using
+  statistical moments.
+\newblock {\em Scandinavian Actuarial Journal}, pages 1--25.
+
+\bibitem[Pfaff, 2008a]{pfaff2008analysis}
+Pfaff, B. (2008a).
+\newblock {\em Analysis of integrated and cointegrated time series with {R}}.
+\newblock Springer Science \& Business Media.
+
+\bibitem[Pfaff, 2008b]{pfaff2008var}
+Pfaff, B. (2008b).
+\newblock {VAR, SVAR and SVEC models: Implementation within R package vars}.
+\newblock {\em Journal of Statistical Software}, 27(4):1--32.
+
+\bibitem[Preston et~al., 2001]{preston2001demogr}
+Preston, S.~H., Heuveline, P., and Guillot, M. (2001).
+\newblock {\em Demography. Measuring and Modeling Population Processes}.
+\newblock Blackwell.
+
+\bibitem[Ramsay and Silverman, 2005]{ramsay2005FDA}
+Ramsay, J.~O. and Silverman, B.~W. (2005).
+\newblock {\em {F}unctional {D}ata {A}nalysis}.
+\newblock Springer-Verlag, 2nd edition.
+
+\bibitem[Renshaw and Haberman, 2008]{renshaw2008simulation}
+Renshaw, A. and Haberman, S. (2008).
+\newblock {On simulation-based approaches to risk measurement in mortality with
+  specific reference to Poisson Lee{\textendash}Carter modelling}.
+\newblock {\em Insurance: Mathematics and Economics}, 42(2):797--816.
+
+\bibitem[Riley, 2001]{riley2001rising}
+Riley, J.~C. (2001).
+\newblock {\em Rising life expectancy: a global history}.
+\newblock Cambridge University Press.
+
+\bibitem[Shang et~al., 2011]{shang2011point}
+Shang, H.~L., Booth, H., and Hyndman, R. (2011).
+\newblock Point and interval forecasts of mortality rates and life expectancy:
+  A comparison of ten principal component methods.
+\newblock {\em Demographic Research}, 25(5):173--214.
+
+\bibitem[Vaupel and Lundstr{\"o}m, 1994]{vaupel1994longer}
+Vaupel, J. and Lundstr{\"o}m, H. (1994).
+\newblock Longer life expectancy? {E}vidence from {S}weden of reductions in
+  mortality rates at advanced ages.
+\newblock In {\em Studies in the Economics of Aging}, pages 79--102. University
+  of Chicago Press.
+
+\bibitem[Wilmoth and Lundstr{\"o}m, 1996]{wilmoth1996extreme}
+Wilmoth, J.~R. and Lundstr{\"o}m, H. (1996).
+\newblock Extreme longevity in five countries.
+\newblock {\em European Journal of Population/Revue Europ{\'e}enne de
+  D{\'e}mographie}, 12(1):63--93.
+
+\end{thebibliography}
