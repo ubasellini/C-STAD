@@ -46,6 +46,12 @@ Brillinger, D.~R. (1986).
   of vital rates and associated statistics.
 \newblock {\em Biometrics}, 42(4):693--734.
 
+\bibitem[Cairns et~al., 2006]{cairns2006two}
+Cairns, A.~J., Blake, D., and Dowd, K. (2006).
+\newblock A two-factor model for stochastic mortality with parameter
+  uncertainty: Theory and calibration.
+\newblock {\em Journal of Risk and Insurance}, 73(4):687--718.
+
 \bibitem[Camarda, 2012]{camarda2012mortalitysmooth}
 Camarda, C.~G. (2012).
 \newblock {MortalitySmooth: An \texttt{R} Package for Smoothing Poisson Counts
@@ -57,6 +63,13 @@ Camarda, C.~G. (2012).
 Canudas-Romo, V. (2010).
 \newblock Three measures of longevity: Time trends and record values.
 \newblock {\em Demography}, 47(2):299--312.
+
+\bibitem[Chiou and M\"{u}ller, 2009]{chiou2009modeling}
+Chiou, J.-M. and M\"{u}ller, H.-G. (2009).
+\newblock Modeling hazard rates as functional data for the analysis of cohort
+  lifetables and mortality forecasting.
+\newblock {\em Journal of the American Statistical Association},
+  104(486):572--585.
 
 \bibitem[{Continuous Mortality Investigation}, 2007]{cmi2007stochastic}
 {Continuous Mortality Investigation} (2007).
@@ -73,6 +86,12 @@ Currie, I.~D., Durban, M., and Eilers, P.~H. (2004).
 Efron, B. and Tibshirani, R.~J. (1994).
 \newblock {\em An introduction to the bootstrap}.
 \newblock CRC press.
+
+\bibitem[Eilers, 2007]{eilers2007ill}
+Eilers, P.~H. (2007).
+\newblock Ill-posed problems with counts, the composite link model and
+  penalized likelihood.
+\newblock {\em Statistical Modelling}, 7(3):239--254.
 
 \bibitem[Eilers and Marx, 1996]{eilers1996flexible}
 Eilers, P.~H. and Marx, B.~D. (1996).
@@ -162,6 +181,13 @@ Preston, S.~H., Heuveline, P., and Guillot, M. (2001).
 \newblock {\em Demography. Measuring and Modeling Population Processes}.
 \newblock Blackwell.
 
+\bibitem[Raftery et~al., 2013]{raftery2013bayesian}
+Raftery, A.~E., Chunn, J.~L., Gerland, P., and {\v{S}}ev{\v{c}}{\'i}kov{\'a},
+  H. (2013).
+\newblock Bayesian probabilistic projections of life expectancy for all
+  countries.
+\newblock {\em Demography}, 50(3):777--801.
+
 \bibitem[Ramsay and Silverman, 2005]{ramsay2005FDA}
 Ramsay, J.~O. and Silverman, B.~W. (2005).
 \newblock {\em {F}unctional {D}ata {A}nalysis}.
@@ -177,6 +203,12 @@ Renshaw, A. and Haberman, S. (2008).
 Riley, J.~C. (2001).
 \newblock {\em Rising life expectancy: a global history}.
 \newblock Cambridge University Press.
+
+\bibitem[Rizzi et~al., 2019]{rizzi2019forecasting}
+Rizzi, S., Kj{\ae}rgaard, S., Bergeron-Boucher, M.-P., Lindahl-Jacobsen, R.,
+  and Vaupel, J. (2019).
+\newblock Forecasting mortality of not extinct cohorts.
+\newblock In {\em 21st Nordic Demographic Symposium, Reykjavik (Iceland)}.
 
 \bibitem[Shang et~al., 2011]{shang2011point}
 Shang, H.~L., Booth, H., and Hyndman, R. (2011).
@@ -196,5 +228,10 @@ Wilmoth, J.~R. and Lundstr{\"o}m, H. (1996).
 \newblock Extreme longevity in five countries.
 \newblock {\em European Journal of Population/Revue Europ{\'e}enne de
   D{\'e}mographie}, 12(1):63--93.
+
+\bibitem[Zanotto and Mazzuco, 2017]{zanotto2017reconstruction}
+Zanotto, L. and Mazzuco, S. (2017).
+\newblock Reconstruction of cohort data via {EM} algorithm.
+\newblock In {\em XXVIII International Population Conference}.
 
 \end{thebibliography}
