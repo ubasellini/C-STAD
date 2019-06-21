@@ -4,45 +4,45 @@ The top-level auxiliary file: C-STAD.aux
 The style file: apalike.bst
 Database file #1: Biblio_CSTAD.bib
 Warning--empty institution in cmi2007stochastic
-You've used 40 entries,
+You've used 47 entries,
             1935 wiz_defined-function locations,
-            711 strings with 10813 characters,
-and the built_in function-call counts, 15516 in all, are:
-= -- 1527
-> -- 607
-< -- 30
-+ -- 208
-- -- 199
-* -- 1308
-:= -- 2704
-add.period$ -- 123
-call.type$ -- 40
-change.case$ -- 294
-chr.to.int$ -- 39
-cite$ -- 41
-duplicate$ -- 594
-empty$ -- 1117
-format.name$ -- 269
-if$ -- 3022
+            749 strings with 11990 characters,
+and the built_in function-call counts, 18582 in all, are:
+= -- 1833
+> -- 732
+< -- 34
++ -- 252
+- -- 241
+* -- 1584
+:= -- 3222
+add.period$ -- 144
+call.type$ -- 47
+change.case$ -- 350
+chr.to.int$ -- 46
+cite$ -- 48
+duplicate$ -- 705
+empty$ -- 1333
+format.name$ -- 322
+if$ -- 3623
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 43
-newline$ -- 204
-num.names$ -- 122
-pop$ -- 268
+missing$ -- 50
+newline$ -- 239
+num.names$ -- 143
+pop$ -- 313
 preamble$ -- 1
-purify$ -- 299
+purify$ -- 355
 quote$ -- 0
-skip$ -- 430
+skip$ -- 514
 stack$ -- 0
-substring$ -- 1089
-swap$ -- 58
-text.length$ -- 3
+substring$ -- 1335
+swap$ -- 74
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 228
+type$ -- 270
 warning$ -- 1
-while$ -- 133
+while$ -- 161
 width$ -- 0
-write$ -- 513
+write$ -- 604
 (There was 1 warning)
