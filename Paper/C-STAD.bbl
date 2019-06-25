@@ -6,7 +6,7 @@ Barbieri, M., Wilmoth, J.~R., Shkolnikov, V.~M., Glei, D., Jasilionis, D.,
 \newblock {Data Resource Profile: The Human Mortality Database (HMD)}.
 \newblock {\em International Journal of Epidemiology}, 44(5):1549--1556.
 
-\bibitem[Basellini and Camarda, 2019]{basellini2019modeling}
+\bibitem[Basellini and Camarda, 2019]{basellini2019modelling}
 Basellini, U. and Camarda, C.~G. (2019).
 \newblock Modelling and forecasting adult age-at-death distributions.
 \newblock {\em Population Studies}, 73(1):119--138.
@@ -37,8 +37,8 @@ Borgan, {\O}. and Keilman, N. (2018).
 \bibitem[Brass, 1971]{brass1971scale}
 Brass, W. (1971).
 \newblock {O}n the {S}cale of {M}ortality.
-\newblock In Brass, W., editor, {\em Biological Aspect of Demography}. Taylor
-  \& Francis, London.
+\newblock In Brass, W., editor, {\em Biological Aspect of Demography}, pages
+  69--110. Taylor \& Francis, London.
 
 \bibitem[Brillinger, 1986]{brillinger1986biometrics}
 Brillinger, D.~R. (1986).
@@ -119,9 +119,10 @@ Eilers, P.~H. (2007).
 \newblock {\em Statistical Modelling}, 7(3):239--254.
 
 \bibitem[Eilers and Marx, 1996]{eilers1996flexible}
-Eilers, P.~H. and Marx, B.~D. (1996).
-\newblock Flexible smoothing with {B}-splines and penalties.
-\newblock {\em Statistical Science}, pages 89--102.
+Eilers, P. H.~C. and Marx, B.~D. (1996).
+\newblock {F}lexible {S}moothing with {$B$}-splines and {P}enalties (with
+  discussion).
+\newblock {\em Statistical Science}, 11(2):89--102.
 
 \bibitem[Fern{\'{a}}ndez and Steel, 1998]{fernandez1998bayesian}
 Fern{\'{a}}ndez, C. and Steel, M. F.~J. (1998).
@@ -144,14 +145,25 @@ Hyndman, R., Athanasopoulos, G., Bergmeir, C., Caceres, G., Chhay, L.,
   models}.
 \newblock R package version 8.4.
 
+\bibitem[Jacobsen et~al., 2002]{jacobsen2002long}
+Jacobsen, R., Keiding, N., and Lynge, E. (2002).
+\newblock Long term mortality trends behind low life expectancy of {D}anish
+  women.
+\newblock {\em Journal of Epidemiology {\&} Community Health}, 56(3):205--208.
+
+\bibitem[Jacobsen et~al., 2006]{jacobsen2006causes}
+Jacobsen, R., Keiding, N., and Lynge, E. (2006).
+\newblock Causes of death behind low life expectancy of {D}anish women.
+\newblock {\em Scandinavian Journal of Public Health}, 34(4):432--436.
+
 \bibitem[Keilman and Pham, 2006]{keilman2006prediction}
 Keilman, N. and Pham, D. (2006).
-\newblock Prediction intervals for {Lee–Carter}-based mortalityforecasts.
+\newblock Prediction intervals for {Lee-Carter}-based mortality forecasts.
 \newblock In {\em European Population Conference 2006, Liverpool, June 21--24,
   2006}.
 
 \bibitem[Koissi et~al., 2006]{koissi2006evaluating}
-Koissi, M.-C., Shapiro, A.~F., and Högnäs, G. (2006).
+Koissi, M.-C., Shapiro, A.~F., and H√∂gn√§s, G. (2006).
 \newblock {Evaluating and extending the Lee{\textendash}Carter model for
   mortality forecasting: Bootstrap confidence interval}.
 \newblock {\em Insurance: Mathematics and Economics}, 38(1):1--20.
@@ -161,6 +173,13 @@ Lee, R.~D. and Carter, L.~R. (1992).
 \newblock {Modeling and forecasting US mortality}.
 \newblock {\em Journal of the American Statistical Association},
   87(419):659--671.
+
+\bibitem[Lindahl-Jacobsen et~al., 2016]{lindahl2016did}
+Lindahl-Jacobsen, R., Oeppen, J., Rizzi, S., M{\"o}ller, S., Zarulli, V.,
+  Christensen, K., and Vaupel, J.~W. (2016).
+\newblock Why did {D}anish women's life expectancy stagnate? {T}he influence of
+  interwar generations' smoking behaviour.
+\newblock {\em European Journal of Epidemiology}, 31(12):1207--1211.
 
 \bibitem[McCullagh and Nelder, 1989]{mccullagh1989glm}
 McCullagh, P. and Nelder, J. (1989).
