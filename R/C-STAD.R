@@ -881,8 +881,8 @@ ADDcstad <- apply(exp(LMXcstad), 2, lifetable.dx, x=x, sex="F")
 
 ## -- CONSTRUCT CI via BOOTSTRAP ----------
 set.seed(2019)
-n.boot <- 2
-n.simul <- 2
+n.boot <- 10
+n.simul <- 10
 col.sim <- rainbow_hcl(n.simul)
 col.boot <- rainbow_hcl(n.boot)
 
