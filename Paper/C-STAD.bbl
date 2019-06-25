@@ -137,14 +137,6 @@ Fern{\'{a}}ndez, C. and Steel, M. F.~J. (1998).
 \newblock Available at www.mortality.org or www.humanmortality.de (data
   downloaded on 8 May 2019).
 
-\bibitem[Hyndman et~al., 2018]{hyndman2018forecastR}
-Hyndman, R., Athanasopoulos, G., Bergmeir, C., Caceres, G., Chhay, L.,
-  O'Hara-Wild, M., Petropoulos, F., Razbash, S., Wang, E., and Yasmeen, F.
-  (2018).
-\newblock {\em {forecast}: {F}orecasting functions for time series and linear
-  models}.
-\newblock R package version 8.4.
-
 \bibitem[Jacobsen et~al., 2002]{jacobsen2002long}
 Jacobsen, R., Keiding, N., and Lynge, E. (2002).
 \newblock Long term mortality trends behind low life expectancy of {D}anish
