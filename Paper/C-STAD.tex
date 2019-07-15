@@ -217,7 +217,7 @@ Finally, \texttt{R} routines developed to fit and forecast the C-STAD model are 
 
 \subsection{Out-of-sample validation of the C-STAD model}
 \label{Subsec:Out-of-sample}
-Before completing the mortality experience of partially observed cohorts, we first assess the accuracy of the C-STAD model by performing six predictive out-of-sample validation exercises on Swedish and Danish adult females. Specifically, we pretend that the last year of collected data is $2015 - \delta$, where $\delta=10,15,20,25,30$ and 35 years. We then fit the C-STAD model to the fully observed cohorts $c_1=1835,\ldots,1905-\delta$ and we forecast mortality $\delta$ years ahead. We then compare the forecast life expectancy at age 40 ($e_{40}$) and the Gini coefficient at age 40 ($g_{40}$) with the observed out-of-sample values. Both measures of longevity (the former) and lifespan variability (the latter) are indeed useful to evaluate the accuracy of mortality forecasts \citep{bohk2017lifespan}.
+Before estimating the proposed C-STAD model to complete/forecast observed cohorts, we first assess the accuracy of the C-STAD model by performing six predictive out-of-sample validation exercises on Swedish and Danish adult females. Specifically, we pretend that the last year of collected data is $2015 - \delta$, where $\delta=10,15,20,25,30$ and 35 years. We then fit the C-STAD model to the fully observed cohorts $c_1=1835,\ldots,1905-\delta$ and we forecast mortality $\delta$ years ahead. We then compare the forecast life expectancy at age 40 ($e_{40}$) and the Gini coefficient at age 40 ($g_{40}$) with the observed out-of-sample values. Both measures of longevity (the former) and lifespan variability (the latter) are indeed useful to evaluate the accuracy of mortality forecasts \citep{bohk2017lifespan}.
 
 An explicative example of this procedure is useful to clarify the out-of-sample exercises. Let us consider $\delta=10$: then, the last year of fully observed data is 2005. We fit the C-STAD to the fully observed cohorts $c_1=1835,\ldots,1895$, and we forecast 10-year ahead. By doing so, we complete the mortality experience of the partially observed cohorts $1896,\ldots,1905$, and for each of these, we compute and compare the estimated $e_{40}$ and $g_{40}$ with the observed ones. 
 
@@ -309,7 +309,7 @@ The table shows that the C-STAD forecasts are accurate in completing the mortali
 
 \subsection{Mortality developments for Swedish and Danish females, cohorts 1835-1970}
 \label{Subsec:ForecastC-STAD}
-Here, we show the results of employing the C-STAD model to estimate and forecast adult female cohort mortality in Sweden and Denmark for the cohorts 1835-1970. The estimated and forecast parameters are  shown and discussed in Appendix \ref{Appendix:AdditResults}. Figure \ref{Fig:CSTADfitE40G40} shows the observed and fitted remaining life expectancies at age 40 ($e_{40}$) and Gini coefficient at age 40 ($g_{40}$) in the two population analysed for the fully observed cohorts $c_1$ (1835-$\breve{c}$, where $\breve{c}$ is 1906 for Sweden and 1905 for Denmark). The two graphs provide evidence on the goodness-of-fit of the C-STAD model, whose estimates are very close to the observed values for both measures in the two populations. Inspection of the deviance residuals (shown in Appendix \ref{Appendix:AdditResults}) provides additional evidence on the adequacy of the C-STAD model. \par
+In this section we show the results of employing the C-STAD model to estimate and forecast adult female cohort mortality in Sweden and Denmark for the cohorts 1835-1970. The estimated and forecast parameters are  shown and discussed in Appendix \ref{Appendix:AdditResults}. Figure \ref{Fig:CSTADfitE40G40} shows the observed and fitted remaining life expectancies at age 40 ($e_{40}$) and Gini coefficient at age 40 ($g_{40}$) in the two population analysed for the fully observed cohorts $c_1$ (1835-$\breve{c}$, where $\breve{c}$ is 1906 for Sweden and 1905 for Denmark). The two graphs provide evidence on the goodness-of-fit of the C-STAD model, whose estimates are very close to the observed values for both measures in the two populations. Inspection of the deviance residuals (shown in Appendix \ref{Appendix:AdditResults}) provides additional evidence on the adequacy of the C-STAD model. \par
 
 \begin{figure}[t]
 	\begin{center}
@@ -318,7 +318,7 @@ Here, we show the results of employing the C-STAD model to estimate and forecast
 	\end{center}
 \end{figure}
 
-Figure \ref{Fig:CSTADforeE40G40} shows the observed (cohorts $c_1$) and completed ($c_2$ and $c_3$) $e_{40}$ and $g_{40}$ computed with the C-STAD (with 80\% confidence intervals) and 2D $P$-spline model for the two population analysed. Despite sharing similar country trends in the fully observed cohorts $c_1$, it is interesting to observe the different mortality developments in the partially observed cohorts $c_2$: while Swedish adult females show continuous improvements in longevity and lifespan equality, Danish ones display a stagnation of $e_{40}$ and an increase in lifespan inequality. The trends of the mortality measures for the partially observed cohorts are similar across the models, with the exception of Danish $e_{40}$: the increase of the 2D $P$-spline forecast $e_{40}$ is much faster then for the C-STAD model, resulting in a crossover among the two populations. Moreover, it is interesting to observe that the C-STAD confidence intervals are rather narrow for both countries in $c_2$ (as the great majority of data is observed for these cohorts), while they increase in the cohorts $c_3$ proportionally to the amount of missing data. Note that $\tilde{c}$ is 1925 and 1927 for Sweden and Denmark, respectively.  
+Figure \ref{Fig:CSTADforeE40G40} shows the observed (cohorts $c_1$) and completed ($c_2$ and $c_3$) $e_{40}$ and $g_{40}$ computed with the C-STAD (with 80\% pointwise confidence intervals) and 2D $P$-spline model for the two population analysed. Despite sharing similar country trends in the fully observed cohorts $c_1$, it is interesting to observe the different mortality developments in the partially observed cohorts $c_2$: while Swedish adult females show continuous improvements in longevity and lifespan equality, Danish ones display a stagnation of $e_{40}$ and an increase in lifespan inequality. The trends of the mortality measures for the partially observed cohorts are similar across the models, with the exception of Danish $e_{40}$: the increase of the 2D $P$-spline forecast $e_{40}$ is much faster then for the C-STAD model, resulting in a crossover among the two populations. Moreover, it is interesting to observe that the C-STAD confidence intervals are rather narrow for both countries in $c_2$ (as the great majority of data is observed for these cohorts), while they increase in the cohorts $c_3$ proportionally to the amount of missing data. Note that $\tilde{c}$ is 1925 and 1927 for Sweden and Denmark, respectively.  
 
 \begin{figure}[t]
 	\begin{center}
@@ -327,7 +327,7 @@ Figure \ref{Fig:CSTADforeE40G40} shows the observed (cohorts $c_1$) and complete
 	\end{center}
 \end{figure}
 
-The age-specific mortality rates analysis shown in Figure \ref{Fig:CSTADforeMx} offers additional insights on cohort mortality developments of the two populations. In the top panels, observed, fitted and forecast mortality rates over cohorts are shown for some selected ages. In addition to the goodness-of-fit of the C-STAD model, the graphs highlight diverse age-specific developments in the two countries: for example, mortality at ages 40 and 60 of Danish cohorts born at the beginning of the twentieth century did not improve, resulting in the atypical trends of the summary measures shown in Figure \ref{Fig:CSTADforeE40G40} (stagnation of $e_{40}$ and increase in lifespan inequality). In the bottom panels, mortality rates over all ages are shown for some selected cohorts. This second perspective shows how the shape of the mortality curve, appropriately captured by the C-STAD model, changed over time: for example, for the 1835 cohort, maternal mortality was still high in both countries, with the curve being rather flat in the age range 40-50. The subsequent reduction of maternal mortality over cohorts clearly emerges in the top panels (at age 40) and in the more recent cohorts of the bottom panels. An interesting observation that emerges from Figure \ref{Fig:CSTADforeMx} is that the confidence intervals of the C-STAD widens as expected: for example, variability increases with age for the completed cohorts, as fewer age-specific data have been observed at higher ages. Finally, Figure \ref{Fig:CSTADforeDx} shows the observed and C-STAD age-at-death distributions for the three cohorts analysed in the previous panels. 
+The age-specific mortality rates analysis shown in Figure \ref{Fig:CSTADforeMx} offers additional insights on cohort mortality developments of the two populations. In the top panels, observed, fitted and forecast mortality rates over cohorts are shown for some selected ages. In addition to the goodness-of-fit of the C-STAD model, the graphs highlight diverse age-specific developments in the two countries: for example, mortality at ages 40 and 60 of Danish cohorts born at the beginning of the twentieth century did not improve, resulting in the atypical trends of the summary measures shown in Figure \ref{Fig:CSTADforeE40G40} (stagnation of $e_{40}$ and increase in lifespan inequality). In the bottom panels, mortality rates over all ages are shown for some selected cohorts. This second perspective shows how the shape of the mortality curve, appropriately captured by the C-STAD model, changed over time: for example, for the 1835 cohort, maternal mortality was still high in both countries, with the curve being rather flat in the age range 40-50 (XXX: can we really talk of maternal mortality above age 40, and for these cohorts? Some other explanation are needed). The subsequent reduction of maternal mortality over cohorts clearly emerges in the top panels (at age 40) and in the more recent cohorts of the bottom panels. An interesting observation that emerges from Figure \ref{Fig:CSTADforeMx} is that the confidence intervals of the C-STAD widens as expected: for example, variability increases with age for the completed cohorts, as fewer age-specific data have been observed at higher ages. Finally, Figure \ref{Fig:CSTADforeDx} shows the observed and C-STAD age-at-death distributions for the three cohorts analysed in the previous panels. 
 
 \begin{figure}[h!]
 	\begin{center}
@@ -364,24 +364,25 @@ To conclude, the C-STAD model offers great prospects for mortality forecasting f
 
 % BIBLIOGRAPHY: 
 \bibliographystyle{apalike}
-\small
+%\small
 \bibliography{Biblio_CSTAD} 
 
+\newpage
 \appendix
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
-\normalsize
+%\normalsize
 
 \section{Deviance residuals and bootstrap death counts}
 \label{Appendix:ResidualDeath}     
-Model residuals are routinely analysed to explore the goodness-of-fit of a model as well as the adequacy of assumptions about error terms. Within a GLM setting (such as the Poisson considered here), the deviance is often used to measure discrepancy between fitted and actual data. Deviance residuals for the Poisson distribution are given by: 
+Model residuals are routinely analysed to explore the goodness-of-fit of a model as well as the adequacy of assumptions about error terms. Within a GLM setting (such as the Poisson considered here), deviance residuals are often used to measure discrepancy between fitted and actual data. For the Poisson distribution they are given by: 
 \begin{equation}\label{Eq:DevRes}
-r_{\mathrm{D}}= \mathrm{sign} (D_{x,c}-\hat{D}_{x,c}) \, \sqrt{2} \, 
-\left[D_{x,c} \ln \left(\frac{D_{x,c}}{\hat{D}_{x,c}}\right) - 
-\left(D_{x,c}-\hat{D}_{x,c}\right)
+r_{\mathrm{D}}= \mathrm{sign} (d_{x,c}-\hat{d}_{x,c}) \, \sqrt{2} \, 
+\left[d_{x,c} \ln \left(\frac{d_{x,c}}{\hat{d}_{x,c}}\right) - 
+\left(d_{x,c}-\hat{d}_{x,c}\right)
 \right]^{1/2}
 \end{equation}
-where $D_{x,c}$ and $\hat{D}_{x,c}$ denote the observed and fitted death counts at age $x$ and for cohort $c$, respectively \citep{mccullagh1989glm}. 
+where $d_{x,c}$ and $\hat{d}_{x,c}$ denote the observed and fitted death counts at age $x$ and for cohort $c$, respectively \citep{mccullagh1989glm}. 
 
 Deviance residuals can be further employed to take into account the uncertainty related to the estimation of a model parameters as suggested by \cite{koissi2006evaluating}. Specifically, bootstrap death counts can be computed by resampling deviance residuals with replacement and mapping them to corresponding death counts. We refer the interested reader to \cite{renshaw2008simulation} for details on the inverse formulas, which are based on the seminal work of \cite{efron1994introduction}.  
 
@@ -550,7 +551,7 @@ Tables \ref{Table:MAE} and \ref{Table:MAPE} show the out-of-sample results obtai
 
 Second, we provide additional results with regard to Subsection \ref{Subsec:ForecastC-STAD}. Figure \ref{Fig:CSTADparams} shows the fitted and forecast C-STAD parameters with 80\% confidence intervals for Swedish and Danish adult females for cohorts 1835-1970.
 
-We performed diagnostic checks on the fitted C-STAD model for the two populations analysed in this paper by using Equation (\ref{Eq:DevRes}). Poisson deviance residuals for the two populations are shown in Figure \ref{Fig:CSTADresid}. No clear patterns (except for the Spanish flu) emerge from this graphical analysis.
+We performed diagnostic checks on the fitted C-STAD model for the two populations analysed in this paper by using Equation~\eqref{Eq:DevRes}. Poisson deviance residuals for the two populations are shown in Figure \ref{Fig:CSTADresid}. No clear patterns emerge from this graphical analysis, with the exception of the years corresponding to the Spanish flu and the World War II.
 
 \begin{landscape}
 	\begin{figure}[h!]
