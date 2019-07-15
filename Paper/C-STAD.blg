@@ -1,48 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: C-STAD.aux
 The style file: apalike.bst
 Database file #1: Biblio_CSTAD.bib
 Warning--empty institution in cmi2007stochastic
-You've used 49 entries,
+You've used 51 entries,
             1935 wiz_defined-function locations,
-            766 strings with 12431 characters,
-and the built_in function-call counts, 19544 in all, are:
-= -- 1939
-> -- 753
-< -- 34
-+ -- 258
-- -- 247
-* -- 1683
-:= -- 3376
-add.period$ -- 150
-call.type$ -- 49
-change.case$ -- 364
-chr.to.int$ -- 48
-cite$ -- 50
-duplicate$ -- 734
-empty$ -- 1412
-format.name$ -- 330
-if$ -- 3814
+            782 strings with 13001 characters,
+and the built_in function-call counts, 20361 in all, are:
+= -- 2014
+> -- 793
+< -- 36
++ -- 272
+- -- 261
+* -- 1756
+:= -- 3522
+add.period$ -- 157
+call.type$ -- 51
+change.case$ -- 379
+chr.to.int$ -- 50
+cite$ -- 52
+duplicate$ -- 765
+empty$ -- 1470
+format.name$ -- 346
+if$ -- 3976
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 53
-newline$ -- 249
-num.names$ -- 149
-pop$ -- 317
+missing$ -- 57
+newline$ -- 259
+num.names$ -- 155
+pop$ -- 335
 preamble$ -- 1
-purify$ -- 368
+purify$ -- 385
 quote$ -- 0
-skip$ -- 535
+skip$ -- 553
 stack$ -- 0
-substring$ -- 1462
-swap$ -- 75
-text.length$ -- 4
+substring$ -- 1501
+swap$ -- 78
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 282
+type$ -- 290
 warning$ -- 1
-while$ -- 173
+while$ -- 178
 width$ -- 0
-write$ -- 632
+write$ -- 661
 (There was 1 warning)

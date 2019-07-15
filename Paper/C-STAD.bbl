@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[Andreev, 2002]{AndreevBookDanemark}
+Andreev, K.~F. (2002).
+\newblock {\em {E}volution of the {D}anish population from 1835 to 2000}.
+\newblock Odense Monographs on Population Aging. Odense University Press,
+  Odense - DK.
+
 \bibitem[Barbieri et~al., 2015]{barbieri2015data}
 Barbieri, M., Wilmoth, J.~R., Shkolnikov, V.~M., Glei, D., Jasilionis, D.,
   Jdanov, D., Boe, C., Riffe, T., Grigoriev, P., and Winant, C. (2015).
@@ -32,7 +38,7 @@ Booth, H. (2006).
 Borgan, {\O}. and Keilman, N. (2018).
 \newblock {Do Japanese and Italian Women Live Longer than Women in
   Scandinavia?}
-\newblock {\em European Journal of Population}.
+\newblock {\em European Journal of Population}, 35(1):87--99.
 
 \bibitem[Brass, 1971]{brass1971scale}
 Brass, W. (1971).
@@ -89,6 +95,14 @@ Chiou, J.-M. and M\"{u}ller, H.-G. (2009).
   lifetables and mortality forecasting.
 \newblock {\em Journal of the American Statistical Association},
   104(486):572--585.
+
+\bibitem[Christensen et~al., 2010]{ChristensenEtAlDenmarkSwedenDivergence2010}
+Christensen, K., Davidsen, M., Juel, K., Mortensen, L., Rau, R., and Vaupel,
+  J.~W. (2010).
+\newblock {\em International Differences in Mortality at Older Ages}, chapter
+  The Divergent Life-Expectancy Trends in Denmark and Sweden - and Some
+  Potential Explanations.
+\newblock National Academies Press, Washington (DC).
 
 \bibitem[{Continuous Mortality Investigation}, 2007]{cmi2007stochastic}
 {Continuous Mortality Investigation} (2007).
