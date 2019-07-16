@@ -122,7 +122,7 @@ Estimation and forecasting of the C-STAD parameters (Section \ref{Subsec:EstimFo
 \begin{equation}\label{eq:DataDiv}
 \bm{D} = \left[ \bm{D}_{1} : \bm{D}_{2} : \bm{D}_{3}\right] \qquad \bm{E} = \left[ \bm{E}_{1} : \bm{E}_{2} : \bm{E}_{3}\right] \, .
 \end{equation}
-The first group contains the fully observed cohorts $c_1 =1835,\ldots,\breve{c}$, where $\breve{c}$ denotes the last cohort for which all data have been observed. As such, $\bm{D}_{1}$ and $\bm{E}_{1}$ have been observed at all ages $x$ for all cohorts in $c_1$. The second group is composed by cohorts $c_2 =\breve{c}+1, \ldots, \tilde{c}$, where $\tilde{c}$ denotes the last cohort for which two age-groups above the adult modal age at death have been observed. In other words, $\bm{D}_{2}$ and $\bm{E}_{2}$ are incomplete, i.e.~data are not available for higher ages and more recent cohorts. However this group of cohorts is selected such that associated $d_{x,c_{2}}$ and $e_{x,c_{2}}$ have been observed for at least two data points above the modal age $x=M$ for all cohorts in $c_2$. The choice of having two age groups above $M$ is imposed by the estimation of the parameter above the mode (cf.~Section~\ref{Subsec:EstimForeC-STAD}). Finally, the third group is composed by the remaining cohorts $c_3 =\tilde{c}+1, \ldots, 1970$ in which data are only partially available and modal age at death is not observed. An illustration of the divisions of cohorts into the three groups is provided in Figure~\ref{Fig:Lexis}. Figure \ref{Fig:DxExample} shows an example of the observed and missing data for three age-at-death distributions belonging to the different groups of cohorts. 
+The first group contains the fully observed cohorts $c_1 =1835,\ldots,\breve{c}$, where $\breve{c}$ denotes the last cohort for which all data have been observed. As such, $\bm{D}_{1}$ and $\bm{E}_{1}$ have been observed at all ages $x$ for all cohorts in $c_1$. The second group is composed by cohorts $c_2 =\breve{c}+1, \ldots, \tilde{c}$, where $\tilde{c}$ denotes the last cohort for which two age-groups above the adult modal age at death have been observed. In other words, $\bm{D}_{2}$ and $\bm{E}_{2}$ are incomplete, i.e.~data are not available for higher ages and more recent cohorts. However this group of cohorts is selected such that associated $d_{x,c}$ and $e_{x,c}$ have been observed for at least two data points above the modal age $x=M$ for all cohorts in $c_2$. The choice of having two age groups above $M$ is imposed by the estimation of the parameter above the mode (cf.~Section~\ref{Subsec:EstimForeC-STAD}). Finally, the third group is composed by the remaining cohorts $c_3 =\tilde{c}+1, \ldots, 1970$ in which data are only partially available and modal age at death is not observed. An illustration of the divisions of cohorts into the three groups is provided in Figure~\ref{Fig:Lexis}. Figure \ref{Fig:DxExample} shows an example of the observed and missing data for three age-at-death distributions belonging to the different groups of cohorts. 
 
 \begin{figure}[t]
 	\begin{center}
@@ -149,60 +149,60 @@ Finally, we smooth the aligned mean and express the standard density $f(x)$ as a
 \begin{equation}\label{Eq:standPsplines}
 f(x) = \exp\left[ \bm{B}(x) \, \bm{\beta}_{f} \right] \, .
 \end{equation}
-In this last step, we chose a large number of $B$-splines (???) without any penalty term. This whole procedure allows us to preserve all important features in the standard distribution (embodied in $\bm{\beta}_{f}$) after having removed unnecessary random fluctuations from the original data.
+In this last step, we chose a generous number of $B$-splines without any penalty term. This whole procedure allows us to preserve all important features in the standard distribution (embodied in $\bm{\beta}_{f}$) after having removed unnecessary random fluctuations from the original data.
 
 
 \subsection{Estimation and forecast of the C-STAD parameters}
 \label{Subsec:EstimForeC-STAD}
-Given the estimated standard distribution, we can derive the C-STAD parameters $\bm{\theta}_{c}'=\left[s,b_{L},c_{L},d_{L},b_{U}\right]_{c}$ for each cohort $c$ in 1835-1970. As anticipated in Section \ref{Subsec:Data}, we use three different approaches to estimate $\bm{\theta}_{c}$, depending on the data available for each cohort; we thus divide cohorts into three groups, as shown in Figure \ref{Fig:Lexis}. 
+Given the estimated standard distribution, we can derive the C-STAD parameters $\bm{\theta}'=\left[s,b_{L},c_{L},d_{L},b_{U}\right]$ for each cohort $c$ in 1835-1970. As anticipated in Section \ref{Subsec:Data}, we use three different approaches to estimate $\bm{\theta}$, depending on the data available for each cohort; we thus divide cohorts into three groups, as shown in Figure \ref{Fig:Lexis}. 
 
-For the first group of fully observed cohort $c_1$, we start by estimating the parameters vector $\bm{s}$. To properly capture cohort-specific mortality fluctuations, we employ a one-dimensional $P$-spline approach, i.e.~we smooth mortality for each cohort independently, numerically compute the corresponding density and extract the modal ages at death for each cohort \citep[for a similar approach in a period perspective see][]{ouellette2011changes}. From the modal ages we estimate the parameter $\hat{s}_{c_{1}}=M_{c_{1}} - M_f$, where $M_f$ denotes the mode of the standard distribution, which by construction corresponds to the modal age at death for the cohort born in 1835. \par
+For the first group of fully observed cohort $c_1$, we start by estimating the parameters vector $\bm{s}$. To properly capture cohort-specific mortality fluctuations, we employ a one-dimensional $P$-spline approach, i.e.~we smooth mortality for each cohort independently, numerically compute the corresponding density and extract the modal ages at death for each cohort \citep[for a similar approach in a period perspective see][]{ouellette2011changes}. From the modal ages we estimate the parameter $\hat{\bm{s}}=\left(\hat{s}_{c}=M_{c} - M_f\right)$ over cohorts in $c_1$, where $M_f$ denotes the mode of the standard distribution, which by construction corresponds to the modal age at death for the cohort born in 1835. \par
 
-Having derived an estimate of the shifting parameter $\hat{\bm{s}}$, we can estimate the remaining parameters $\bm{\theta}_{c_{1}}'=\left[b_{L},c_{L},d_{L},b_{U}\right]_{c_{1}}$. We take advantage of the Poisson assumption in Eq.~(\ref{Eq:Poisson}) and maximise the following log-likelihood function:
+Having derived an estimate of the shifting parameter $\hat{\bm{s}}$, we can estimate the remaining parameters $\bm{\alpha}'=\left[b_{L},c_{L},d_{L},b_{U}\right]$. We take advantage of the Poisson assumption in Eq.~(\ref{Eq:Poisson}) and maximise the following log-likelihood function:
 %
 \begin{equation}\label{Eq:loglikeC1}
-\ln\mathcal{L}_1\left(\bm{\theta}_{c_{1}} | \, d_{x,c_{1}} , e_{x,c_{1}} , \hat{s}_{c_{1}}, \bm{\beta}_{f}
-\right) \propto \sum_{x} \left[  d_{x,c_{1}} \,
-\ln \left( \mu^{\texttt{C-STAD}}_{x,c_{1}}  \right) - e_{x,c_{1}}
-\, \mu^{\texttt{C-STAD}}_{x,c_{1}} \right] 
+\ln\mathcal{L}_1\left(\bm{\alpha}\,|\,d_{x,c} , e_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
+\right) \propto \sum_{x} \left[  d_{x,c} \,
+\ln \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
+\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 \end{equation}
 %
-for each cohort in $c_{1} = 1835,\ldots,\breve{c}$, where $\mu^{\texttt{C-STAD}}_{x,c_{1}}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\theta}}_{c_{1}}$ that produces, for each cohort, an age-at-death distribution
+for each cohort in $c = 1835,\ldots,\breve{c}$, where $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution
 whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The associated age-at-death distribution can be written as follows:
 \begin{equation}\label{eq:gBspl}
-\hat{g}_{c_{1}}(x) = \exp\left[ B(x_{t}) \bm{\beta}_{f} \right] \qquad \mbox{where} \quad x_{t} = t(x; \hat{s}_{c_{1}},\hat{\bm{\theta}}_{c_{1}}) \, .
+\hat{g}_{c}(x) = \exp\left[ B(x_{t}) \bm{\beta}_{f} \right] \qquad \mbox{where} \quad x_{t} = t(x; \hat{s}_{c},\hat{\bm{\alpha}}) \, .
 \end{equation}
-The hazard corresponding to $\hat{g}_{c_{1}}(x)$ is computed using standard life-table formulas \citep{preston2001demogr}.
+The hazard corresponding to $\hat{g}_{c}(x)$ is computed using standard life-table formulas \citep{preston2001demogr}.
 
-For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M$ and $\hat{s}_{c_{2}}$ for each cohort in $c_2$. With respect to the remaining parameters, we modify Eq.~\eqref{Eq:loglikeC1} to take into account the missing data above the mode. Using the element of the regression weights in $\bm{W}$, we estimate $\bm{\theta}_{c_{2}}'=\left[b_{L},c_{L},d_{L},b_{U}\right]_{c_{2}}$ by maximizing the log-likelihood:
+For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M$ and $\hat{\bm{s}}$ over cohorts in $c_2$. With respect to the remaining parameters, we modify Eq.~\eqref{Eq:loglikeC1} to take into account the missing data above the mode. Using the element of the regression weights in $\bm{W}$, we estimate $\bm{\alpha}$ by maximizing the log-likelihood:
 %
 \begin{equation}\label{Eq:loglikeC2}
 \begin{aligned}
-\ln\mathcal{L}_2\left(\bm{\theta}_{c_{2}} | d_{x,c_{2}} , e_{x,c_{2}} , w_{x,c_{2}} , \hat{s}_{c_{2}}, \bm{\beta}_{f}
-\right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} w_{x,c_{2}} \left[  d_{x,c_{2}} \ln\left( \mu^{\texttt{C-STAD}}_{x,c_{2}}  \right) - e_{x,c_{2}}
-\, \mu^{\texttt{C-STAD}}_{x,c_{2}} \right] 
+\ln\mathcal{L}_2\left(\bm{\alpha}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
+\right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} w_{x,c} \left[  d_{x,c} \ln\left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
+\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 \end{aligned}
 \end{equation}
 %
-for each cohort in $c_{2}=\breve{c}+1,\ldots,\tilde{c}$. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
+for each cohort in $c=\breve{c}+1,\ldots,\tilde{c}$. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
 
-For the third group of partially observed cohorts in $c_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihoods in Eq.~\eqref{Eq:loglikeC1} and \eqref{Eq:loglikeC2}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ in $c_1$ and $c_2$ to compute their forecasts for cohorts $c_3$. 
+For the third group of partially observed cohorts in $c_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihoods in Eq.~\eqref{Eq:loglikeC1} and \eqref{Eq:loglikeC2}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ over cohorts in $c_1$ and $c_2$ to compute their forecasts for cohorts in $c_3$. 
 
 From a theoretical perspective, these two parameters are related by the fact that only mortality changes occurring above the mode can modify its value \cite[cf.~Appendix B in][]{canudas2010three}. Correlation analyses for the two countries under study confirm the strong relation between the two series (Pearson correlation of 0.96 and 0.90 for the time-series in first differences for Sweden and Denmark, respectively). As such, we specify a vector autoregressive (VAR) model of order one with constant for the two (differenced) parameters, and we forecast their values for all cohorts in $c_3$. The \texttt{R} package \texttt{vars} allows us to perform model selection and estimation \citep{pfaff2008analysis,pfaff2008var}.
 
-Then, we take the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ as given, and we estimate the remaining parameters $\breve{\bm{\theta}}_{c_{3}}'=\left[b_{L},c_{L},d_{L}\right]_{c_{3}}$ by maximizing the log-likelihood:
+Then, we take the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ as given, and we estimate the remaining parameters $\breve{\bm{\alpha}}'=\left[b_{L},c_{L},d_{L}\right]$ by maximizing the log-likelihood:
 %
 \begin{equation}\label{Eq:loglikeC3}
 \begin{aligned}
-\ln\mathcal{L}_3\left(\breve{\bm{\theta}}_{c_{3}} | \, d_{x,c_{3}} , e_{x,c_{3}} , w_{x,c_{3}} , \hat{s}_{c_{3}}, \hat{b}_{U_{c_{3}}} , \bm{\beta}_{f} \right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} w_{x,c_{3}} \, \left[  d_{x,c_{3}} \,
-\ln \left( \mu^{\texttt{C-STAD}}_{x,c_{3}}  \right) - e_{x,c_{3}}
-\, \mu^{\texttt{C-STAD}}_{x,c_{3}} \right] 
+\ln\mathcal{L}_3\left(\breve{\bm{\alpha}}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \hat{b}_{U_{c}} , \bm{\beta}_{f} \right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} w_{x,c} \, \left[  d_{x,c} \,
+\ln \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
+\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 \end{aligned}
 \end{equation}
 %
-for each cohort in $c_{3}=\tilde{c}+1,\ldots,1970$. In contrast to the estimation procedure in $c_2$, here the missing data influence the estimation of the parameters associated to the ages below the modal age at death. \par
+for each cohort in $c=\tilde{c}+1,\ldots,1970$. In contrast to the estimation procedure in $c_2$, here the missing data influence the estimation of the parameters associated to the ages below the modal age at death. \par
 
-The estimate $\hat{\bm{\theta}}_c$ for each cohort in 1835-1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $c_3$).}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty related to: (i) the estimated parameters, and (ii) the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$. The first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. The second source of uncertainty is considered by simulating future values of the VAR model. We employ 40 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 40 future values of $\bm{s}$ and $\bm{b}_U$. From the 1600 resulting simulations, we take the lower and higher deciles to construct 80\% pointwise confidence intervals.
+The estimate $\hat{\bm{\theta}}$ for each cohort in 1835-1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $c_3$).}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty related to: (i) the estimated parameters, and (ii) the forecast values of $\bm{s}$ and $\bm{b}_U$. The first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. The second source of uncertainty is considered by simulating future values of the VAR model. We employ 40 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 40 future values of $\bm{s}$ and $\bm{b}_U$. From the 1600 resulting simulations, we take the lower and higher deciles to construct 80\% pointwise confidence intervals.
 
 Finally, \texttt{R} routines developed to fit and forecast the C-STAD model are publicly available, and all the results presented in the following Section are fully reproducible at [this GitHub repository will be made public upon acceptance of the manuscript]. 
 
