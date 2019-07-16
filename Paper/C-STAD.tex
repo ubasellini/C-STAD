@@ -94,7 +94,7 @@ where $\tilde{x}=x - s - M^{f}$, and the subscripts $_L$ and $_U$ refer to the \
 
 The warping function $t(x;\bm{\theta})$ takes the form of a segmented transformation model which breaks at the value of $M^{g}$. Below $M^{g}$, the transformation function is cubic, while it is linear above $M^{g}$. Although acting on $t(x;\bm{\theta})$, the model's parameters are directly related to the summary measures of the age-at-death distributions. Specifically, while $s$ captures the difference in modal ages between $g(x)$ and $f(x)$, $b_L$ and $b_U$ measure the change in variability before and after the modal ages of the two distributions. For the ages below $M^{g}$, $c_L$ and $d_L$ further measure differences in terms of asymmetry and heaviness of the left tail between $g(x)$ and $f(x)$, respectively. In terms of mathematical moments, the parameters $b_L$ and $b_U$ can be related to the variance of the distribution before and after the mode, while $c_L$ and $d_L$ to the skewness and kurtosis of the distribution. \par
 
-Figure~\ref{Fig:CSTADmodel} provides a graphical illustration of the C-STAD model. For ease of presentation, we start from the simpler case in which $b_L = b_U = 1$ and $c_L = d_L = 0$. Substitution of these parameters in Eq.~\eqref{Eq:tx} yields a unique transformation function $t(x,\bm{\theta})=x-s$, and a corresponding distribution $g_1(x) = f(x-s)$ via Eq.~(\ref{Eq:gxftx}). In the left panel of Fig.~\ref{Fig:CSTADmodel}, the standard distribution (grey line) is shifted to the right by an amount equal to $s$, and $g_1(x)$ (blue line) maintains the original shape of $f(x)$. The right panel shows the transformation function related to this plain shifting scenario. Note that a left-shift could be simply obtained with a negative value of $s$. \par
+Figure~\ref{Fig:CSTADmodel} provides a graphical illustration of the C-STAD model. For ease of presentation, we start from the simpler case in which $b_L = b_U = 1$ and $c_L = d_L = 0$. Substitution of these parameters in Eq.~\eqref{Eq:tx} yields a unique transformation function $t(x;\bm{\theta})=x-s$, and a corresponding distribution $g_1(x) = f(x-s)$ via Eq.~(\ref{Eq:gxftx}). In the left panel of Fig.~\ref{Fig:CSTADmodel}, the standard distribution (grey line) is shifted to the right by an amount equal to $s$, and $g_1(x)$ (blue line) maintains the original shape of $f(x)$. The right panel shows the transformation function related to this plain shifting scenario. Note that a left-shift could be simply obtained with a negative value of $s$. \par
 
 \begin{figure}[t]
 	\begin{center}
@@ -103,7 +103,7 @@ Figure~\ref{Fig:CSTADmodel} provides a graphical illustration of the C-STAD mode
 	\end{center}
 \end{figure}
 
-Different parameters' values allow to capture broader mortality developments than the shifting scenario described above. While $b_L$ and $b_U$ modify the variability of the distribution $g_2(x)=f\left[t(x;\bm{\theta})\right]$ (orange line, left panel) w.r.t.~$f(x)$ before and after the modal age at death, $c_L$ and $d_L$ affect the asymmetry and heaviness of the left tail of $g_2(x)$ as compared to $f(x)$. In the example shown in Fig.~\ref{Fig:CSTADmodel}, $b_L > 1$ reduces the variability of $g_2(x)$ before $M^g$ w.r.t.~$f(x)$, while $b_U < 1$ increases the variability of $g_2(x)$ after $M^g$ w.r.t.~$f(x)$. The effects of $c_L$ and $d_L$ are difficult to discern from the left panel. However, the right panel shows the warping transformation $t(x,\bm{\theta})$ applied to $f(x)$ to derive $g_2(x)$; the transformation (orange line) is composed by a cubic function (due to non-zero values of $c_L$ and $d_L$) before the cut-off point $M^g$, and by a linear function above $M^g$.
+Different parameters' values allow to capture broader mortality developments than the shifting scenario described above. While $b_L$ and $b_U$ modify the variability of the distribution $g_2(x)=f\left[t(x;\bm{\theta})\right]$ (orange line, left panel) w.r.t.~$f(x)$ before and after the modal age at death, $c_L$ and $d_L$ affect the asymmetry and heaviness of the left tail of $g_2(x)$ as compared to $f(x)$. In the example shown in Fig.~\ref{Fig:CSTADmodel}, $b_L > 1$ reduces the variability of $g_2(x)$ before $M^g$ w.r.t.~$f(x)$, while $b_U < 1$ increases the variability of $g_2(x)$ after $M^g$ w.r.t.~$f(x)$. The effects of $c_L$ and $d_L$ are difficult to discern from the left panel. However, the right panel shows the warping transformation $t(x;\bm{\theta})$ applied to $f(x)$ to derive $g_2(x)$; the transformation (orange line) is composed by a cubic function (due to non-zero values of $c_L$ and $d_L$) before the cut-off point $M^g$, and by a linear function above $M^g$.
 
 \subsection{Data}
 \label{Subsec:Data}
@@ -144,14 +144,6 @@ where exposure-to-risk $e_{x,c}$ are given and $\mu_{x,c}$ denotes the hazard or
 The estimated smooth mortality surface allows us to derive smooth (partial) densities. We align each density to the distribution of the first cohort (1835), and derive $f(x)$ as the mean of the aligned distributions. This landmark registration procedure has been suggested elsewhere as it enhances the representativeness of $f(x)$ while improving the goodness-of fit of the model \cite[for additional details, see][]{basellini2019modelling}. Importantly, it should be noted that for cohorts in $c_2$ and $c_3$, we only use the part of the aligned distribution corresponding 
 to the observed data (i.e.~where regression weights are not zero). 
 
-The derived $f(x)$ can be expressed as a linear combination of equally spaced $B$-spline basis $\bm{B}(x)$ over ages $x$ and coefficients $\bm{\beta}_{f}$ specific to the standard:
-%
-\begin{equation}\label{Eq:standPsplines}
-f(x) = \exp\left[ \bm{B}(x) \, \bm{\beta}_{f} \right] \, .
-\end{equation}
-%
-XXX: I guess that you first align, then compute the mean and finally apply a light smooth to obtain $\bm{\beta}_{f}$. If so, I would modify as follows:
-
 Finally, we smooth the aligned mean and express the standard density $f(x)$ as a linear combination of equally spaced $B$-spline basis $\bm{B}(x)$ over ages $x$ and coefficients $\bm{\beta}_{f}$ specific to the standard:
 %
 \begin{equation}\label{Eq:standPsplines}
@@ -185,7 +177,7 @@ The hazard corresponding to $\hat{g}_{c_{1}}(x)$ is computed using standard life
 For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M$ and $\hat{s}_{c_{2}}$ for each cohort in $c_2$. With respect to the remaining parameters, we modify Eq.~\eqref{Eq:loglikeC1} to take into account the missing data above the mode. Using the element of the regression weights in $\bm{W}$, we estimate $\bm{\theta}_{c_{2}}'=\left[b_{L},c_{L},d_{L},b_{U}\right]_{c_{2}}$ by maximizing the log-likelihood:
 %
 \begin{equation}\label{Eq:loglikeC2}
-\ln\mathcal{L}_2\left(\tilde{\bm{\theta}}_{c_{2}} | d_{x,c_{2}} , e_{x,c_{2}} , w_{x,c_{2}} , \hat{s}_{c_{2}}, \bm{\beta}_{f}
+\ln\mathcal{L}_2\left(\bm{\theta}_{c_{2}} | d_{x,c_{2}} , e_{x,c_{2}} , w_{x,c_{2}} , \hat{s}_{c_{2}}, \bm{\beta}_{f}
 \right) \propto \sum_{x} w_{x,c_{2}} \left[  d_{x,c_{2}} \mathrm{log} \left( \mu^{\texttt{C-STAD}}_{x,c_{2}}  \right) - e_{x,c_{2}}
 \, \mu^{\texttt{C-STAD}}_{x,c_{2}} \right] 
 \end{equation}
