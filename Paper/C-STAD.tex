@@ -2,7 +2,7 @@
 \usepackage{graphicx}
 \usepackage[parfill]{parskip}
 \usepackage{natbib}
-\usepackage[a4paper, margin=1.25in]{geometry}
+\usepackage[a4paper, margin=1in]{geometry}
 \usepackage{caption}
 \usepackage{chngcntr}
 \usepackage{amsmath,amssymb,bm}
@@ -57,7 +57,7 @@ Continuous and widespread gains in life expectancy \citep{riley2001rising,oeppen
 
 A growing number of models have recently been proposed to forecast human mortality using stochastic methodologies that produce probabilistic assessments of the future. For comprehensive reviews, see \cite{booth2006demographic} and \cite{shang2011point}. The vast majority of these techniques are based on \textit{period} mortality: financial institutions are typically interested in the mortality developments of groups of individuals that comprise different birth cohorts. In addition, cohort data can be outdated, unavailable or incomplete, hence period life tables have been developed to analyse a hypothetical cohort if its age-specific death rates pertained throughout its life \citep{preston2001demogr}.
  
-The completion of the mortality experience of non-extinct cohorts is nonetheless interesting in the actuarial domain. Insurance companies are indeed interested in the future longevity of groups of people born in specific cohorts. In such settings, cohort forecasts are typically obtained by first forecasting mortality in a period fashion, and then extracting cohort mortality patterns from the diagonals of the projected Lexis surface. Although widely used, this approach seems rather counter-intuitive and inefficient. In this article, we propose a more direct and alternative approach to cohort mortality forecasting that is solely based on cohort data. [XXX it would be nice to have a citation in this paragraph]
+The completion of the mortality experience of non-extinct cohorts is nonetheless interesting in the actuarial domain. Insurance companies are indeed interested in the future longevity of groups of people born in specific cohorts. In such settings, cohort forecasts are typically obtained by first forecasting mortality in a period fashion, and then extracting cohort mortality patterns from the diagonals of the projected Lexis surface. Although widely used, this approach seems rather counter-intuitive and inefficient. In this article, we propose a more direct and alternative approach to cohort mortality forecasting that is solely based on cohort data.
 
 More generally, analysis and forecasts of cohort mortality are interesting and worth exploring for two main reasons. First, survival in real birth cohorts is different from survival in the hypothetical situation of unchanged period mortality rates because of: (i) tempo effects, (ii) cohort effects and (iii) selection \cite[for a full discussion, see][Sect.~2]{borgan2018cohort}. Second, cohort mortality developments are \textit{actually} observed, and they may differ from those of the synthetic cohort assumed in period life tables. As such, analysing and forecasting cohort mortality can provide different insights on mortality developments than studies based on the period perspective.  
 
@@ -99,7 +99,8 @@ Figure~\ref{Fig:CSTADmodel} provides a graphical illustration of the C-STAD mode
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[scale=0.57]{./Figures/F1.pdf} 
-		\caption{A schematic overview of the \emph{Cohort Segmented Transformation Age-at-death Distributions} model.\label{Fig:CSTADmodel}}    
+		\caption{A schematic overview of the \emph{Cohort Segmented Transformation Age-at-death Distributions} model.\\
+		\small \textit{Source}: authors' own elaborations. \label{Fig:CSTADmodel}}    
 	\end{center}
 \end{figure}
 
@@ -109,12 +110,13 @@ Different parameters' values allow to capture broader mortality developments tha
 \label{Subsec:Data}
 For illustrative purposes we present outcomes from the proposed model on adult cohort mortality for females in two high-longevity countries, namely Sweden and Denmark. Long-term series of high quality data are available for both countries, even at the very old ages \citep{vaupel1994longer,wilmoth1996extreme,AndreevBookDanemark}, and the two countries display different mortality developments. We therefore test the goodness-of-fit and forecast accuracy of our model with respect to different mortality trajectories \citep{ChristensenEtAlDenmarkSwedenDivergence2010}. The data are derived from the \citeauthor{HMD} (HMD, \citeyear{HMD}), which provides free access to detailed, consistent and high quality historical mortality data for 43 different territories and countries \citep{barbieri2015data}.
 
-Our interest in this article is restricted to the senescent component of mortality, hence we start our analyses from age 40. We therefore cover the age range that is of greater interest for pension and insurance funds. Specifically, we employ two $m \times n$ matrices $\bm{D} = (d_{x,c})$ and $\bm{E} = (e_{x,c})$ containing observed death counts and exposure-to-risk, respectively, classified by age at death $x=40,\ldots, 110+$ and birth cohort $c=1835,\ldots,1970$. Figure~\ref{Fig:Lexis} offers a schematic overview of the data structure over age and time by means of a Lexis diagram. On one hand, we select 1835 as starting cohort of analysis for both populations because it is the first cohort with observed data at all ages in Denmark, and to compare the results for the two countries using the same fitting period. On the other hand, 1970 is the final cohort because it contains enough observed data points in both countries (seven in Sweden, six in Denmark) to estimate the three low parameters accurately (cf.~Section \ref{Subsec:EstimForeC-STAD}). 
+Our interest in this article is restricted to the senescent component of mortality, hence we start our analyses from age 40. We therefore cover the age range that is of greater interest for pension and insurance funds. Specifically, we employ two $m \times n$ matrices $\bm{D} = (d_{x,c})$ and $\bm{E} = (e_{x,c})$ containing observed death counts and exposure-to-risk, respectively, classified by age at death $x=40,\ldots, 110+$ and birth cohort $c=1835,\ldots,1970$. Figure~\ref{Fig:Lexis} offers a schematic overview of the data structure by means of two Lexis diagrams: the first (left panel) shows the conventional age-period structure, while the second (right panel) illustrates the age-cohort perspective that we adopt in this paper. On one hand, we select 1835 as starting cohort of analysis for both populations because it is the first cohort with observed data at all ages in Denmark, and to compare the results for the two countries using the same fitting period. On the other hand, 1970 is the final cohort because it contains enough observed data points in both countries (seven in Sweden, six in Denmark) to estimate the three low parameters accurately (cf.~Section \ref{Subsec:EstimForeC-STAD}). 
 
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[scale=0.7]{./Figures/F2.pdf} 
-		\caption{A Lexis diagram illustrating the division of cohorts into three groups. Here we assume that: (i) 2015 is the most recent year of data collection, (ii) $\breve{c}=1905$, and (iii) $\tilde{c}=1925$. The three groups are then $c_1=1835, \ldots, 1905$, $c_2=1906, \ldots, 1925$ and $c_3=1926, \ldots, 1970$. The two colours in the forecast years correspond to different parameters' derivations (cf.~Section \ref{Subsec:EstimForeC-STAD}): estimation with missing data (light green) and forecasting (dark green). XXX: would it be nice/better to show a Lexis diagram over ages and cohorts, maybe together with the current diagram. At the end it's what we model and forecast.\label{Fig:Lexis}}    
+		\caption{Conventional age-period (left panel) and age-cohort (right panel) Lexis diagrams illustrating the data structure and the division of cohorts into three groups. Here we assume that: (i) 2015 is the most recent year of data collection, (ii) $\breve{c}=1905$, and (iii) $\tilde{c}=1925$. The three groups are then $c_1=1835, \ldots, 1905$, $c_2=1906, \ldots, 1925$ and $c_3=1926, \ldots, 1970$. The two colours in the forecast years correspond to different parameters' derivations (cf.~Subsection \ref{Subsec:EstimForeC-STAD}): estimation with missing data (light green) and forecasting (dark green). Black arrows depict the direction of estimation and forecasting (i.e.~by cohorts). \\
+		\small \textit{Source}: authors' own elaborations. \label{Fig:Lexis}}    
 	\end{center}
 \end{figure}
 
@@ -122,12 +124,13 @@ Estimation and forecasting of the C-STAD parameters (Section \ref{Subsec:EstimFo
 \begin{equation}\label{eq:DataDiv}
 \bm{D} = \left[ \bm{D}_{1} : \bm{D}_{2} : \bm{D}_{3}\right] \qquad \bm{E} = \left[ \bm{E}_{1} : \bm{E}_{2} : \bm{E}_{3}\right] \, .
 \end{equation}
-The first group contains the fully observed cohorts $c_1 =1835,\ldots,\breve{c}$, where $\breve{c}$ denotes the last cohort for which all data have been observed. As such, $\bm{D}_{1}$ and $\bm{E}_{1}$ have been observed at all ages $x$ for all cohorts in $c_1$. The second group is composed by cohorts $c_2 =\breve{c}+1, \ldots, \tilde{c}$, where $\tilde{c}$ denotes the last cohort for which two age-groups above the adult modal age at death have been observed. In other words, $\bm{D}_{2}$ and $\bm{E}_{2}$ are incomplete, i.e.~data are not available for higher ages and more recent cohorts. However this group of cohorts is selected such that associated $d_{x,c}$ and $e_{x,c}$ have been observed for at least two data points above the modal age $x=M$ for all cohorts in $c_2$. The choice of having two age groups above $M$ is imposed by the estimation of the parameter above the mode (cf.~Section~\ref{Subsec:EstimForeC-STAD}). Finally, the third group is composed by the remaining cohorts $c_3 =\tilde{c}+1, \ldots, 1970$ in which data are only partially available and modal age at death is not observed. An illustration of the divisions of cohorts into the three groups is provided in Figure~\ref{Fig:Lexis}. Figure \ref{Fig:DxExample} shows an example of the observed and missing data for three age-at-death distributions belonging to the different groups of cohorts. 
+The first group, denoted by $c_1$, contains the fully observed cohorts $1835,\ldots,\breve{c}$, where $\breve{c}$ corresponds to the last cohort for which all data have been observed. As such, $\bm{D}_{1}$ and $\bm{E}_{1}$ have been observed at all ages $x$ for all cohorts in $c_1$. The second group, denoted by $c_2$, is composed by cohorts $\breve{c}+1, \ldots, \tilde{c}$, where $\tilde{c}$ corresponds to the last cohort for which two age-groups above the adult modal age at death have been observed. In other words, $\bm{D}_{2}$ and $\bm{E}_{2}$ are incomplete, i.e.~data are not available for higher ages and more recent cohorts. However this group of cohorts is selected such that associated $d_{x,c}$ and $e_{x,c}$ have been observed for at least two data points above the modal age $x=M$ for all cohorts in $c_2$. The choice of having two age groups above $M$ is imposed by the estimation of the parameter above the mode (cf.~Section~\ref{Subsec:EstimForeC-STAD}). Finally, the third group $c_3$ is composed by the remaining cohorts $\tilde{c}+1, \ldots, 1970$, in which data are only partially available and modal age at death is not observed. An illustration of the divisions of cohorts into the three groups is provided in Figure~\ref{Fig:Lexis}. Figure \ref{Fig:DxExample} shows an example of the observed and missing data for three age-at-death distributions belonging to the different groups of cohorts. 
 
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[scale=0.7]{./Figures/F3.pdf} 
-		\caption{Example of observed, estimated and forecast data for three age-at-death distributions belonging to the groups of cohorts $c_1$, $c_2$ and $c_3$.\label{Fig:DxExample} }    
+		\caption{Example of observed, estimated and forecast data for three age-at-death distributions belonging to the groups of cohorts $c_1$, $c_2$ and $c_3$.\\
+		\small \textit{Source}: authors' own elaborations.\label{Fig:DxExample} }    
 	\end{center}
 \end{figure}
 
@@ -154,7 +157,7 @@ In this last step, we chose a generous number of $B$-splines without any penalty
 
 \subsection{Estimation and forecast of the C-STAD parameters}
 \label{Subsec:EstimForeC-STAD}
-Given the estimated standard distribution, we can derive the C-STAD parameters $\bm{\theta}'=\left[s,b_{L},c_{L},d_{L},b_{U}\right]$ for each cohort $c$ in 1835-1970. As anticipated in Section \ref{Subsec:Data}, we use three different approaches to estimate $\bm{\theta}$, depending on the data available for each cohort; we thus divide cohorts into three groups, as shown in Figure \ref{Fig:Lexis}. 
+Given the estimated standard distribution, we can derive the C-STAD parameters $\bm{\theta}'=\left[s,b_{L},c_{L},d_{L},b_{U}\right]$ for each cohort in 1835-1970. As anticipated in Section \ref{Subsec:Data}, we use three different approaches to estimate $\bm{\theta}$, depending on the data available for each cohort; we thus divide cohorts into three groups, as shown in Figure \ref{Fig:Lexis}. 
 
 For the first group of fully observed cohort $c_1$, we start by estimating the parameters vector $\bm{s}$. To properly capture cohort-specific mortality fluctuations, we employ a one-dimensional $P$-spline approach, i.e.~we smooth mortality for each cohort independently, numerically compute the corresponding density and extract the modal ages at death for each cohort \citep[for a similar approach in a period perspective see][]{ouellette2011changes}. From the modal ages we estimate the parameter $\hat{\bm{s}}=\left(\hat{s}_{c}=M_{c} - M_f\right)$ over cohorts in $c_1$, where $M_f$ denotes the mode of the standard distribution, which by construction corresponds to the modal age at death for the cohort born in 1835. \par
 
@@ -167,40 +170,40 @@ Having derived an estimate of the shifting parameter $\hat{\bm{s}}$, we can esti
 \, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 \end{equation}
 %
-for each cohort in $c = 1835,\ldots,\breve{c}$, where $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution
+for each cohort $c = 1835,\ldots,\breve{c}$, where $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution
 whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The associated age-at-death distribution can be written as follows:
 \begin{equation}\label{eq:gBspl}
 \hat{g}_{c}(x) = \exp\left[ B(x_{t}) \bm{\beta}_{f} \right] \qquad \mbox{where} \quad x_{t} = t(x; \hat{s}_{c},\hat{\bm{\alpha}}) \, .
 \end{equation}
 The hazard corresponding to $\hat{g}_{c}(x)$ is computed using standard life-table formulas \citep{preston2001demogr}.
 
-For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M$ and $\hat{\bm{s}}$ over cohorts in $c_2$. With respect to the remaining parameters, we modify Eq.~\eqref{Eq:loglikeC1} to take into account the missing data above the mode. Using the element of the regression weights in $\bm{W}$, we estimate $\bm{\alpha}$ by maximizing the log-likelihood:
+For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M_c$ and $\hat{\bm{s}}$ over cohorts in $c_2$. With respect to the remaining parameters, we modify Eq.~\eqref{Eq:loglikeC1} to take into account the missing data above the mode. Using the element of the regression weights in $\bm{W}$, we estimate $\bm{\alpha}$ by maximizing the log-likelihood:
 %
 \begin{equation}\label{Eq:loglikeC2}
-\begin{aligned}
+%\begin{aligned}
 \ln\mathcal{L}_2\left(\bm{\alpha}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
-\right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} w_{x,c} \left[  d_{x,c} \ln\left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
+\right) \sum_{x} w_{x,c} \left[  d_{x,c} \ln\left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
 \, \mu^{\texttt{C-STAD}}_{x,c} \right] 
-\end{aligned}
+%\end{aligned}
 \end{equation}
 %
-for each cohort in $c=\breve{c}+1,\ldots,\tilde{c}$. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
+for each cohort $c=\breve{c}+1,\ldots,\tilde{c}$. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
 
-For the third group of partially observed cohorts in $c_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihoods in Eq.~\eqref{Eq:loglikeC1} and \eqref{Eq:loglikeC2}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ over cohorts in $c_1$ and $c_2$ to compute their forecasts for cohorts in $c_3$. 
+For the third group of partially observed cohorts $c_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihoods in Eq.~\eqref{Eq:loglikeC1} and \eqref{Eq:loglikeC2}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ over cohorts in $c_1$ and $c_2$ to compute their forecasts for cohorts $c_3$. 
 
-From a theoretical perspective, these two parameters are related by the fact that only mortality changes occurring above the mode can modify its value \cite[cf.~Appendix B in][]{canudas2010three}. Correlation analyses for the two countries under study confirm the strong relation between the two series (Pearson correlation of 0.96 and 0.90 for the time-series in first differences for Sweden and Denmark, respectively). As such, we specify a vector autoregressive (VAR) model of order one with constant for the two (differenced) parameters, and we forecast their values for all cohorts in $c_3$. The \texttt{R} package \texttt{vars} allows us to perform model selection and estimation \citep{pfaff2008analysis,pfaff2008var}.
+From a theoretical perspective, these two parameters are related by the fact that only mortality changes occurring above the mode can modify its value \cite[cf.~Appendix B in][]{canudas2010three}. Correlation analyses for the two countries under study confirm the strong relation between the two series (Pearson correlation of 0.96 and 0.90 for the time-series in first differences for Sweden and Denmark, respectively). As such, we specify a vector autoregressive (VAR) model of order one with constant for the two (differenced) parameters, and we forecast their values for all cohorts $c_3$. The \texttt{R} package \texttt{vars} allows us to perform model selection and estimation \citep{pfaff2008analysis,pfaff2008var}.
 
 Then, we take the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ as given, and we estimate the remaining parameters $\breve{\bm{\alpha}}'=\left[b_{L},c_{L},d_{L}\right]$ by maximizing the log-likelihood:
 %
 \begin{equation}\label{Eq:loglikeC3}
-\begin{aligned}
-\ln\mathcal{L}_3\left(\breve{\bm{\alpha}}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \hat{b}_{U_{c}} , \bm{\beta}_{f} \right) \propto \qquad\qquad\qquad\qquad \\ \qquad\qquad\qquad\qquad \sum_{x} w_{x,c} \, \left[  d_{x,c} \,
+%\begin{aligned}
+\ln\mathcal{L}_3\left(\breve{\bm{\alpha}}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \hat{b}_{U_{c}} , \bm{\beta}_{f} \right) \propto  \sum_{x} w_{x,c} \, \left[  d_{x,c} \,
 \ln \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
 \, \mu^{\texttt{C-STAD}}_{x,c} \right] 
-\end{aligned}
+%\end{aligned}
 \end{equation}
 %
-for each cohort in $c=\tilde{c}+1,\ldots,1970$. In contrast to the estimation procedure in $c_2$, here the missing data influence the estimation of the parameters associated to the ages below the modal age at death. \par
+for each cohort $c=\tilde{c}+1,\ldots,1970$. In contrast to the estimation procedure in $c_2$, here the missing data influence the estimation of the parameters associated to the ages below the modal age at death. \par
 
 The estimate $\hat{\bm{\theta}}$ for each cohort in 1835-1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $c_3$).}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty related to: (i) the estimated parameters, and (ii) the forecast values of $\bm{s}$ and $\bm{b}_U$. The first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. The second source of uncertainty is considered by simulating future values of the VAR model. We employ 40 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 40 future values of $\bm{s}$ and $\bm{b}_U$. From the 1600 resulting simulations, we take the lower and higher deciles to construct 80\% pointwise confidence intervals.
 
@@ -222,7 +225,7 @@ In addition to the C-STAD, we perform the same out-of-sample exercises with the 
 Table \ref{Table:RMSE} presents the results of our analysis. The first and second columns contain the cohorts used for fitting and forecasting the C-STAD and 2D $P$-splines models, respectively. The third column contains the forecast horizon of the out-of-sample exercise, while the fourth column the measure analysed ($e_{40}$ and $g_{40}$). Results are shown in the last four columns. We assess the accuracy of the point forecasts by computing the root mean square error (RMSE):
 %
 \begin{equation}\label{Eq:RMSE}
-\mathrm{RMSE}=\sqrt{\frac{1}{\delta} \sum_{c=1}^{\delta} \left(\hat{y}_c-y_c\right)^2} \notag
+\mathrm{RMSE}=\sqrt{\frac{1}{\delta} \sum_{c=1}^{\delta} \left(\hat{y}_c-y_c\right)^2} \, , \notag
 \end{equation} 
 %
 where $\delta$ is the forecasting horizon, and $\hat{y}_c$ and $y_c$ are the forecast and observed out-of-sample values of either $e_{40}$ or $g_{40}$. 
@@ -296,7 +299,8 @@ where $\delta$ is the forecasting horizon, and $\hat{y}_c$ and $y_c$ are the for
 		\bottomrule 
 		
 	\end{tabular}
-	\caption{Root mean squared errors (RMSE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the RMSE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.}\label{Table:RMSE}
+	\caption{Root mean squared errors (RMSE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the RMSE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\
+	\small \textit{Source}: authors' elaborations on data from the \cite{HMD}.}\label{Table:RMSE}
 \end{table}
 
 The table shows that the C-STAD forecasts are accurate in completing the mortality experience of partially observed cohorts. The RMSE values of both $e_{40}$ and $g_{40}$  are low across the six exercises, and they do not increase significantly with the forecasting horizon. Additionally, C-STAD forecasts are more accurate than those of the 2D $P$-spline model. Very similar results are obtained by employing different prediction accuracy measures, such as the MAPE and MAE (see Appendix \ref{Appendix:AdditResults}). \par
@@ -308,7 +312,7 @@ In this section we show the results of employing the C-STAD model to estimate an
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[scale=0.57]{./Figures/F4.pdf} 
-		\caption{Observed and C-STAD estimated remaining life expectancies at age 40 ($e_{40}$, left panel) and Gini coefficient at age 40 ($g_{40}$, right panel) for adult females in Sweden and Denmark for the fully observed cohorts 1835-1905.\label{Fig:CSTADfitE40G40}}    
+		\caption{Observed and C-STAD estimated remaining life expectancies at age 40 ($e_{40}$, left panel) and Gini coefficient at age 40 ($g_{40}$, right panel) for adult females in Sweden and Denmark for the fully observed cohorts 1835-1905.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.\label{Fig:CSTADfitE40G40}}    
 	\end{center}
 \end{figure}
 
@@ -317,24 +321,24 @@ Figure \ref{Fig:CSTADforeE40G40} shows the observed (cohorts $c_1$) and complete
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[scale=0.57]{./Figures/F5.pdf} 
-		\caption{Observed (cohorts $c_1$) and completed ($c_2$ and $c_3$) remaining life expectancies at age 40 ($e_{40}$, left panel) and Gini coefficient at age 40 ($g_{40}$, right panel) for the C-STAD (with 80\% confidence intervals) and 2D $P$-spline models for adult females in Sweden and Denmark for the cohorts 1835-1970.\label{Fig:CSTADforeE40G40}}    
+		\caption{Observed (cohorts $c_1$) and completed ($c_2$ and $c_3$) remaining life expectancies at age 40 ($e_{40}$, left panel) and Gini coefficient at age 40 ($g_{40}$, right panel) for the C-STAD (with 80\% confidence intervals) and 2D $P$-spline models for adult females in Sweden and Denmark for the cohorts 1835-1970.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.\label{Fig:CSTADforeE40G40}}    
 	\end{center}
 \end{figure}
 
-The age-specific mortality rates analysis shown in Figure \ref{Fig:CSTADforeMx} offers additional insights on cohort mortality developments of the two populations. In the top panels, observed, fitted and forecast mortality rates over cohorts are shown for some selected ages. In addition to the goodness-of-fit of the C-STAD model, the graphs highlight diverse age-specific developments in the two countries: for example, mortality at ages 40 and 60 of Danish cohorts born at the beginning of the twentieth century did not improve, resulting in the atypical trends of the summary measures shown in Figure \ref{Fig:CSTADforeE40G40} (stagnation of $e_{40}$ and increase in lifespan inequality). In the bottom panels, mortality rates over all ages are shown for some selected cohorts. This second perspective shows how the shape of the mortality curve, appropriately captured by the C-STAD model, changed over time: for example, for the 1835 cohort, maternal mortality was still high in both countries, with the curve being rather flat in the age range 40-50 (XXX: can we really talk of maternal mortality above age 40, and for these cohorts? Some other explanation are needed). The subsequent reduction of maternal mortality over cohorts clearly emerges in the top panels (at age 40) and in the more recent cohorts of the bottom panels. An interesting observation that emerges from Figure \ref{Fig:CSTADforeMx} is that the confidence intervals of the C-STAD widens as expected: for example, variability increases with age for the completed cohorts, as fewer age-specific data have been observed at higher ages. Finally, Figure \ref{Fig:CSTADforeDx} shows the observed and C-STAD age-at-death distributions for the three cohorts analysed in the previous panels. 
+The age-specific mortality rates analysis shown in Figure \ref{Fig:CSTADforeMx} offers additional insights on cohort mortality developments of the two populations. In the top panels, observed, fitted and forecast mortality rates over cohorts are shown for some selected ages. In addition to the goodness-of-fit of the C-STAD model, the graphs highlight diverse age-specific developments in the two countries: for example, mortality at ages 40 and 60 of Danish cohorts born at the beginning of the twentieth century did not improve, resulting in the atypical trends of the summary measures shown in Figure \ref{Fig:CSTADforeE40G40} (stagnation of $e_{40}$ and increase in lifespan inequality). In the bottom panels, mortality rates over all ages are shown for some selected cohorts. This second perspective shows how the shape of the mortality curve, appropriately captured by the C-STAD model, changed over time: for example, mortality at young adult ages was still relatively high in both countries for the 1835 cohort, with the curve being rather flat in the age range 40-50. The subsequent mortality declines at all ages, mainly attributable to improvements in sanitary environment, public hygiene and nutrition \citep{mckeown1976modern}, clearly emerge from Figure \ref{Fig:CSTADforeMx}. An additional interesting observation that emerges from the Figure is that the confidence intervals of the C-STAD widens as expected: for example, variability increases with age for the completed cohorts, as fewer age-specific data have been observed at higher ages. Finally, Figure \ref{Fig:CSTADforeDx} shows the observed and C-STAD age-at-death distributions for the three cohorts analysed in the previous panels. 
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.57]{./Figures/F6a.pdf} 
 		\includegraphics[scale=0.57]{./Figures/F6b.pdf} 
-		\caption{Observed, fitted and forecast age-specific mortality rates for selected ages (top panels) and for selected cohorts (bottom panels) with 80\% confidence intervals for females in Sweden and Denmark aged 40-110+ for the cohorts 1835-1970.\label{Fig:CSTADforeMx}}    
+		\caption{Observed, fitted and forecast age-specific mortality rates for selected ages (top panels) and for selected cohorts (bottom panels) with 80\% confidence intervals for females in Sweden and Denmark aged 40-110+ for the cohorts 1835-1970.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.\label{Fig:CSTADforeMx}}    
 	\end{center}
 \end{figure}
 
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[scale=0.57]{./Figures/F7.pdf}  
-		\caption{Observed, fitted and forecast age-at-death distributions for selected cohorts (bottom panels) with 80\% confidence intervals for females in Sweden and Denmark aged 40-110+.\label{Fig:CSTADforeDx}}    
+		\caption{Observed, fitted and forecast age-at-death distributions for selected cohorts (bottom panels) with 80\% confidence intervals for females in Sweden and Denmark aged 40-110+.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.\label{Fig:CSTADforeDx}}    
 	\end{center}
 \end{figure}
 
@@ -344,7 +348,7 @@ Mortality forecasting has drawn considerable interest in recent decades among ac
  
 In this article, we take an alternative perspective and introduce a new methodology to model and forecast mortality from cohort data. An important advantage of cohort forecasts is that they allow to complete the mortality experience of non-extinct cohorts, thus enabling the derivation of their mortality developments. Our approach focuses on cohort age-at-death distributions: specifically, we propose a warping transformation of the age-axis of a standard distribution to describe and forecast adult mortality developments across cohorts. Since we focus on the cohort perspective, we denote our methodology \emph{Cohort Segmented Transformation Age-at-death Distributions} (C-STAD) model. Warping transformations and skewing procedures have already been fruitfully employed to model distributional changes \cite[see, e.g.,][]{fernandez1998bayesian,camarda2008warped}. 
 
-Our methodology is inspired by the Segmented Transformation Age-at-death Distributions (STAD) model recently proposed by \cite{basellini2019modelling} to forecast adult age-at-death distributions. In addition to shifting the focus from period to cohort mortality, our methodology extends the STAD to a cubic transformation before the modal age at death. The additional parameters $c_L$ and $d_L$ are indeed necessary to adequately describe cohort mortality developments at young adult ages. A possible explanation for this is related to the significant improvements in maternal mortality across the cohorts that we analyse (cf.~Fig.~\ref{Fig:CSTADforeMx}). Non-linear functions above the mode were tested too, but they did not provide a better fit compared to a linear function. 
+Our methodology is inspired by the Segmented Transformation Age-at-death Distributions (STAD) model recently proposed by \cite{basellini2019modelling} to forecast adult age-at-death distributions. In addition to shifting the focus from period to cohort mortality, our methodology extends the STAD to a cubic transformation before the modal age at death. The additional parameters $c_L$ and $d_L$ are indeed necessary to adequately describe cohort mortality developments at young adult ages. A possible explanation for this is related to the significant improvements in mortality, especially at younger adult ages, across the cohorts that we analyse (cf.~Fig.~\ref{Fig:CSTADforeMx}). Non-linear functions above the mode were tested too, but they did not provide a better fit compared to a linear function. 
 
 Only a handful of models have been proposed to directly forecast cohort mortality so far \citep{chiou2009modeling,zanotto2017reconstruction,rizzi2019forecasting}. One of the main reasons for the limited efforts in this direction is the heavy data demands that such models require. However, this problem is reduced when only adult mortality is considered \citep{booth2006demographic}. As such, the issue does not affect us to a great extent, as our interest in this article is restricted to adult mortality only. 
 
@@ -388,11 +392,11 @@ In this appendix, we present additional results related to Section \ref{Sec:Resu
 First, we report the out-of-sample results of Subsection \ref{Subsec:Out-of-sample} derived from employing two different prediction accuracy measures. In addition to the root mean square error, we computed the mean absolute error (MAE) and the mean absolute percentage error (MAPE):
 %
 \begin{equation}\label{Eq:MAE}
-\mathrm{MAE} = \frac{1}{\delta} \sum_{c=1}^{\delta} \left| \hat{y}_c - y_c \right|  \notag 
+\mathrm{MAE} = \frac{1}{\delta} \sum_{c=1}^{\delta} \left| \hat{y}_c - y_c \right|  \, , \notag 
 \end{equation} 
 %
 \begin{equation}\label{Eq:MAPE}
-\mathrm{MAPE}= \frac{1}{\delta}  \sum_{c=1}^{\delta} \left| \frac{\hat{y}_c - y_c}{y_c}  \right|  \notag
+\mathrm{MAPE}= \frac{1}{\delta}  \sum_{c=1}^{\delta} \left| \frac{\hat{y}_c - y_c}{y_c}  \right| \, , \notag
 \end{equation} 
 %
 where $\delta$ is the forecasting horizon, and $\hat{y}_c$ and $y_c$ are the forecast and observed out-of-sample values of either $e_{40}$ or $g_{40}$. 
@@ -468,7 +472,7 @@ Tables \ref{Table:MAE} and \ref{Table:MAPE} show the out-of-sample results obtai
 		\bottomrule 
 		
 	\end{tabular}
-	\caption{Mean absolute error (MAE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.}\label{Table:MAE}
+	\caption{Mean absolute error (MAE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.}\label{Table:MAE}
 \end{table}
 
 % TABLE MAPE: 10, 20, 30 YEARS
@@ -540,7 +544,7 @@ Tables \ref{Table:MAE} and \ref{Table:MAPE} show the out-of-sample results obtai
 		\bottomrule 
 		
 	\end{tabular}
-	\caption{Mean absolute percentage error (MAPE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAPE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.}\label{Table:MAPE}
+	\caption{Mean absolute percentage error (MAPE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $g_{40}$ for adult females in Sweden (SWE) and Denmark (DNK) in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAPE (in bold, assessed using all available decimals) correspond to greater forecast accuracy. \small \textit{Source}: authors' elaborations on data from the \cite{HMD}. }\label{Table:MAPE}
 \end{table}
 
 Second, we provide additional results with regard to Subsection \ref{Subsec:ForecastC-STAD}. Figure \ref{Fig:CSTADparams} shows the fitted and forecast C-STAD parameters with 80\% confidence intervals for Swedish and Danish adult females for cohorts 1835-1970.
@@ -551,7 +555,7 @@ We performed diagnostic checks on the fitted C-STAD model for the two population
 	\begin{figure}[h!]
 		\begin{center}
 			\includegraphics[scale=0.92]{./Figures/FA1.pdf} 
-			\caption{Estimated and forecast C-STAD parameters for adult females in Sweden and Denmark for the cohorts 1835-1970.\label{Fig:CSTADparams}}    
+			\caption{Estimated and forecast C-STAD parameters for adult females in Sweden and Denmark for the cohorts 1835-1970. \\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.\label{Fig:CSTADparams}}    
 		\end{center}
 	\end{figure}
 \end{landscape}
@@ -560,7 +564,7 @@ We performed diagnostic checks on the fitted C-STAD model for the two population
 	\begin{figure}[h!]
 		\begin{center}
 			\includegraphics[scale=0.92]{./Figures/FA2.pdf} 
-			\caption{Poisson deviance residuals of the C-STAD model for adult females in Sweden and Denmark for the cohorts 1835-1970.\label{Fig:CSTADresid}}    
+			\caption{Poisson deviance residuals of the C-STAD model for adult females in Sweden and Denmark for the cohorts 1835-1970.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.\label{Fig:CSTADresid}}    
 		\end{center}
 	\end{figure}
 \end{landscape}
