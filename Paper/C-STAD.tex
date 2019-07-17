@@ -11,9 +11,9 @@
 \usepackage{multirow}	%% for TABLE
 \usepackage{hhline}		%% for TABLE
 \usepackage{tabularx,ragged2e}	%% for TABLE
-\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 \usepackage{xcolor, colortbl}
 \usepackage{lscape}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 \definecolor{my-grey}{RGB}{220,220,220}   %% COLORS
 \definecolor{my-white}{RGB}{255,255,255}  %% COLORS	
 \definecolor{my-darkgreen}{RGB}{0,100,0}  %% COLORS
@@ -23,7 +23,7 @@
 	colorlinks=true,
 	linkcolor=blue,
 	filecolor=magenta,      
-	urlcolor=cyan,
+	urlcolor=black,
 	citecolor=blue,
 }
 
@@ -34,11 +34,12 @@
 	
 	\title{An age-at-death distribution approach \\ to forecast cohort mortality}	
 	
-	\author[1,2]{Ugofilippo Basellini}
+	\author[1,2]{Ugofilippo Basellini\thanks{Corresponding author: \url{ugofilippo.basellini@ined.fr}\\
+	\hspace*{1.8em}Address: 133 boulevard Davout, 75020 Paris}}
 	\author[2]{S{\o}ren Kj{\ae}rgaard}
 	\author[1]{Carlo Giovanni Camarda}
 	\affil[1]{\small \textit{Institut national d'\'{e}tudes d\'emographiques (INED), Paris}}
-	\affil[2]{\small \textit{Interdisciplinary Centre on Population Dynamics (CPop), Department of Public Health, University of Southern Denmark, Odense}}
+	\affil[2]{\small \textit{Interdisciplinary Centre on Population Dynamics (CPop), Department of Public Health,} \authorcr \textit{University of Southern Denmark, Odense}}
 	
 	\maketitle 
  
