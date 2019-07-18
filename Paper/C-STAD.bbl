@@ -247,6 +247,12 @@ Preston, S.~H., Heuveline, P., and Guillot, M. (2001).
 \newblock {\em Demography. Measuring and Modeling Population Processes}.
 \newblock Blackwell.
 
+\bibitem[{R Development Core Team}, 2018]{Rcite}
+{R Development Core Team} (2018).
+\newblock {\em {R}: {A} {L}anguage and {E}nvironment for {S}tatistical
+  {C}omputing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
 \bibitem[Raftery et~al., 2013]{raftery2013bayesian}
 Raftery, A.~E., Chunn, J.~L., Gerland, P., and {\v{S}}ev{\v{c}}{\'i}kov{\'a},
   H. (2013).
