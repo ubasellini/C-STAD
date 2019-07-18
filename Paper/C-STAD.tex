@@ -116,7 +116,7 @@ Our interest in this article is restricted to the senescent component of mortali
 \begin{figure}[t]
 	\begin{center}
 		\includegraphics[scale=0.7]{./Figures/F2.pdf} 
-		\caption{Conventional age-period (left panel) and age-cohort (right panel) Lexis diagrams illustrating the data structure and the division of cohorts into three groups. Here we assume that: (i) 2015 is the most recent year of data collection, (ii) $\breve{c}=1905$, and (iii) $\tilde{c}=1925$. The three groups are then $c_1=1835, \ldots, 1905$, $c_2=1906, \ldots, 1925$ and $c_3=1926, \ldots, 1970$. The two colours in the forecast years correspond to different parameters' derivations (cf.~Subsection \ref{Subsec:EstimForeC-STAD}): estimation with missing data (light green) and forecasting (dark green). Black arrows depict the direction of estimation and forecasting (i.e.~by cohorts). \\
+		\caption{Conventional age-period (left panel) and age-cohort (right panel) Lexis diagrams illustrating the data structure and the division of cohorts into three groups. Here we assume that: (i) 2015 is the most recent year of data collection, (ii) $\breve{c}=1905$, and (iii) $\tilde{c}=1925$. The three groups are then $c_1=1835, \ldots, 1905$, $c_2=1906, \ldots, 1925$ and $c_3=1926, \ldots, 1970$. The two colours in the forecast years correspond to different parameters' derivations (cf.~Subsection \ref{Subsec:EstimForeC-STAD}): estimation with missing data (light green) and forecasting (dark green). \\
 		\small \textit{Source}: authors' own elaborations. \label{Fig:Lexis}}    
 	\end{center}
 \end{figure}
@@ -165,32 +165,21 @@ For the first group of fully observed cohort $c_1$, we start by estimating the p
 Having derived an estimate of the shifting parameter $\hat{\bm{s}}$, we can estimate the remaining parameters $\bm{\alpha}'=\left[b_{L},c_{L},d_{L},b_{U}\right]$. We take advantage of the Poisson assumption in Eq.~(\ref{Eq:Poisson}) and maximise the following log-likelihood function:
 %
 \begin{equation}\label{Eq:loglikeC1}
-\ln\mathcal{L}_1\left(\bm{\alpha}\,|\,d_{x,c} , e_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
-\right) \propto \sum_{x} \left[  d_{x,c} \,
+\ln\mathcal{L}_{\bm{\alpha}}\left(\bm{\alpha}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
+\right) \propto \sum_{x} w_{x,c} \left[  d_{x,c} \,
 \ln \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
 \, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 \end{equation}
 %
-for each cohort $c = 1835,\ldots,\breve{c}$, where $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution
-whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The associated age-at-death distribution can be written as follows:
+for each cohort $c = 1835,\ldots,\breve{c}$, where regression weights $w_{x,c}$ are zero in the case of unobserved data at the highest ages, and $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The associated age-at-death distribution can be written as follows:
 \begin{equation}\label{eq:gBspl}
 \hat{g}_{c}(x) = \exp\left[ B(x_{t}) \bm{\beta}_{f} \right] \qquad \mbox{where} \quad x_{t} = t(x; \hat{s}_{c},\hat{\bm{\alpha}}) \, .
 \end{equation}
 The hazard corresponding to $\hat{g}_{c}(x)$ is computed using standard life-table formulas \citep{preston2001demogr}.
 
-For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M_c$ and $\hat{\bm{s}}$ over cohorts in $c_2$. With respect to the remaining parameters, we modify Eq.~\eqref{Eq:loglikeC1} to take into account the missing data above the mode. Using the element of the regression weights in $\bm{W}$, we estimate $\bm{\alpha}$ by maximizing the log-likelihood:
-%
-\begin{equation}\label{Eq:loglikeC2}
-%\begin{aligned}
-\ln\mathcal{L}_2\left(\bm{\alpha}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \bm{\beta}_{f}
-\right) \sum_{x} w_{x,c} \left[  d_{x,c} \ln\left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
-\, \mu^{\texttt{C-STAD}}_{x,c} \right] 
-%\end{aligned}
-\end{equation}
-%
-for each cohort $c=\breve{c}+1,\ldots,\tilde{c}$. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
+For the second group of partially observed cohorts $c_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $c_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M_c$ and $\hat{\bm{s}}$ over cohorts in $c_2$. With respect to the remaining parameters, we also follow the same approach: we maximize Eq.~\eqref{Eq:loglikeC1} for each cohort $c=\breve{c}+1,\ldots,\tilde{c}$, the only difference being that zero regression weights correspond to the missing data above the mode of the partially observed cohorts. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
 
-For the third group of partially observed cohorts $c_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihoods in Eq.~\eqref{Eq:loglikeC1} and \eqref{Eq:loglikeC2}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ over cohorts in $c_1$ and $c_2$ to compute their forecasts for cohorts $c_3$. 
+For the third group of partially observed cohorts $c_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihood in Eq.~\eqref{Eq:loglikeC1}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ over cohorts in $c_1$ and $c_2$ to compute their forecasts for cohorts $c_3$. 
 
 From a theoretical perspective, these two parameters are related by the fact that only mortality changes occurring above the mode can modify its value \cite[cf.~Appendix B in][]{canudas2010three}. Correlation analyses for the two countries under study confirm the strong relation between the two series (Pearson correlation of 0.96 and 0.90 for the time-series in first differences for Sweden and Denmark, respectively). As such, we specify a vector autoregressive (VAR) model of order one with constant for the two (differenced) parameters, and we forecast their values for all cohorts $c_3$. The \texttt{R} package \texttt{vars} allows us to perform model selection and estimation \citep{pfaff2008analysis,pfaff2008var}.
 
@@ -198,7 +187,7 @@ Then, we take the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ as give
 %
 \begin{equation}\label{Eq:loglikeC3}
 %\begin{aligned}
-\ln\mathcal{L}_3\left(\breve{\bm{\alpha}}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \hat{b}_{U_{c}} , \bm{\beta}_{f} \right) \propto  \sum_{x} w_{x,c} \, \left[  d_{x,c} \,
+\ln\mathcal{L}_{\breve{\bm{\alpha}}}\left(\breve{\bm{\alpha}}\,|\,d_{x,c} , e_{x,c} , w_{x,c} , \hat{s}_{c}, \hat{b}_{U_{c}} , \bm{\beta}_{f} \right) \propto  \sum_{x} w_{x,c} \, \left[  d_{x,c} \,
 \ln \left( \mu^{\texttt{C-STAD}}_{x,c}  \right) - e_{x,c}
 \, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 %\end{aligned}
@@ -215,7 +204,7 @@ Finally, routines developed to fit and forecast the C-STAD model were implemente
 
 \subsection{Out-of-sample validation of the C-STAD model}
 \label{Subsec:Out-of-sample}
-Before estimating the proposed C-STAD model to complete/forecast observed cohorts, we first assess the accuracy of the C-STAD model by performing six predictive out-of-sample validation exercises on Swedish and Danish adult females. Specifically, we pretend that the last year of collected data is $2015 - \delta$, where $\delta=10,15,20,25,30$ and 35 years. We then fit the C-STAD model to the fully observed cohorts $c_1=1835,\ldots,1905-\delta$ and we forecast mortality $\delta$ years ahead. We then compare the forecast life expectancy at age 40 ($e_{40}$) and the Gini coefficient at age 40 ($g_{40}$)\footnote{in all analyses, we multiplied the Gini value by 100 in order to have a comparable magnitude with $e_{40}$.} with the observed out-of-sample values. Both measures of longevity (the former) and lifespan variability (the latter, which further measures the lifespan inequality within a population) are indeed useful to evaluate the accuracy of mortality forecasts \citep{bohk2017lifespan}.
+Before estimating the proposed C-STAD model to complete partially observed cohorts, we first assess the accuracy of the C-STAD model by performing six predictive out-of-sample validation exercises on Swedish and Danish adult females. Specifically, we pretend that the last year of collected data is $2015 - \delta$, where $\delta=10,15,20,25,30$ and 35 years. We then fit the C-STAD model to the fully observed cohorts $c_1=1835,\ldots,1905-\delta$ and we forecast mortality $\delta$ years ahead. We then compare the forecast life expectancy at age 40 ($e_{40}$) and the Gini coefficient at age 40 ($g_{40}$)\footnote{in all analyses, we multiplied the Gini value by 100 in order to have a comparable magnitude with $e_{40}$.} with the observed out-of-sample values. Both measures of longevity (the former) and lifespan variability (the latter, which further measures the lifespan inequality within a population) are indeed useful to evaluate the accuracy of mortality forecasts \citep{bohk2017lifespan}.
 
 An explicative example of this procedure is useful to clarify the out-of-sample exercises. Let us consider $\delta=10$: then, the last year of fully observed data is 2005. We fit the C-STAD to the fully observed cohorts $c_1=1835,\ldots,1895$, and we forecast 10-year ahead. By doing so, we complete the mortality experience of the partially observed cohorts $1896,\ldots,1905$, and for each of these, we compute and compare the estimated $e_{40}$ and $g_{40}$ with the observed ones. 
 
@@ -349,7 +338,7 @@ Mortality forecasting has drawn considerable interest in recent decades among ac
  
 In this article, we take an alternative perspective and introduce a new methodology to model and forecast mortality from cohort data. An important advantage of cohort forecasts is that they allow to complete the mortality experience of non-extinct cohorts, thus enabling the derivation of their mortality developments. Our approach focuses on cohort age-at-death distributions: specifically, we propose a warping transformation of the age-axis of a standard distribution to describe and forecast adult mortality developments across cohorts. Since we focus on the cohort perspective, we denote our methodology \emph{Cohort Segmented Transformation Age-at-death Distributions} (C-STAD) model. Warping transformations and skewing procedures have already been fruitfully employed to model distributional changes \cite[see, e.g.,][]{fernandez1998bayesian,camarda2008warped}. 
 
-Our methodology is inspired by the Segmented Transformation Age-at-death Distributions (STAD) model recently proposed by \cite{basellini2019modelling} to forecast adult age-at-death distributions. In addition to shifting the focus from period to cohort mortality, our methodology extends the STAD to a cubic transformation before the modal age at death. The additional parameters $c_L$ and $d_L$ are indeed necessary to adequately describe cohort mortality developments at young adult ages. A possible explanation for this is related to the significant improvements in mortality, especially at younger adult ages, across the cohorts that we analyse (cf.~Fig.~\ref{Fig:CSTADforeMx}). Non-linear functions above the mode were tested too, but they did not provide a better fit compared to a linear function. 
+Our methodology is inspired by the Segmented Transformation Age-at-death Distributions (STAD) model recently proposed by \cite{basellini2019modelling} to forecast adult age-at-death distributions. In addition to shifting the focus from period to cohort mortality, our methodology extends the STAD to a cubic transformation before the modal age at death. The additional parameters $c_L$ and $d_L$ are indeed necessary to adequately describe cohort mortality developments at young adult ages. A possible explanation for this is related to the significant improvements in mortality, especially at younger adult ages, across the cohorts that we analyse (cf.~Fig.~\ref{Fig:CSTADforeMx}). Non-linear transformation functions above the mode were tested too, but they did not provide a better fit compared to a linear transformation function. 
 
 Only a handful of models have been proposed to directly forecast cohort mortality so far \citep{chiou2009modeling,zanotto2017reconstruction,rizzi2019forecasting}. One of the main reasons for the limited efforts in this direction is the heavy data demands that such models require. However, this problem is reduced when only adult mortality is considered \citep{booth2006demographic}. As such, the issue does not affect us to a great extent, as our interest in this article is restricted to adult mortality only. 
 
