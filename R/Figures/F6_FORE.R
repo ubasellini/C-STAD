@@ -76,11 +76,11 @@ c1_mid <- mean(c(c1DNK[length(c1DNK)],c1SWE[length(c1SWE)]))
 c2_mid <- mean(c(c2DNK[length(c2DNK)],c2SWE[length(c2SWE)]))
 
 setwd("~/Documents/Demography/Work/STADcohorts/99_Github/C-STAD/Paper/Figures")
-pdf("F5.pdf",width = 10,height=5.5)
+pdf("F6.pdf",width = 10,height=5.5)
 ## set overall margins
 par(mfrow = c(1,2),
     oma = c(1.25,0.7,0.1,0.25),
-    mar = c(1.75,2.2,1.5,0.7))
+    mar = c(1.75,2.35,1.5,0.9))
 ## bottom, left, top, right
 xlim <- range(y)
 ylimE40fit <- range(e40.actDNK,e40.actSWE,E40_cstad_UP_DNK,E40_cstad_UP_SWE)
@@ -121,12 +121,12 @@ legend("topleft",c("","",""),pch=c(NA,15,NA),col=adjustcolor(1,alpha.f = 0.3),
 ylimG40fit <- range(g40.actDNK,g40.actSWE,G40_cstad_LOW_DNK,G40_cstad_LOW_SWE)
 plot(c1,g40.actDNK,t="n",ylim=ylimG40fit,
      xlim=xlim,cex.main=1,axes=F)
-title(main = expression(paste("Observed and completed ",g[40])),
+title(main = expression(paste("Observed and completed ",G[40])),
       cex.main=cex.main)
 axis(1,cex.axis=cex.x.axis,padj = -0.5);
 axis(2,las=2,cex.axis=cex.y.axis,hadj = 0.75,
      at=seq(0.12,0.24,0.02),labels = c("12","14","16","18","20","22","24"))
-mtext(text=expression(g[40]), side=2, las=3,
+mtext(text=expression(G[40]), side=2, las=3,
       line=1.5, cex=cex.y.lab)
 grid();box()
 abline(v=c1_mid,lty=2)

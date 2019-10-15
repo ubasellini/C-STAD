@@ -55,11 +55,11 @@ my.cols[4] <- brewer.pal(9, "BuPu")[8]
 display.brewer.pal(n = 9, name = 'BuPu')
 
 setwd("~/Documents/Demography/Work/STADcohorts/99_Github/C-STAD/Paper/Figures")
-pdf("F4.pdf",width = 10,height=5.5)
+pdf("F5.pdf",width = 10,height=5.5)
 ## set overall margins
 par(mfrow = c(1,2),
     oma = c(1.25,0.7,0.1,0.25),
-    mar = c(1.75,2.2,1.5,0.7))
+    mar = c(1.75,2.35,1.5,0.9))
 ## bottom, left, top, right
 
 ## left: E40
@@ -86,12 +86,12 @@ legend("topleft",c("Observed","C-STAD"),pch = c(16,4),
 ylimG40fit <- range(g40.actDNK,g40.actSWE,g40.hatDNK,g40.hatSWE)
 plot(c1,g40.actDNK,t="n",pch=16,col=my.cols[2],ylim=ylimG40fit,
      cex.main=1,axes=F,xlim=range(c1DNK,c1SWE))
-title(main = expression(paste("Observed and fitted ",g[40])),
+title(main = expression(paste("Observed and fitted ",G[40])),
       cex.main=cex.main)
 axis(1,cex.axis=cex.x.axis,padj = -0.5);
 axis(2,las=2,cex.axis=cex.y.axis,hadj = 0.75,
      at=seq(0.18,0.24,0.02),labels = c("18","20","22","24"))
-mtext(text=expression(g[40]), side=2, las=3,
+mtext(text=expression(G[40]), side=2, las=3,
       line=1.25, cex=cex.y.lab)
 grid();box()
 points(c1,g40.actDNK,pch=16,col=my.cols[2],cex=cex16)

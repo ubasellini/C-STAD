@@ -29,13 +29,18 @@ Bohk-Ewald, C., Ebeling, M., and Rau, R. (2017).
   Mortality Forecasts}.
 \newblock {\em Demography}, 54(4):1559--1577.
 
+\bibitem[Bongaarts, 2005]{bongaarts2005long}
+Bongaarts, J. (2005).
+\newblock Long-range trends in adult mortality: Models and projection methods.
+\newblock {\em Demography}, 42(1):23--49.
+
 \bibitem[Booth, 2006]{booth2006demographic}
 Booth, H. (2006).
 \newblock Demographic forecasting: 1980 to 2005 in review.
 \newblock {\em International Journal of Forecasting}, 22(3):547--581.
 
-\bibitem[Borgan and Keilman, 2018]{borgan2018cohort}
-Borgan, {\O}. and Keilman, N. (2018).
+\bibitem[Borgan and Keilman, 2019]{borgan2019cohort}
+Borgan, {\O}. and Keilman, N. (2019).
 \newblock {Do Japanese and Italian Women Live Longer than Women in
   Scandinavia?}
 \newblock {\em European Journal of Population}, 35(1):87--99.
@@ -144,6 +149,17 @@ Fern{\'{a}}ndez, C. and Steel, M. F.~J. (1998).
 \newblock {\em Journal of the American Statistical Association},
   93(441):359--371.
 
+\bibitem[Fries, 1980]{fries1980aging}
+Fries, J.~F. (1980).
+\newblock Aging, natural death, and the compression of morbidity.
+\newblock {\em New England Journal of Medicine}, 303(3):130--135.
+
+\bibitem[Goldstein and Wachter, 2006]{goldstein2006relationships}
+Goldstein, J.~R. and Wachter, K.~W. (2006).
+\newblock Relationships between period and cohort life expectancy: Gaps and
+  lags.
+\newblock {\em Population Studies}, 60(3):257--269.
+
 \bibitem[{Human Mortality Database}, 2019]{HMD}
 {Human Mortality Database} (2019).
 \newblock {{University of California, Berkeley (USA)}} and {Max Planck
@@ -161,6 +177,17 @@ Jacobsen, R., Keiding, N., and Lynge, E. (2002).
 Jacobsen, R., Keiding, N., and Lynge, E. (2006).
 \newblock Causes of death behind low life expectancy of {D}anish women.
 \newblock {\em Scandinavian Journal of Public Health}, 34(4):432--436.
+
+\bibitem[Janssen and de~Beer, 2019]{janssen2019timing}
+Janssen, F. and de~Beer, J. (2019).
+\newblock {The timing of the transition from mortality compression to mortality
+  delay in Europe, Japan and the United States}.
+\newblock {\em Genus}, 75(1).
+
+\bibitem[Kannisto, 2001]{kannisto2001mode}
+Kannisto, V. (2001).
+\newblock Mode and dispersion of the length of life.
+\newblock {\em Population: An English Selection}, 13:159--171.
 
 \bibitem[Keilman and Pham, 2006]{keilman2006prediction}
 Keilman, N. and Pham, D. (2006).
@@ -293,6 +320,11 @@ Shang, H.~L., Booth, H., and Hyndman, R. (2011).
 \newblock Point and interval forecasts of mortality rates and life expectancy:
   A comparison of ten principal component methods.
 \newblock {\em Demographic Research}, 25(5):173--214.
+
+\bibitem[Shkolnikov et~al., 2011]{shkolnikov2011steep}
+Shkolnikov, V.~M., Jdanov, D.~A., Andreev, E.~M., and Vaupel, J.~W. (2011).
+\newblock {Steep Increase in Best-Practice Cohort Life Expectancy}.
+\newblock {\em Population and Development Review}, 37(3):419--434.
 
 \bibitem[Vaupel and Lundstr{\"o}m, 1994]{vaupel1994longer}
 Vaupel, J. and Lundstr{\"o}m, H. (1994).

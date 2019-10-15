@@ -84,7 +84,7 @@ ylim
 
 ## SAVE
 setwd("~/Documents/Demography/Work/STADcohorts/99_Github/C-STAD/Paper/Figures")
-pdf("F6b.pdf",width = 10,height = 5.5)
+pdf("F7b.pdf",width = 10,height = 5.5)
 par(mfrow = c(1,2),
     oma = c(1.25,1.2,0.1,0.25),
     mar = c(1.75,2.3,1.2,0.3))
