@@ -12,8 +12,15 @@ Barbieri, M., Wilmoth, J.~R., Shkolnikov, V.~M., Glei, D., Jasilionis, D.,
 \newblock {Data Resource Profile: The Human Mortality Database (HMD)}.
 \newblock {\em International Journal of Epidemiology}, 44(5):1549--1556.
 
-\bibitem[Basellini and Camarda, 2019]{basellini2019modelling}
-Basellini, U. and Camarda, C.~G. (2019).
+\bibitem[Basellini and Camarda, 2019a]{basellini2019three}
+Basellini, U. and Camarda, C.~G. (2019a).
+\newblock {A Three-component Approach to Model and Forecast Age-at-death
+  Distributions}.
+\newblock In Mazzuco, S. and Keilman, N., editors, {\em New Perspectives on
+  Population Forecasting}. Springer. Forthcoming.
+
+\bibitem[Basellini and Camarda, 2019b]{basellini2019modelling}
+Basellini, U. and Camarda, C.~G. (2019b).
 \newblock Modelling and forecasting adult age-at-death distributions.
 \newblock {\em Population Studies}, 73(1):119--138.
 
@@ -120,6 +127,11 @@ Currie, I.~D., Durban, M., and Eilers, P.~H. (2004).
 \newblock Smoothing and forecasting mortality rates.
 \newblock {\em Statistical Modelling}, 4(4):279--298.
 
+\bibitem[Diaz et~al., 2018]{diaz2018mortality}
+Diaz, G., Deb{\'o}n, A., and Giner-Bosch, V. (2018).
+\newblock Mortality forecasting in {C}olombia from abridged life tables by sex.
+\newblock {\em Genus}, 74(1):15.
+
 \bibitem[Dokumentov et~al., 2018]{dokumentov2018bivariate}
 Dokumentov, A., Hyndman, R.~J., and Tickle, L. (2018).
 \newblock Bivariate smoothing of mortality surfaces with cohort and period
@@ -154,11 +166,37 @@ Fries, J.~F. (1980).
 \newblock Aging, natural death, and the compression of morbidity.
 \newblock {\em New England Journal of Medicine}, 303(3):130--135.
 
+\bibitem[Gigliarano et~al., 2017]{gigliarano2017longevity}
+Gigliarano, C., Basellini, U., and Bonetti, M. (2017).
+\newblock Longevity and concentration in survival times: the log-scale-location
+  family of failure time models.
+\newblock {\em Lifetime Data Analysis}, 23(2):254--274.
+
+\bibitem[Gini, 1912]{gini1912variabilita}
+Gini, C. (1912).
+\newblock Variabilit{\`a} e mutabilit{\`a}. {C}ontributi allo studio dele
+  relazioni e delle distribuzioni statistiche.
+\newblock {\em Studi Economico-Giuridici della Universit{\`a} di Cagliari}.
+
+\bibitem[Gini, 1914]{gini1914sulla}
+Gini, C. (1914).
+\newblock Sulla misura della concentrazione e della variabilit{\`a} dei
+  caratteri.
+\newblock {\em Atti del Reale Istituto Veneto di Scienze, Lettere ed Arti},
+  73:1203--1248.
+
 \bibitem[Goldstein and Wachter, 2006]{goldstein2006relationships}
 Goldstein, J.~R. and Wachter, K.~W. (2006).
 \newblock Relationships between period and cohort life expectancy: Gaps and
   lags.
 \newblock {\em Population Studies}, 60(3):257--269.
+
+\bibitem[Hanada, 1983]{hanada1983formula}
+Hanada, K. (1983).
+\newblock A formula of {G}ini's concentration ratio and its application to life
+  tables.
+\newblock {\em Journal of the Japan Statistical Society, Japanese Issue},
+  13(2):95--98.
 
 \bibitem[{Human Mortality Database}, 2019]{HMD}
 {Human Mortality Database} (2019).
@@ -194,6 +232,12 @@ Keilman, N. and Pham, D. (2006).
 \newblock Prediction intervals for {Lee-Carter}-based mortality forecasts.
 \newblock In {\em European Population Conference 2006, Liverpool, June 21--24,
   2006}.
+
+\bibitem[Klein and Moeschberger, 2003]{klein2003survival}
+Klein, J.~P. and Moeschberger, M.~L. (2003).
+\newblock {\em {Survival Analysis: Techniques for Censored and Truncated
+  Data}}.
+\newblock Springer Science \& Business Media, second edition.
 
 \bibitem[Koissi et~al., 2006]{koissi2006evaluating}
 Koissi, M.-C., Shapiro, A.~F., and Högnäs, G. (2006).
@@ -321,10 +365,34 @@ Shang, H.~L., Booth, H., and Hyndman, R. (2011).
   A comparison of ten principal component methods.
 \newblock {\em Demographic Research}, 25(5):173--214.
 
+\bibitem[Shkolnikov et~al., 2003]{shkolnikov2003gini}
+Shkolnikov, V.~M., Andreev, E.~E., and Begun, A.~Z. (2003).
+\newblock Gini coefficient as a life table function: computation from discrete
+  data, decomposition of differences and empirical examples.
+\newblock {\em Demographic Research}, 8(11):305--358.
+
 \bibitem[Shkolnikov et~al., 2011]{shkolnikov2011steep}
 Shkolnikov, V.~M., Jdanov, D.~A., Andreev, E.~M., and Vaupel, J.~W. (2011).
 \newblock {Steep Increase in Best-Practice Cohort Life Expectancy}.
 \newblock {\em Population and Development Review}, 37(3):419--434.
+
+\bibitem[Smits and Monden, 2009]{smits2009length}
+Smits, J. and Monden, C. (2009).
+\newblock Length of life inequality around the globe.
+\newblock {\em Social Science \& Medicine}, 68(6):1114--1123.
+
+\bibitem[Thiele, 1871]{thiele1871mathematical}
+Thiele, T.~N. (1871).
+\newblock {On a mathematical formula to express the rate of mortality
+  throughout the whole of life, tested by a series of observations made use of
+  by the Danish Life Insurance Company of 1871}.
+\newblock {\em Journal of the Institute of Actuaries and Assurance Magazine},
+  16(5):313--329.
+
+\bibitem[van Raalte and Caswell, 2013]{van2013perturbation}
+van Raalte, A.~A. and Caswell, H. (2013).
+\newblock Perturbation analysis of indices of lifespan variability.
+\newblock {\em Demography}, 50(5):1615--1640.
 
 \bibitem[Vaupel and Lundstr{\"o}m, 1994]{vaupel1994longer}
 Vaupel, J. and Lundstr{\"o}m, H. (1994).
@@ -332,6 +400,13 @@ Vaupel, J. and Lundstr{\"o}m, H. (1994).
   mortality rates at advanced ages.
 \newblock In {\em Studies in the Economics of Aging}, pages 79--102. University
   of Chicago Press.
+
+\bibitem[Wilmoth et~al., 2017]{wilmoth2017protocol}
+Wilmoth, J., Andreev, K., Jdanov, D., Glei, D., Riffe, T., Boe, C., Bubenheim,
+  M., Philipov, D., Shkolnikov, V., Vachon, P., Winat, C., and Barbieri, M.
+  (2017).
+\newblock {Methods Protocol for the Human Mortality Database. Last Revised:
+  November 27, 2017 (Version 6)}.
 
 \bibitem[Wilmoth and Lundstr{\"o}m, 1996]{wilmoth1996extreme}
 Wilmoth, J.~R. and Lundstr{\"o}m, H. (1996).

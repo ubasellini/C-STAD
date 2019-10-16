@@ -59,7 +59,7 @@ xs <- seq(min(x), max(x), delta)  ## ages at fine grid
 ms <- length(xs)
 
 ## cohort dimensions
-year.start <- 1875 - age.start
+year.start <- 1835
 year.end <- 2015 - age.start - 5
 y <- year.start:year.end  ## use for both SWE and DNK (to have same time-range of analysis + reliable data)
 n <- length(y)
