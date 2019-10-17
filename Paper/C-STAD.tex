@@ -79,7 +79,7 @@ More generally, analysis and forecasts of cohort mortality are interesting and w
 
 %As such, analysing and forecasting cohort mortality can provide different insights on mortality developments than studies based on the period perspective.  
 
-{\color{red}Analyses of age-cohort data have indeed provided different insights on mortality developments than studies based on the age-period perspective. For example, \cite{shkolnikov2011steep} have shown that best-practice cohort life expectancy for women born between 1870 and 1920 increased almost twice as fast as best-practice period life expectancy since 1840. Moreover, \cite{goldstein2006relationships} suggested that, in populations experiencing steady mortality declines, period life expectancy can be regarded as a lagged indicator of cohort life expectancy, and that the lag amounts to about 40--50 years for women in the USA. Finally, \cite{borgan2019cohort} have shown that the differences in period life expectancy between Japanese and Italian women on one side, and Scandinavian ones on the other, disappear or even reverse when considering cohort data: as such, they contend that these differences are caused by the distortion that period life tables imply in times of changing mortality. Given these considerations, using age-cohort data to forecast cohort mortality seems a more reasonable approach than extracting cohort patterns from age-period projections. \par}
+{\color{red}Analyses of age-cohort data have indeed provided different insights on mortality developments than studies based on the age-period perspective. For example, \cite{shkolnikov2011steep} have shown that best-practice cohort life expectancy for women born between 1870 and 1920 increased almost twice as fast as best-practice period life expectancy since 1840. Moreover, \cite{goldstein2006relationships} suggested that, in populations experiencing steady mortality declines, period life expectancy can be regarded as a lagged indicator of cohort life expectancy, and that the lag amounts to about 40--50 years for women in the USA. Finally, \cite{borgan2019cohort} have shown that the differences in period life expectancy between Japanese and Italian women on one side, and Scandinavian ones on the other, disappear or even reverse when considering cohort data: as such, they contend that these differences are caused by the distortion that period life tables imply in times of changing mortality. Given these considerations, forecasting cohort mortality from age-cohort data seems a more reasonable approach than extracting cohort patterns from age-period projections. \par}
 
 Models to forecast cohort mortality are relatively few in the literature. Among the firsts to use a cohort perspective, the \cite{cmi2007stochastic} employed the two-dimensional $P$-spline model of \cite{currie2004smoothing} to complete the mortality experience of cohorts in England \& Wales. Furthermore, \cite{chiou2009modeling} proposed a functional data analysis approach for forecasting cohort log-hazard functions using Swedish mortality data. More recently, the combination of an EM algorithm with an eight-parameter model for the age-at-death distribution was suggested by \cite{zanotto2017reconstruction} for estimating 
 deaths of non-extinct generations. Finally, \cite{rizzi2019forecasting} proposed to complete partially observed cohort age-at-death distributions using a penalized composite link model \citep{eilers2007ill}, assuming a smooth underlying distribution over age. 
@@ -123,7 +123,7 @@ node [midway,below=5pt] {Partially observed};
 
 \medskip The matrix clearly shows that, for the cohorts $\bm{c}'=\left[\breve{c}+1,\dots,n\right]$, data are increasingly missing from the last age downwards. Exposure data in $\bm{E}$ are unobserved for the same elements of $\bm{D}$.  
 
-The analysis of mortality developments over ages and cohorts will therefore inevitably display this data structure. Figure \ref{Fig:ADDcohort} shows an example of such analysis: observed adult age-at-death distributions for Swedish females are illustrated for selected cohorts between 1835--1970. For this population, the last cohort with fully observed data is 1906; more recent cohorts are thus characterized by a decreasing amount of observed data, as shown by the graphs.
+The analysis of mortality developments over ages and cohorts will therefore inevitably display this data structure. Figure \ref{Fig:ADDcohort} shows an example of such analysis: observed adult age-at-death distributions for Swedish females are illustrated for selected cohorts between 1835--1970 \cite[data retrieved from the][]{HMD}. For this population, the last cohort with fully observed data is 1906; more recent cohorts are thus characterized by a decreasing amount of observed data, as shown by the graphs.
 
 \begin{figure}[t]
 	\begin{center}
@@ -180,7 +180,7 @@ Different parameters' values allow to capture broader mortality developments tha
 \label{Subsec:Data}
 For illustrative purposes we present outcomes from the proposed model on adult cohort mortality for females in two high-longevity countries, namely Sweden and Denmark. Long-term series of high quality data are available for both countries, even at the very old ages \citep{vaupel1994longer,wilmoth1996extreme,AndreevBookDanemark}, and the two countries display different mortality developments. We therefore test the goodness-of-fit and forecast accuracy of our model with respect to different mortality trajectories \citep{ChristensenEtAlDenmarkSwedenDivergence2010}. The data are derived from the \citeauthor{HMD} (HMD, \citeyear{HMD}), which provides free access to detailed, consistent and high quality historical mortality data for 41 different areas and countries \citep{barbieri2015data}.
 
-Our interest in this article is restricted to the senescent component of mortality, hence we start our analyses from age 40. We therefore cover the age range that is of greater interest for pension and insurance funds. Specifically, {\color{red} our} $m \times n$ matrices $\bm{D} = (d_{x,c})$ and $\bm{E} = (e_{x,c})$ {\color{red} are defined for ages $\bm{x}'=\left[40,\dots,110+\right]$ and cohorts $\bm{c}'=\left[1835,\dots,1970\right]$}. Figure~\ref{Fig:Lexis} offers a schematic overview of the data structure by means of two Lexis diagrams: the first (left panel) shows the conventional age-period structure, while the second (right panel) illustrates the age-cohort perspective that we adopt in this paper. On one hand, we select 1835 as starting cohort of analysis for both populations because it is the first cohort with observed data at all ages in Denmark, and to compare the results for the two countries using the same fitting period. On the other hand, 1970 is the final cohort because it contains enough observed data points in both countries (seven in Sweden, six in Denmark) to estimate the three low parameters accurately (cf.~Subsection \ref{Subsec:EstimForeC-STAD}). 
+Our interest in this article is restricted to the senescent component of mortality, hence we start our analyses from age 40. We therefore cover the age range that is of greater interest for pension and insurance funds. Specifically, {\color{red} we work with two} $m \times n$ matrices $\bm{D} = (d_{x,c})$ and $\bm{E} = (e_{x,c})$, {\color{red} defined for ages $\bm{x}'=\left[40,\dots,110+\right]$ and cohorts $\bm{c}'=\left[1835,\dots,1970\right]$}. Figure~\ref{Fig:Lexis} offers a schematic overview of the data structure by means of two Lexis diagrams: the first (left panel) shows the conventional age-period structure, while the second (right panel) illustrates the age-cohort perspective that we adopt in this paper. On one hand, we select 1835 as starting cohort of analysis for both populations because it is the first cohort with observed data at all ages in Denmark, and to compare the results for the two countries using the same fitting period. On the other hand, 1970 is the final cohort because it contains enough observed data points in both countries (seven in Sweden, six in Denmark) to estimate the three low parameters accurately (cf.~Subsection \ref{Subsec:EstimForeC-STAD}). 
 
 \begin{figure}[t]
 	\begin{center}
@@ -237,7 +237,7 @@ The estimated smooth mortality surface allows us to derive smooth (partial) dist
 
 Having aligned the observed distributions to a common modal age, we derive the standard $f(x)$ as the mean of the aligned distributions. Figure \ref{Fig:Alignment} in Appendix \ref{Appendix:AdditResults} illustrates the alignment procedure and the derivation of the standard distribution for the Swedish female population analysed in our article.} This landmark registration procedure has been suggested elsewhere as it enhances the representativeness of $f(x)$ while improving the goodness-of fit of the model \cite[for additional details, see][]{basellini2019modelling}. Importantly, it should be noted that for cohorts in $\bm{c}_2$ and $\bm{c}_3$, we only use the part of the aligned distribution corresponding  to the observed data (i.e.~where regression weights are not zero). 
 
-Finally, we express the standard $f(x)$ as a linear combination of equally spaced $B$-spline basis $\bm{B}(x)$ over ages $x$ and coefficients $\bm{\beta}_{f}$ specific to the standard:
+Finally, we express the standard $f(x)$ as a linear combination of equally spaced $B$-spline bases $\bm{B}(x)$ over ages $x$ and coefficients $\bm{\beta}_{f}$ specific to the standard:
 %
 \begin{equation}\label{Eq:standPsplines}
 f(x) = \exp\left[ \bm{B}(x) \, \bm{\beta}_{f} \right] \, .
@@ -260,7 +260,7 @@ Having derived an estimate of the shifting parameter $\hat{\bm{s}}$, we can esti
 \, \mu^{\texttt{C-STAD}}_{x,c} \right] 
 \end{equation}
 %
-for each cohort $c = 1835,\ldots,\breve{c}$, where regression weights $w_{x,c}$ are zero in the case of unobserved data at the highest ages, and $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The associated age-at-death distribution $\hat{g}_{c}(x)$ can be written as follows:
+for each cohort {\color{red}in $\bm{c}'_1 = \left[1835,\dots,\breve{c}\right]$}, where regression weights $w_{x,c}$ are zero in the case of unobserved data at the highest ages, and $\mu^{\texttt{C-STAD}}_{x,c}$ denotes the estimated hazard of the C-STAD model. In words, the optimization procedure looks for a combination of parameters $\hat{\bm{\alpha}}$ that produces, for each cohort, an age-at-death distribution whose corresponding hazard maximises the log-likelihood in Eq.~(\ref{Eq:loglikeC1}). The associated age-at-death distribution $\hat{g}_{c}(x)$ can be written as follows:
 \begin{equation}\label{eq:gBspl}
 \hat{g}_{c}(x) = \exp\left[ B(x_{t}) \bm{\beta}_{f} \right] \qquad \mbox{where} \quad x_{t} = t(x; \hat{s}_{c},\hat{\bm{\alpha}}) \, .
 \end{equation}
@@ -270,7 +270,7 @@ for each cohort $c = 1835,\ldots,\breve{c}$, where regression weights $w_{x,c}$ 
 \end{equation}
 where $\hat{\ell}_c(x)$ denotes the life-table probability of surviving to age $x$ \cite[i.e.~the survival function,][]{preston2001demogr,klein2003survival}, which can be computed numerically from the smooth distribution $\hat{g}_{c}(x)$, evaluated at an extremely fine level.}
 
-For the second group of partially observed cohorts $\bm{c}_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $\bm{c}_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M_c$ and $\hat{\bm{s}}$ over cohorts in $\bm{c}_2$. With respect to the remaining parameters, we also follow the same approach: we maximize Eq.~\eqref{Eq:loglikeC1} for each cohort $c=\breve{c}+1,\ldots,\tilde{c}$, the only difference being that zero regression weights correspond to the missing data above the mode of the partially observed cohorts. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
+For the second group of partially observed cohorts $\bm{c}_2$, we start again from the shifting parameter $\bm{s}$. We use the same estimation approach used in $\bm{c}_1$: data are available until the ages above the mode, therefore the smoothing approach produces an estimate of $M_c$ and $\hat{\bm{s}}$ over cohorts in $\bm{c}_2$. With respect to the remaining parameters, we also follow the same approach: we maximize Eq.~\eqref{Eq:loglikeC1} for each cohort {\color{red}in $\bm{c}'_2=\left[\breve{c}+1,\ldots,\tilde{c}\right]$}, the only difference being that zero regression weights correspond to the missing data above the mode of the partially observed cohorts. It should be noted here that the missing data only influence the estimation of $b_U$, as complete data are observed below the mode for all cohorts in this group. 
 
 For the third group of partially observed cohorts $\bm{c}_3$, we employ a mixture of forecasting and estimation to determine the C-STAD parameters. The lack of data above the modal age at death makes it impossible to estimate the parameter $\bm{s}$ and compute the log-likelihood in Eq.~\eqref{Eq:loglikeC1}. Hence, we start from the time-series of the estimated parameters $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ over cohorts in $\bm{c}_1$ and $\bm{c}_2$ to compute their forecasts for cohorts $\bm{c}_3$. 
 
@@ -286,11 +286,11 @@ Then, we take the forecast values of $\hat{\bm{s}}$ and $\hat{\bm{b}}_U$ as give
 %\end{aligned}
 \end{equation}
 %
-for each cohort $c=\tilde{c}+1,\ldots,1970$. In contrast to the estimation procedure in $\bm{c}_2$, here the missing data influence the estimation of the parameters associated to the ages below the modal age at death. \par
+for each cohort {\color{red}in $\bm{c}'_3=\left[\tilde{c}+1,\ldots,1970\right]$}. In contrast to the estimation procedure in $\bm{c}_2$, here the missing data influence the estimation of the parameters associated to the ages below the modal age at death. \par
 
 The estimate $\hat{\bm{\theta}}$ for each cohort in 1835--1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $\bm{c}_3$).}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty related to: (i) the estimated parameters, and (ii) the forecast values of $\bm{s}$ and $\bm{b}_U$. The first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. The second source of uncertainty is considered by simulating future values of the VAR model. We employ 40 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 40 future values of $\bm{s}$ and $\bm{b}_U$. From the 1600 resulting simulations, we take the lower and higher deciles to construct 80\% pointwise confidence intervals.
 
-Finally, routines developed to fit and forecast the C-STAD model were implemented in \texttt{R} \citep{Rcite} and are publicly available, and all the results presented in the following Section are fully reproducible at [this GitHub repository will be made public upon eventual acceptance of the manuscript]. 
+Finally, routines developed to fit and forecast the C-STAD model were implemented in \texttt{R} \citep{Rcite} and are publicly available, and all the results presented in the following Section are fully reproducible at \url{https://github.com/ubasellini/C-STAD} [this GitHub repository will be made public upon eventual acceptance of the manuscript]. 
 
 \section{Results}
 \label{Sec:Results}
@@ -305,20 +305,20 @@ G_{40} = 1 - \frac{1}{e_{40}\,\left(\ell_{40}\right)^2} \int_{40}^{\omega} \left
 %
 where $\ell_{40}$ is the life-table radix, which we let equal to one without loss of generality, and $\omega$ is the highest age attained in the population \citep{hanada1983formula,shkolnikov2003gini}.
 
-Originally proposed to measure income or wealth inequality \citep{gini1912variabilita,gini1914sulla}, the Gini concentration index is nowadays one of the most common statistical indices employed for measuring concentration in the distribution of a positive random variable. In recent years, the coefficient has been used to measure lifespan inequality within and between populations \cite[see, e.g.,][]{shkolnikov2003gini,smits2009length,van2013perturbation,gigliarano2017longevity} and to evaluate mortality forecasts \citep{diaz2018mortality,basellini2019modelling}. The coefficient takes values between 0 and 1, which correspond to the limit cases of perfect equality and perfect inequality, respectively. For an age-at-death distribution, Gini is equal to zero if all individuals die at the same age, and equal to 1 if all people die at age 0 and one individual dies at a positive age \citep{shkolnikov2003gini}. In this article, we compute $G_{40}$ in Equation \eqref{Eq:GINI} with the approximation formula proposed by \cite{shkolnikov2003gini},} and we multiply $G_{40}$ by 100 in order to have a comparable magnitude with $e_{40}$.
+Originally proposed to measure income or wealth inequality \citep{gini1912variabilita,gini1914sulla}, the Gini coefficient is nowadays one of the most common statistical indices employed for measuring concentration in the distribution of a positive random variable. In recent years, the coefficient has been used to measure lifespan inequality within and between populations \cite[see, e.g.,][]{shkolnikov2003gini,smits2009length,van2013perturbation,gigliarano2017longevity} and to evaluate mortality forecasts \citep{diaz2018mortality,basellini2019modelling}. The coefficient takes values between 0 and 1, which correspond to the limit cases of perfect equality and perfect inequality, respectively. For an age-at-death distribution, Gini is equal to zero if all individuals die at the same age, and equal to 1 if all people die at age 0 and one individual dies at a positive age \citep{shkolnikov2003gini}. In this article, we compute $G_{40}$ in Equation \eqref{Eq:GINI} with the approximation formula proposed by \cite{shkolnikov2003gini},} and we multiply $G_{40}$ by 100 in order to have a comparable magnitude with $e_{40}$.
 
-An explicative example of this procedure is useful to clarify the out-of-sample exercises. Let us consider $h=10$: then, the last year of fully observed data is 2005. We fit the C-STAD to the fully observed cohorts {\color{red}$\bm{c}'_1=\left[1835,\dots,1895\right]$}, and we forecast 10-year ahead. By doing so, we complete the mortality experience of the partially observed cohorts $1896,\ldots,1905$, and for each of these, we compute and compare the estimated $e_{40}$ and $G_{40}$ with the observed ones. 
+An explicative example of the validation procedure is useful to clarify the out-of-sample exercises. Let us consider $h=10$: then, the last year of fully observed data is 2005. We fit the C-STAD to the fully observed cohorts {\color{red}$\bm{c}'_1=\left[1835,\dots,1895\right]$}, and we forecast 10-year ahead. By doing so, we complete the mortality experience of the partially observed cohorts $1896,\ldots,1905$, and for each of these, we compute and compare the estimated $e_{40}$ and $G_{40}$ with the observed ones. 
 
 It is worth mentioning at this point that, for the lower values of $h$, forecasting is achieved simply by fitting the C-STAD on the partially observed cohorts $\bm{c}_2$. In the explicative example above, where the last data collection occurred in 2005, the cohort 1896, for instance, has been observed at all ages except 110. We thus take advantage of the nature of cohort data and consider all possible observations to complete the mortality experience of this partial cohort.  Conversely, for higher values of $h$, forecasting is achieved by considering also the cohorts $\bm{c}_3$, which require the combination of forecasting and estimation of the C-STAD parameters. 
 
 In addition to the C-STAD, we perform the same out-of-sample exercises with the 2D $P$-splines approach of \cite{currie2004smoothing}. This is indeed the only model that, up to our knowledge, has been employed to forecast cohort mortality from a cohort perspective \citep{cmi2007stochastic} and is readily implemented in the \texttt{R} software \cite[in the \texttt{MortalitySmooth} package,][]{camarda2012mortalitysmooth}. 
 
-{\color{red} Furthermore, we compare our results with the standard procedure of: (i) forecasting mortality in an age-period fashion, and (ii) extracting cohort patterns from the diagonals of the age-period mortality surface. For these comparisons, we employ the benchmark model of \citeauthor{lee1992modeling} (LC, \citeyear{lee1992modeling}). For consistency, in each exercise we select the shortest fitting period that includes all the cohorts needed to assess the LC forecasts. Fitting periods for the six exercises are 1936--2005, 1931--2000, 1926--1995, 1921--1990, 1916--1985 and 1911--1980: the starting year is computed by adding 40 (the starting age of the analysis) to the first forecast cohort, while the last year is given by $2015 - h$. It should be noted that the age-period surface for these exercises was derived from the original age-cohort data, to exclude potential bias related to differences in the computation of period vs.~cohort mortality rates \cite[see][pp.~29--33]{wilmoth2017protocol}. \par
+{\color{red} Furthermore, we compare our results with the standard procedure of: (i) forecasting mortality in an age-period fashion, and (ii) extracting cohort patterns from the diagonals of the age-period mortality surface. For these comparisons, we employ the benchmark model of \citeauthor{lee1992modeling} (LC, \citeyear{lee1992modeling}). For consistency, in each exercise we select the shortest fitting period that includes all the cohorts needed to assess the LC forecasts. Fitting periods for the six exercises are 1936--2005, 1931--2000, 1926--1995, 1921--1990, 1916--1985 and 1911--1980: the starting year is computed by adding 40 (the starting age of the analysis) to the first forecast cohort, while the last year is given by $2015 - h$. It should be noted that the fitting age-period surface for these exercises was derived from the original age-cohort data, to exclude potential bias related to differences in the computation of period vs.~cohort mortality rates \cite[see][pp.~29--33]{wilmoth2017protocol}. \par
 }
 
 %We do not consider other methodologies, such as the \cite{lee1992modeling} model and its variants, because cohort forecasts with these approaches are derived from period ones, and the comparison would not be objective (for example, forecast values depend on the length of the fitting period, whose choice would be subjective and not comparable in such exercise).  
 
-Table \ref{Table:RMSE} presents the results of our analysis. The first and second columns contain the cohorts used for fitting and forecasting the C-STAD and 2D $P$-splines models, respectively. The third column contains the forecast horizon of the out-of-sample exercise, while the fourth column the measure analysed ($e_{40}$ and $G_{40}$). Results are shown in the last four columns. We assess the accuracy of the point forecasts by computing the root mean square error (RMSE):
+Table \ref{Table:RMSE} presents the results of our analysis. The first and second columns contain the cohorts used for fitting and forecasting the C-STAD and 2D $P$-splines models, respectively. The third column contains the forecast horizon of the out-of-sample exercise, while the fourth column the measure analysed ($e_{40}$ and $G_{40}$). Results are shown in the last {\color{red}six} columns. We assess the accuracy of the point forecasts by computing the root mean square error (RMSE):
 %
 \begin{equation}\label{Eq:RMSE}
 \mathrm{RMSE}=\sqrt{\frac{1}{h} \sum_{c=1}^{h} \left(\hat{y}_c-y_c\right)^2} \, , \notag
@@ -328,78 +328,79 @@ where $h$ is the forecasting horizon, and $\hat{y}_c$ and $y_c$ are the forecast
 
 % TABLE RMSE: 10, 20, 30 YEARS
 \begin{table}[h!]
-	\small
+%	\small
+	\scriptsize
 	\centering
-	\begin{tabular}{cccccc|cc}
+	\begin{tabular}{ccccccc|ccc}
 		\toprule
-		& & & &   \multicolumn{2}{c}{\textbf{Sweden}}    & \multicolumn{2}{c}{\textbf{Denmark}} \\
+		& & & &   \multicolumn{3}{c}{\textbf{Sweden}}    & \multicolumn{3}{c}{\textbf{Denmark}} \\
 		
-		\cmidrule{5-8}	
+		\cmidrule{5-10}	
 		
-		\thead{Fitting \\ cohorts}  & \thead{Forecast \\ cohorts} & Horizon &  Measure  &  C-STAD   & 2D $P$-spline &  C-STAD   & 2D $P$-spline     \\ 
+		\thead{Fitting \\ cohorts}  & \thead{Forecast \\ cohorts} & Horizon &  Measure  &  C-STAD   & \thead{2D \\ $P$-spline} & \thead{{\color{red}LC} \\ {\color{red}(period)}} &  C-STAD   & \thead{2D \\ $P$-spline}  & \thead{{\color{red}LC} \\ {\color{red}(period)}}    \\ 
 		\midrule	
 		%%%% FIRST EXERCISE	
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}   &
-		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & 0.08  & \textbf{0.08} &  \textbf{0.08} &  0.08      \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & 0.08  & \textbf{0.08} & 0.22 & \textbf{0.08} &  0.08   & 0.41   \\
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1895}}  &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1896--1905}}  & 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.09} &   0.10 & \textbf{0.08} &  0.08  \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.09} &   0.10 & 0.32 & \textbf{0.08} &  0.08 & 0.38  \\
 		
 		%%%% SECOND EXERCISE	
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
-		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.07} &  0.09 & \textbf{0.07} & 0.08  \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.07} &  0.09 & 0.26 & \textbf{0.07} & 0.08 & 0.41  \\
 		\rowcolor{my-grey}       \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1890}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1891--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.08} &  0.10 & \textbf{0.07} & 0.12       \\ 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.08} &  0.10 & 0.40 & \textbf{0.07} & 0.12  & 0.44     \\ 
 		
 		%%%% THIRD EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}   &
-		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.05} & 0.08 & \textbf{0.06} & 0.08 \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.05} & 0.08 & 0.35 & \textbf{0.06} & 0.08 & 0.44 \\
 		\rowcolor{my-white}            
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1885}}           &
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1886--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.09} & 0.11 & \textbf{0.06} & 0.12  \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.09} & 0.11 & 0.53 & \textbf{0.06} & 0.12 & 0.45  \\
 		
 		%%%% FOURTH EXERCISE	
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
-		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.04} & 0.08  & \textbf{0.03} &  0.08     \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.04} & 0.08 & 0.41  & \textbf{0.03} &  0.08  & 0.47   \\
 		\rowcolor{my-grey} 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1880}}                 &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1881--1905}}  & 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.10} & 0.11 & \textbf{0.11} & 0.14      \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1880}}   &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1881--1905}}  & 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.10} & 0.11 & 0.57 & \textbf{0.11} & 0.14  & 0.47    \\
 		
 		%%%% FIFTH EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}             &
-		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &   \textbf{0.06} & 0.09 &  \textbf{0.03} &  0.11   \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &   \textbf{0.06} & 0.09 & 0.48 &  \textbf{0.03} &  0.11 & 0.52  \\
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1875}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1876--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.10} &  0.14 & \textbf{0.11} & 0.19       \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.10} &  0.14 & 0.63 & \textbf{0.11} & 0.19   & 0.52    \\
 		
 		%%%% SIXTH EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
-		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.14 & \textbf{0.08} & \textbf{0.05} &  0.14  \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.14 & \textbf{0.08} & 0.56 & \textbf{0.05} &  0.14 & 0.55  \\
 		\rowcolor{my-grey}           
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1870}}           &
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1871--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.04} &  0.13 & \textbf{0.06} & 0.22   \\		
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}    & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.04} &  0.13 & 0.59 & \textbf{0.06} & 0.22 & 0.49  \\		
 		
 		\bottomrule 
 		
 	\end{tabular}
-	\caption{Root mean square error (RMSE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $G_{40}$ for adult females in Sweden and Denmark in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the RMSE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\
+	\caption{Root mean square error (RMSE) of the C-STAD, 2D $P$-spline {\color{red}and LC (period)} forecasts of $e_{40}$ and $G_{40}$ for adult females in Sweden and Denmark in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the RMSE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\
 	\small \textit{Source}: authors' elaborations on data from the \cite{HMD}.}\label{Table:RMSE}
 \end{table}
 
-The table shows that the C-STAD forecasts are accurate in completing the mortality experience of partially observed cohorts. The RMSE values of both $e_{40}$ and $G_{40}$  are low across the six exercises, and they do not increase significantly with the forecasting horizon. Additionally, C-STAD forecasts are more accurate than those of the 2D $P$-spline model, {\color{red} and both age-cohort models significantly outperform the standard LC age-period based approach. Employing different fitting periods, such as starting the age-period analysis from the same year (for example, 1911) for all exercises, would result into even greater RMSE of the LC forecasts for the shorter horizon exercises.} Very similar results are obtained by employing different prediction accuracy measures, such as the MAPE and MAE (see Appendix \ref{Appendix:AdditResults}). \par
+The table shows that the C-STAD forecasts are accurate in completing the mortality experience of partially observed cohorts. The RMSE values of both $e_{40}$ and $G_{40}$  are low across the six exercises, and they do not increase significantly with the forecasting horizon. Additionally, C-STAD forecasts are more accurate than those of the 2D $P$-spline model, {\color{red} and both age-cohort models significantly outperform the standard LC age-period based approach. Employing different fitting periods in the age-period exercises, such as starting the analysis from the same year (for example, 1911) in all cases, would result into even greater RMSE of the LC forecasts for the shorter horizon exercises.} Very similar results are obtained by employing different prediction accuracy measures, such as the MAPE and MAE (see Appendix \ref{Appendix:AdditResults}). \par
 
 \subsection{Mortality developments for Swedish and Danish females, cohorts 1835--1970}
 \label{Subsec:ForecastC-STAD}
@@ -462,7 +463,7 @@ Although theoretically and practically possible, we do not recommend to apply th
 
 }
 
-To conclude, the C-STAD model offers great prospects for mortality forecasting from the cohort perspective. Insurance companies would benefit from employing our model to assess their solvency needs, as the model provides a direct approach to complete the mortality experience  of non-extinct cohorts. The \texttt{R} code provided with this article allows a fast and freely available opportunity for this purpose. 
+To conclude, the C-STAD model offers great prospects for mortality forecasting from the cohort perspective. {\color{red}Public and private institutions would benefit from employing our model, as it} provides a direct approach to complete the mortality experience  of non-extinct cohorts. The \texttt{R} code provided with this article allows a fast and freely available opportunity for this purpose. 
 
 \bigskip
 
@@ -471,7 +472,8 @@ To conclude, the C-STAD model offers great prospects for mortality forecasting f
 %\small
 \bibliography{Biblio_CSTAD} 
 
-\newpage
+%\newpage
+\bigskip
 \appendix
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
@@ -518,153 +520,155 @@ First, Figure \ref{Fig:Alignment} provides an illustration of the landmark regis
 %
 where $h$ is the forecasting horizon, and $\hat{y}_c$ and $y_c$ are the forecast and observed out-of-sample values of either $e_{40}$ or $G_{40}$. 
 
-Tables \ref{Table:MAE} and \ref{Table:MAPE} show the out-of-sample results obtained using the MAE and the MAPE, respectively. The results are very similar to those obtained with the RMSE shown in Table \ref{Table:RMSE}: the C-STAD forecasts are accurate in completing the mortality experience of partially observed cohorts, with forecasts errors generally low and smaller than the 2D $P$-spline model.
+Tables \ref{Table:MAE} and \ref{Table:MAPE} show the out-of-sample results obtained using the MAE and the MAPE, respectively. The results are very similar to those obtained with the RMSE shown in Table \ref{Table:RMSE}: the C-STAD forecasts are accurate in completing the mortality experience of partially observed cohorts, with forecasts errors generally low and smaller than the 2D $P$-spline model. {\color{red}Moreover, both age-cohort models significantly outperform the standard LC age-period based approach.}
   
 % TABLE MAE: 10, 20, 30 YEARS
 \begin{table}[h!]
-	\small
+%	\small
+	\scriptsize
 	\centering
-	\begin{tabular}{cccccc|cc}
+	\begin{tabular}{ccccccc|ccc}
 		\toprule
-		& & & &   \multicolumn{2}{c}{\textbf{Sweden}}    & \multicolumn{2}{c}{\textbf{Denmark}} \\
+		& & & &   \multicolumn{3}{c}{\textbf{Sweden}}    & \multicolumn{3}{c}{\textbf{Denmark}} \\
 		
-		\cmidrule{5-8}	
+		\cmidrule{5-10}	
 		
-		\thead{Fitting \\ cohorts}  & \thead{Forecast \\ cohorts} & Horizon &  Measure  &  C-STAD   & 2D $P$-spline &  C-STAD   & 2D $P$-spline     \\ 
+		\thead{Fitting \\ cohorts}  & \thead{Forecast \\ cohorts} & Horizon &  Measure  &  C-STAD   & \thead{2D \\ $P$-spline}  & \thead{{\color{red}LC} \\ {\color{red}(period)}} &  C-STAD   & \thead{2D \\ $P$-spline}  & \thead{{\color{red}LC} \\ {\color{red}(period)}}    \\ 
 		\midrule	
 		%%%% FIRST EXERCISE	
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}   &
-		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & 0.08  & \textbf{0.06} &  0.07 &  \textbf{0.07}      \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & 0.08  & \textbf{0.06} & 0.20 &  0.07 &  \textbf{0.07} & 0.37     \\
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1895}}  &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1896--1905}}  & 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.07} &   0.08 & \textbf{0.06} &  0.07  \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.07} & 0.08  & 0.28 & \textbf{0.06} &  0.07 & 0.34 \\
 		
 		%%%% SECOND EXERCISE	
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
-		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.07} &  0.07 & \textbf{0.06} & 0.07  \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.07} &  0.07 & 0.22 & \textbf{0.06} & 0.07 & 0.35 \\
 		\rowcolor{my-grey}       \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1890}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1891--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.07} &  0.08 & \textbf{0.06} & 0.09       \\ 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.07} &  0.08 & 0.35 & \textbf{0.06} & 0.09  & 0.38  \\ 
 		
 		%%%% THIRD EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}   &
-		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.05} & 0.07 & \textbf{0.06} & 0.07 \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.05} & 0.07 & 0.29 & \textbf{0.06} & 0.07 & 0.38 \\
 		\rowcolor{my-white}            
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1885}}           &
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1886--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.06} & 0.09 & \textbf{0.05} & 0.09  \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.06} & 0.09 & 0.45 & \textbf{0.05} & 0.09 & 0.39  \\
 		
 		%%%% FOURTH EXERCISE	
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
-		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.03} & 0.06  & \textbf{0.03} &  0.07     \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.03} & 0.06 & 0.37  & \textbf{0.03} &  0.07 & 0.42    \\
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1880}}                 &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1881--1905}}  & 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.07} & 0.08 & \textbf{0.08} & 0.10      \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.07} & 0.08 & 0.52 & \textbf{0.08} & 0.10  & 0.39    \\
 		
 		%%%% FIFTH EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}             &
-		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &   \textbf{0.04} & 0.07 &  \textbf{0.02} &  0.08   \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &   \textbf{0.04} & 0.07 & 0.41 &  \textbf{0.02} &  0.08 & 0.46  \\
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1875}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1876--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.08} &  0.12 & \textbf{0.07} & 0.13       \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.08} &  0.12 & 0.55 & \textbf{0.07} & 0.13   & 0.44    \\
 		
 		%%%% SIXTH EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
-		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.09 & \textbf{0.07} & \textbf{0.04} &  0.10  \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.09 & \textbf{0.07} & 0.48 & \textbf{0.04} &  0.10 & 0.49 \\
 		\rowcolor{my-grey}           
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1870}}           &
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1871--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.03} &  0.10 & \textbf{0.05} & 0.17   \\		
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.03} &  0.10 & 0.52 & \textbf{0.05} & 0.17 & 0.43  \\		
 		
 		\bottomrule 
 		
 	\end{tabular}
-	\caption{Mean absolute error (MAE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $G_{40}$ for adult females in Sweden and Denmark in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.}\label{Table:MAE}
+	\caption{Mean absolute error (MAE) of the C-STAD, 2D $P$-spline {\color{red}and LC (period)} forecasts of $e_{40}$ and $G_{40}$ for adult females in Sweden and Denmark in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}.}\label{Table:MAE}
 \end{table}
 
 % TABLE MAPE: 10, 20, 30 YEARS
 \begin{table}[h!]
-	\small
+%	\small
+	\scriptsize
 	\centering
-	\begin{tabular}{cccccc|cc}
+	\begin{tabular}{ccccccc|ccc}
 		\toprule
-		& & & &   \multicolumn{2}{c}{\textbf{Sweden}}    & \multicolumn{2}{c}{\textbf{Denmark}} \\
+		& & & &   \multicolumn{3}{c}{\textbf{Sweden}}    & \multicolumn{3}{c}{\textbf{Denmark}} \\
 		
-		\cmidrule{5-8}	
+		\cmidrule{5-10}	
 		
-		\thead{Fitting \\ cohorts}  & \thead{Forecast \\ cohorts} & Horizon &  Measure  &  C-STAD   & 2D $P$-spline &  C-STAD   & 2D $P$-spline     \\ 
+		\thead{Fitting \\ cohorts}  & \thead{Forecast \\ cohorts} & Horizon &  Measure  &  C-STAD   & \thead{2D \\ $P$-spline}  & \thead{{\color{red}LC} \\ {\color{red}(period)}} &  C-STAD   & \thead{2D \\ $P$-spline}  & \thead{{\color{red}LC} \\ {\color{red}(period)}}     \\ 
 		\midrule	
 		%%%% FIRST EXERCISE	
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}   &
-		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & 0.20\%  & \textbf{0.16\%} &  0.19\% & \textbf{0.19\%}  \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}   & \multicolumn{1}{c}{\cellcolor{my-white}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} & 0.20\%  & \textbf{0.16\%} & 0.51\% &  0.19\% & \textbf{0.19\%} & 0.96\% \\
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1895}}  &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1896--1905}}  & 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.42\%} &   0.45\% & \textbf{0.35\%} &  0.36\%  \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}10y}}& \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.42\%} &   0.45\% & 1.57\% & \textbf{0.35\%} &  0.36\% & 1.83\%  \\
 		
 		%%%% SECOND EXERCISE	
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c}{\cellcolor{my-grey}}             &
-		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.17\%} &   0.19\% & \textbf{0.16\%} &  0.19\% \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.17\%} &   0.19\% & 0.58\% & \textbf{0.16\%} &  0.19\% & 0.93\% \\
 		\rowcolor{my-grey}       \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1890}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1891--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.36\%} &   0.45\% & \textbf{0.30\%} &  0.47\%       \\ 
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}15y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.36\%} &   0.45\% & 1.93\% & \textbf{0.30\%} &  0.47\% & 2.04\%       \\ 
 		
 		%%%% THIRD EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}   &
-		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.13\%} &   0.19\% & \textbf{0.15\%} &  0.18\% \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}   &    \multicolumn{1}{c}{\cellcolor{my-white}}                & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &  \textbf{0.13\%} &   0.19\% & 0.77\% & \textbf{0.15\%} &  0.18\% & 1.02\% \\
 		\rowcolor{my-white}            
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1885}}           &
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1886--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.34\%} &   0.46\% & \textbf{0.27\%} &  0.44\%  \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}20y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.34\%} &   0.46\% & 2.40\% & \textbf{0.27\%} &  0.44\% & 2.02\%  \\
 		
 		%%%% FOURTH EXERCISE	
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}   &
-		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.08\%} &   0.17\% & \textbf{0.08\%} &  0.18\%     \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   & \multicolumn{1}{c}{\cellcolor{my-grey}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & \textbf{0.08\%} &   0.17\% & 0.98\% & \textbf{0.08\%} &  0.18\% & 1.14\%     \\
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1880}}                 &  \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1881--1905}}  & 
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.40\%} &   0.44\% & \textbf{0.42\%} &  0.51\%      \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}25y}}  & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.40\%} &   0.44\% & 2.71\% & \textbf{0.42\%} &  0.51\% & 2.05\%      \\
 		
 		%%%% FIFTH EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\cellcolor{my-white}}             &
-		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &   \textbf{0.10\%} &   0.20\% & \textbf{0.07\%} &  0.23\%   \\
+		\multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c}{\cellcolor{my-white}}             & \multicolumn{1}{c|}{\cellcolor{my-white}$e_{40}$} &   \textbf{0.10\%} &   0.20\% & 1.12\% & \textbf{0.07\%} &  0.23\% & 1.28\%   \\
 		\rowcolor{my-white} 
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1835--1875}} &      \multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}1876--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.42\%} &   0.59\% & \textbf{0.39\%} &  0.63\%       \\
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-white}30y}}               & \multicolumn{1}{c|}{\cellcolor{my-white}$G_{40}$} & \textbf{0.42\%} &   0.59\% & 2.84\% & \textbf{0.39\%} &  0.63\% & 2.21\%       \\
 		
 		%%%% SIXTH EXERCISE
-		\hhline{|--------|}
+		\hhline{|----------|}
 		\rowcolor{my-grey} 
 		\multicolumn{1}{c}{\cellcolor{my-grey}}   &   
-		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.22\% &   \textbf{0.19\%} & \textbf{0.12\%} &  0.29\%  \\
+		\multicolumn{1}{c}{\cellcolor{my-grey}}   &  \multicolumn{1}{c}{\cellcolor{my-grey}}                & \multicolumn{1}{c|}{\cellcolor{my-grey}$e_{40}$} & 0.22\% &  \textbf{0.19\%} & 1.33\% & \textbf{0.12\%} &  0.29\% & 1.36\%  \\
 		\rowcolor{my-grey}           
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1835--1870}}           &
 		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}1871--1905}}               &
-		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.14\%} &   0.51\% & \textbf{0.23\%} &  0.81\%   \\		
+		\multicolumn{1}{c}{\multirow{-2}{*}{\cellcolor{my-grey}35y}}               & \multicolumn{1}{c|}{\cellcolor{my-grey}$G_{40}$} & \textbf{0.14\%} &   0.51\% & 2.62\% & \textbf{0.23\%} &  0.81\% & 2.09\%   \\		
 		
 		\bottomrule 
 		
 	\end{tabular}
-	\caption{Mean absolute percentage error (MAPE) of the C-STAD and 2D $P$-spline forecasts of $e_{40}$ and $G_{40}$ for adult females in Sweden and Denmark in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAPE (in bold, assessed using all available decimals) correspond to greater forecast accuracy. \small \textit{Source}: authors' elaborations on data from the \cite{HMD}. }\label{Table:MAPE}
+	\caption{Mean absolute percentage error (MAPE) of the C-STAD, 2D $P$-spline {\color{red}and LC (period)} forecasts of $e_{40}$ and $G_{40}$ for adult females in Sweden and Denmark in six out-of-sample validation exercises: forecast horizon of 10, 15, 20, 25, 30 and 35 years. Lower values of the MAPE (in bold, assessed using all available decimals) correspond to greater forecast accuracy.\\ \small \textit{Source}: authors' elaborations on data from the \cite{HMD}. }\label{Table:MAPE}
 \end{table}
 
-Second, we provide additional results with regard to Subsection \ref{Subsec:ForecastC-STAD}. Figure \ref{Fig:CSTADparams} shows the fitted and forecast C-STAD parameters with 80\% confidence intervals for Swedish and Danish adult females for cohorts 1835--1970.
+{\color{red}Finally}, we provide additional results with regard to Subsection \ref{Subsec:ForecastC-STAD}. Figure \ref{Fig:CSTADparams} shows the fitted and forecast C-STAD parameters with 80\% confidence intervals for Swedish and Danish adult females for cohorts 1835--1970.
 
 We performed diagnostic checks on the fitted C-STAD model for the two populations analysed in this paper by using Equation~\eqref{Eq:DevRes}. Poisson deviance residuals for the two populations are shown in Figure \ref{Fig:CSTADresid}. No clear patterns emerge from this graphical analysis, with the exception of the years corresponding to the Spanish flu and the World War II.
 
