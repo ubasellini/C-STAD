@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: C-STAD.aux
 The style file: apalike.bst
 Database file #1: Biblio_CSTAD.bib
@@ -7,7 +7,7 @@ Warning--empty institution in cmi2007stochastic
 Warning--empty journal in wilmoth2017protocol
 You've used 71 entries,
             1935 wiz_defined-function locations,
-            890 strings with 16449 characters,
+            890 strings with 16450 characters,
 and the built_in function-call counts, 27933 in all, are:
 = -- 2761
 > -- 1082
