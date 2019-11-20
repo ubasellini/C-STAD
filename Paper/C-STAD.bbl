@@ -108,13 +108,14 @@ Chiou, J.-M. and M\"{u}ller, H.-G. (2009).
 \newblock {\em Journal of the American Statistical Association},
   104(486):572--585.
 
-\bibitem[Christensen et~al., 2010]{ChristensenEtAlDenmarkSwedenDivergence2010}
+\bibitem[Christensen et~al., 2010]{christensen2010divergent}
 Christensen, K., Davidsen, M., Juel, K., Mortensen, L., Rau, R., and Vaupel,
   J.~W. (2010).
-\newblock {\em International Differences in Mortality at Older Ages}, chapter
-  The Divergent Life-Expectancy Trends in Denmark and Sweden - and Some
-  Potential Explanations.
-\newblock National Academies Press, Washington (DC).
+\newblock The {D}ivergent {L}ife-{E}xpectancy {T}rends in {D}enmark and
+  {S}weden - and {S}ome {P}otential {E}xplanations.
+\newblock In Crimmins, E.~M., Preston, S.~H., and Cohen, B., editors, {\em
+  International Differences in Mortality at Older Ages: Dimensions and
+  Sources}. National Academies Press, Washington (DC).
 
 \bibitem[{Continuous Mortality Investigation}, 2007]{cmi2007stochastic}
 {Continuous Mortality Investigation} (2007).
