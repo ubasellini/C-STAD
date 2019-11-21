@@ -90,8 +90,8 @@ setwd("~/Documents/Demography/Work/STADcohorts/99_Github/C-STAD/Paper/Figures")
 pdf("FA1.pdf",width = 10,height=5.5)
 ## set overall margins
 par(mfrow = c(2,3),
-    oma = c(2.25,0.4,0.1,0.25),
-    mar = c(1.25,2.3,1.2,0.3))
+    oma = c(1.25,0.4,0.1,0.25),
+    mar = c(2,2.3,1.2,0.3))
 ## bottom, left, top, right
 
 ## S
@@ -115,15 +115,14 @@ lines(y,S_cstad_MEAN_SWE,col=my.cols[3],lwd=lwd.ln)
 text(1865,12,expression(c[1]),col=1,cex=cex.coh)
 text(1915,3,expression(c[2]),col=1,cex=cex.coh)
 text(1955,3,expression(c[3]),col=1,cex=cex.coh)
-legend("topleft",c("DNK","SWE"),inset=0.01,
+legend("topleft",c("DNK","SWE"),pch=c(NA,NA),
        col = my.cols[2:3],
-       bty="n",lwd=2,lty=c(1,1),cex = cex.leg)
-legend("topleft", inset=0.01,
-       c("",""),
+       bty="n",lwd=2,lty=c(1,1),cex = cex.leg,inset=0.01)
+legend("topleft",c("",""),pch=c(15,15),
        col=my.colsT[2:3], lwd=3,
        lty = c(NA,NA),
-       pch=c(15,15), pt.cex=2.5,
-       bty="n",cex = cex.leg)
+       pt.cex=2.5,
+       bty="n",cex = cex.leg,inset=0.01)
 
 ## bU
 ylimBU <- range(BU_cstad_UP_DNK,BU_cstad_UP_SWE,BU_cstad_LOW_DNK,BU_cstad_LOW_SWE)
@@ -216,6 +215,6 @@ text(1955,-5e-4,expression(c[3]),col=1,cex=cex.coh)
 
 cex.x.lab <- 2
 title(xlab = "Cohort",cex.lab=cex.x.lab,
-      outer = TRUE, line = 1)
+      outer = TRUE, line = 0.25)
 
 dev.off()
