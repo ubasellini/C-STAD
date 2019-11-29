@@ -5,45 +5,45 @@ The style file: apalike.bst
 Database file #1: Biblio_CSTAD.bib
 Warning--empty institution in cmi2007stochastic
 Warning--empty journal in wilmoth2019protocol
-You've used 71 entries,
+You've used 80 entries,
             1935 wiz_defined-function locations,
-            890 strings with 16478 characters,
-and the built_in function-call counts, 28011 in all, are:
-= -- 2767
-> -- 1093
-< -- 50
-+ -- 376
-- -- 358
-* -- 2417
-:= -- 4872
-add.period$ -- 218
-call.type$ -- 71
-change.case$ -- 524
-chr.to.int$ -- 69
-cite$ -- 73
-duplicate$ -- 1047
-empty$ -- 2019
-format.name$ -- 475
-if$ -- 5446
+            931 strings with 18012 characters,
+and the built_in function-call counts, 31496 in all, are:
+= -- 3116
+> -- 1237
+< -- 55
++ -- 426
+- -- 406
+* -- 2697
+:= -- 5487
+add.period$ -- 247
+call.type$ -- 80
+change.case$ -- 592
+chr.to.int$ -- 78
+cite$ -- 82
+duplicate$ -- 1182
+empty$ -- 2253
+format.name$ -- 534
+if$ -- 6118
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 77
-newline$ -- 358
-num.names$ -- 219
-pop$ -- 448
+missing$ -- 85
+newline$ -- 405
+num.names$ -- 246
+pop$ -- 503
 preamble$ -- 1
-purify$ -- 531
+purify$ -- 600
 quote$ -- 0
-skip$ -- 763
+skip$ -- 870
 stack$ -- 0
-substring$ -- 2063
-swap$ -- 97
-text.length$ -- 4
+substring$ -- 2297
+swap$ -- 116
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 408
+type$ -- 462
 warning$ -- 2
-while$ -- 246
+while$ -- 276
 width$ -- 0
-write$ -- 916
+write$ -- 1035
 (There were 2 warnings)

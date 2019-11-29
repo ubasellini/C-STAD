@@ -16,8 +16,8 @@ Barbieri, M., Wilmoth, J.~R., Shkolnikov, V.~M., Glei, D., Jasilionis, D.,
 Basellini, U. and Camarda, C.~G. (2019a).
 \newblock {A Three-component Approach to Model and Forecast Age-at-death
   Distributions}.
-\newblock In Mazzuco, S. and Keilman, N., editors, {\em New Perspectives on
-  Population Forecasting}. Springer. Forthcoming.
+\newblock In Mazzuco, S. and Keilman, N., editors, {\em Developments in
+  Demographic Forecasting}. Springer (forthcoming).
 
 \bibitem[Basellini and Camarda, 2019b]{basellini2019modelling}
 Basellini, U. and Camarda, C.~G. (2019b).
@@ -28,7 +28,7 @@ Basellini, U. and Camarda, C.~G. (2019b).
 Bergeron-Boucher, M.-P., Canudas-Romo, V., Oeppen, J., and Vaupel, J.~W.
   (2017).
 \newblock Coherent forecasts of mortality with compositional data analysis.
-\newblock {\em Demographic Research}, 37(17):527--566.
+\newblock {\em Demographic Research}, 37:527--566.
 
 \bibitem[Bohk-Ewald et~al., 2017]{bohk2017lifespan}
 Bohk-Ewald, C., Ebeling, M., and Rau, R. (2017).
@@ -101,6 +101,17 @@ Canudas-Romo, V. (2010).
 \newblock Three measures of longevity: Time trends and record values.
 \newblock {\em Demography}, 47(2):299--312.
 
+\bibitem[Cheung and Robine, 2007]{cheung2007increase}
+Cheung, S. L.~K. and Robine, J.-M. (2007).
+\newblock {Increase in common longevity and the compression of mortality: The
+  case of Japan}.
+\newblock {\em Population Studies}, 61(1):85--97.
+
+\bibitem[Cheung et~al., 2009]{cheung2009dissecting}
+Cheung, S. L.~K., Robine, J.-M., Paccaud, F., and Marazzi, A. (2009).
+\newblock {Dissecting the compression of mortality in Switzerland, 1876-2005}.
+\newblock {\em Demographic Research}, 21:569--598.
+
 \bibitem[Chiou and M\"{u}ller, 2009]{chiou2009modeling}
 Chiou, J.-M. and M\"{u}ller, H.-G. (2009).
 \newblock Modeling hazard rates as functional data for the analysis of cohort
@@ -122,6 +133,19 @@ Christensen, K., Davidsen, M., Juel, K., Mortensen, L., Rau, R., and Vaupel,
 \newblock {Stochastic projection methodologies: Further progress and $P$-Spline
   model features, example results and implications}.
 \newblock {Revised Working Paper 20 (November 2007)}.
+
+\bibitem[Currie, 2012]{currie2012forecasting}
+Currie, I.~D. (2012).
+\newblock Forecasting with the age-period-cohort model?
+\newblock In {\em Proceedings of the 27th International Workshop of Statistical
+  Modelling}, pages 149--154.
+
+\bibitem[Currie, 2019]{currie2019constraints}
+Currie, I.~D. (2019).
+\newblock Constraints, the identifiability problem and the forecasting of
+  mortality.
+\newblock {\em Annals of Acturial Science}.
+\newblock Forthcoming.
 
 \bibitem[Currie et~al., 2004]{currie2004smoothing}
 Currie, I.~D., Durban, M., and Eilers, P.~H. (2004).
@@ -199,12 +223,24 @@ Hanada, K. (1983).
 \newblock {\em Journal of the Japan Statistical Society, Japanese Issue},
   13(2):95--98.
 
+\bibitem[Horiuchi et~al., 2013]{horiuchi2013modal}
+Horiuchi, S., Ouellette, N., Cheung, S. L.~K., and Robine, J.-M. (2013).
+\newblock Modal age at death: lifespan indicator in the era of longevity
+  extension.
+\newblock {\em Vienna Yearbook of Population Research}, 11:37--69.
+
 \bibitem[{Human Mortality Database}, 2019]{HMD}
 {Human Mortality Database} (2019).
 \newblock {{University of California, Berkeley (USA)}} and {Max Planck
   Institute for Demographic Research (Germany)}.
 \newblock Available at www.mortality.org or www.humanmortality.de (data
   downloaded on 8 May 2019).
+
+\bibitem[Hyndman et~al., 2018]{demogRpackage}
+Hyndman, R.~J., Booth, H., Tickle, L., and Maindonald, J. (2018).
+\newblock {\em demography: {Forecasting Mortality, Fertility, Migration and
+  Population Data}}.
+\newblock R package version 1.21.
 
 \bibitem[Jacobsen et~al., 2002]{jacobsen2002long}
 Jacobsen, R., Keiding, N., and Lynge, E. (2002).
@@ -222,6 +258,13 @@ Janssen, F. and de~Beer, J. (2019).
 \newblock {The timing of the transition from mortality compression to mortality
   delay in Europe, Japan and the United States}.
 \newblock {\em Genus}, 75(1).
+
+\bibitem[Kannisto, 2000]{kannisto2000measuring}
+Kannisto, V. (2000).
+\newblock Measuring the compression of mortality.
+\newblock {\em Demographic Research}, 3.
+\newblock \href{http://www.demographic-research.org/volumes/vol3/6/}{doi:
+  10.4054/DemRes.2000.3.6}.
 
 \bibitem[Kannisto, 2001]{kannisto2001mode}
 Kannisto, V. (2001).
@@ -364,7 +407,7 @@ Rizzi, S., Kj{\ae}rgaard, S., Bergeron-Boucher, M.-P., Lindahl-Jacobsen, R.,
 Shang, H.~L., Booth, H., and Hyndman, R. (2011).
 \newblock Point and interval forecasts of mortality rates and life expectancy:
   A comparison of ten principal component methods.
-\newblock {\em Demographic Research}, 25(5):173--214.
+\newblock {\em Demographic Research}, 25:173--214.
 
 \bibitem[Shkolnikov et~al., 2003]{shkolnikov2003gini}
 Shkolnikov, V.~M., Andreev, E.~E., and Begun, A.~Z. (2003).
@@ -381,6 +424,11 @@ Shkolnikov, V.~M., Jdanov, D.~A., Andreev, E.~M., and Vaupel, J.~W. (2011).
 Smits, J. and Monden, C. (2009).
 \newblock Length of life inequality around the globe.
 \newblock {\em Social Science \& Medicine}, 68(6):1114--1123.
+
+\bibitem[Thatcher et~al., 2010]{thatcher2010compression}
+Thatcher, A.~R., Cheung, S. L.~K., Horiuchi, S., and Robine, J.-M. (2010).
+\newblock The compression of deaths above the mode.
+\newblock {\em Demographic Research}, 22:505--538.
 
 \bibitem[Thiele, 1871]{thiele1871mathematical}
 Thiele, T.~N. (1871).
@@ -401,6 +449,11 @@ Vaupel, J. and Lundstr{\"o}m, H. (1994).
   mortality rates at advanced ages.
 \newblock In {\em Studies in the Economics of Aging}, pages 79--102. University
   of Chicago Press.
+
+\bibitem[Villegas et~al., 2018]{villegas2018stmomo}
+Villegas, A.~M., Kaishev, V.~K., and Millossovich, P. (2018).
+\newblock {StMoMo: An \texttt{R} Package for Stochastic Mortality Modeling}.
+\newblock {\em Journal of Statistical Software}, 84(3).
 
 \bibitem[Wilmoth et~al., 2019]{wilmoth2019protocol}
 Wilmoth, J.~R., Andreev, K., Jdanov, D., Glei, D.~A., Riffe, T., Boe, C.,

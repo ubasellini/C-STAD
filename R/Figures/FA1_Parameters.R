@@ -112,16 +112,16 @@ yy <- c(S_cstad_LOW_SWE, rev(S_cstad_UP_SWE))
 polygon(xx, yy, border = my.cols[3], col=my.colsT[3])
 lines(y,S_cstad_MEAN_DNK,col=my.cols[2],lwd=lwd.ln)
 lines(y,S_cstad_MEAN_SWE,col=my.cols[3],lwd=lwd.ln)
-text(1865,12,expression(c[1]),col=1,cex=cex.coh)
-text(1915,3,expression(c[2]),col=1,cex=cex.coh)
-text(1955,3,expression(c[3]),col=1,cex=cex.coh)
+text(1880,12,expression(c[1]),col=1,cex=cex.coh)
+text(1915,2.5,expression(c[2]),col=1,cex=cex.coh)
+text(1955,2.5,expression(c[3]),col=1,cex=cex.coh)
 legend("topleft",c("DNK","SWE"),pch=c(NA,NA),
        col = my.cols[2:3],
        bty="n",lwd=2,lty=c(1,1),cex = cex.leg,inset=0.01)
 legend("topleft",c("",""),pch=c(15,15),
        col=my.colsT[2:3], lwd=3,
        lty = c(NA,NA),
-       pt.cex=2.5,
+       pt.cex=1.75,
        bty="n",cex = cex.leg,inset=0.01)
 
 ## bU
@@ -140,9 +140,9 @@ yy <- c(BU_cstad_LOW_SWE, rev(BU_cstad_UP_SWE))
 polygon(xx, yy, border = my.cols[3], col=my.colsT[3])
 lines(y,BU_cstad_MEAN_DNK,col=my.cols[2],lwd=lwd.ln)
 lines(y,BU_cstad_MEAN_SWE,col=my.cols[3],lwd=lwd.ln)
-text(1865,1.2,expression(c[1]),col=1,cex=cex.coh)
-text(1915,0.85,expression(c[2]),col=1,cex=cex.coh)
-text(1955,0.85,expression(c[3]),col=1,cex=cex.coh)
+text(1872,1.4,expression(c[1]),col=1,cex=cex.coh)
+text(1915,1.4,expression(c[2]),col=1,cex=cex.coh)
+text(1950,1.08,expression(c[3]),col=1,cex=cex.coh)
 
 ## VOID
 ylimBU <- range(BU_cstad_UP_DNK,BU_cstad_UP_SWE,BU_cstad_LOW_DNK,BU_cstad_LOW_SWE)
@@ -169,9 +169,9 @@ yy <- c(BL_cstad_LOW_SWE, rev(BL_cstad_UP_SWE))
 polygon(xx, yy, border = my.cols[3], col=my.colsT[3])
 lines(y,BL_cstad_MEAN_DNK,col=my.cols[2],lwd=lwd.ln)
 lines(y,BL_cstad_MEAN_SWE,col=my.cols[3],lwd=lwd.ln)
-text(1865,1.8,expression(c[1]),col=1,cex=cex.coh)
-text(1915,0.3,expression(c[2]),col=1,cex=cex.coh)
-text(1955,0.3,expression(c[3]),col=1,cex=cex.coh)
+text(1880,1.55,expression(c[1]),col=1,cex=cex.coh)
+text(1915,1.55,expression(c[2]),col=1,cex=cex.coh)
+text(1955,1.55,expression(c[3]),col=1,cex=cex.coh)
 
 ## cL
 ylimCL <- range(CL_cstad_UP_DNK,CL_cstad_UP_SWE,CL_cstad_LOW_DNK,CL_cstad_LOW_SWE)
@@ -189,9 +189,9 @@ yy <- c(CL_cstad_LOW_SWE, rev(CL_cstad_UP_SWE))
 polygon(xx, yy, border = my.cols[3], col=my.colsT[3])
 lines(y,CL_cstad_MEAN_DNK,col=my.cols[2],lwd=lwd.ln)
 lines(y,CL_cstad_MEAN_SWE,col=my.cols[3],lwd=lwd.ln)
-text(1865,0.015,expression(c[1]),col=1,cex=cex.coh)
-text(1915,-0.03,expression(c[2]),col=1,cex=cex.coh)
-text(1955,-0.03,expression(c[3]),col=1,cex=cex.coh)
+text(1872,0.03,expression(c[1]),col=1,cex=cex.coh)
+text(1915,0.03,expression(c[2]),col=1,cex=cex.coh)
+text(1950,0.03,expression(c[3]),col=1,cex=cex.coh)
 
 ## dL
 ylimDL <- range(DL_cstad_UP_DNK,DL_cstad_UP_SWE,DL_cstad_LOW_DNK,DL_cstad_LOW_SWE)
@@ -209,9 +209,9 @@ yy <- c(DL_cstad_LOW_SWE, rev(DL_cstad_UP_SWE))
 polygon(xx, yy, border = my.cols[3], col=my.colsT[3])
 lines(y,DL_cstad_MEAN_DNK,col=my.cols[2],lwd=lwd.ln)
 lines(y,DL_cstad_MEAN_SWE,col=my.cols[3],lwd=lwd.ln)
-text(1865,2e-4,expression(c[1]),col=1,cex=cex.coh)
-text(1915,-5e-4,expression(c[2]),col=1,cex=cex.coh)
-text(1955,-5e-4,expression(c[3]),col=1,cex=cex.coh)
+text(1890,-8e-4,expression(c[1]),col=1,cex=cex.coh)
+text(1915,-8e-4,expression(c[2]),col=1,cex=cex.coh)
+text(1955,-8e-4,expression(c[3]),col=1,cex=cex.coh)
 
 cex.x.lab <- 2
 title(xlab = "Cohort",cex.lab=cex.x.lab,

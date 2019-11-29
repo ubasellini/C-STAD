@@ -1,9 +1,9 @@
 ## ------------------------------------------------------------- ##
 ##  C-STAD model: fitting and forecasting cohort mortality
-##  Last update: 17/10/2019
+##  Last update: 27/11/2019
 ##  Author: Ugofilippo Basellini
 ##  Comments:
-##  Out-of-sample validation of LC period model
+##  Out-of-sample validation of APC period model
 ## ------------------------------------------------------------- ##
 
 ## clean the workspace
@@ -13,6 +13,7 @@ rm(list = ls())
 library(demography)
 library(colorspace)
 library(DescTools)
+library(StMoMo)
 
 ## -- DATA & FUNCTIONS ----------
 
@@ -22,7 +23,7 @@ source("LCfun.R")
 
 ## load data 
 setwd("~/Documents/Demography/Work/STADcohorts/99_Github/C-STAD/R/Data")
-cou <- "SWE"        ## SWE or DNK
+cou <- "DNK"        ## SWE or DNK
 sex <- "F"          ## only F 
 name <- paste0(cou,"coh",sex,".Rdata")  
 load(name)    
@@ -38,7 +39,7 @@ m <- length(x)
 ## set out-of-sample exercises
 ih.opt <- seq(10,35,5)
 n.opt <- length(ih.opt)
-MAE.errLC <- MAPE.errLC <- RMSE.errLC <- matrix(NA,n.opt,2)
+MAE.errAPC <- MAPE.errAPC <- RMSE.errAPC <- matrix(NA,n.opt,2)
 FittingPeriod <- matrix(NA,n.opt,2)
 t <- 1
 
@@ -121,43 +122,29 @@ for (t in 1:n.opt){
   LCfitData <- demogdata(data=MXp.fit, pop=Ep.fit, ages=ages, years=periods.fit,
                          type="mortality", label=cou, name="female", lambda=0)
   
-  ## fit standard LC model
-  iter <- 0
-  for (iter in 0:m){
-    ages.lc <- x[1]:x[m-iter]
-    m.lc <- length(ages.lc)
-    ## tro to fit
-    LCfit <- try(lca(LCfitData, adjust="dt",years = periods.fit,
-                     ages = ages.lc,interpolate = T,series = "female",
-                     max.age = ages.lc[length(ages.lc)]),silent=T)
-    if (class(LCfit)!="try-error") break
-  }
+  ## fitting data for APC model
+  APCfitData <- StMoMoData(data = LCfitData,type = "central")
   
-  ## LC pars
-  AlphaLC <- LCfit$ax
-  BetaLC <- LCfit$bx
-  KappaLC <- LCfit$kt
+  ## fit LC and RH model
+  APC <- apc(link = "log")
+  wxt <- genWeightMat(ages = ages, years = APCfitData$years,
+                      clip = 3)
+  APCfit <- fit(APC, data = APCfitData, ages.fit = ages, wxt = wxt)
+  
+  ## plot APC parameters
   if (PLOT){
-    par(mfrow=c(1,3))
-    plot(ages.lc,AlphaLC,main = expression(alpha[x]));
-    plot(ages.lc,BetaLC,main = expression(beta[x]));
-    plot(periods.fit,KappaLC,main = expression(kappa[t]))
-    par(mfrow=c(1,1))
+    plot(APCfit,nCol = 3)
   }
+  ETAhatAPC <- fitted(APCfit)
   
-  ## fitted rates and deaths
-  ETAhatLC <- LCfit$fitted$y
-  DXhatLC <- exp(ETAhatLC)*Ep.fit[x%in%ages.lc,]
-  
-  ## central forecast
-  Kappats <- ts(c(KappaLC), start = periods.fit[1])
-  modKappa <- Arima(Kappats, order=c(0,1,0), include.drift=TRUE)
-  predK <- forecast(modKappa,h=H)
-  ETAforeLC <- LCetaFUN(AlphaLC,BetaLC,predK$mean)
+  ## forecast APC model
+  APCfor <- forecast(APCfit, h = H, gc.order = c(1, 1, 0))
+  ETAforeAPC <- log(APCfor$rates)
   
   if (PLOT){
-    matplot(ages.lc,ETAhatLC,t="l",lty=1,lwd = 0.8,col=rainbow_hcl(n.fit))
-    matlines(ages.lc,ETAforeLC,t="l",lty=1,lwd = 0.8,col=rainbow(H))
+    matplot(ages,log(MXp.fit),t="l",lty=1,lwd = 0.8,col=rainbow_hcl(n.fit))
+    matlines(ages,ETAhatAPC,t="l",lty=1,lwd = 0.8,col=rainbow_hcl(n.fit))
+    matlines(ages,ETAforeAPC,t="l",lty=1,lwd = 0.8,col=rainbow(H))
   }
   
   ## summary measures
@@ -165,68 +152,68 @@ for (t in 1:n.opt){
   g40obs <- apply(MXp.fit,2,GINI_func,ages=x,sex=sex)
   e40BT <- apply(MXp.fore,2,lifetable.ex,x=x,sex=sex)
   g40BT <- apply(MXp.fore,2,GINI_func,ages=x,sex=sex)
-  e40foreLC <- apply(exp(ETAforeLC),2,lifetable.ex,x=ages.lc,sex=sex)
-  g40foreLC <- apply(exp(ETAforeLC),2,GINI_func,ages=ages.lc,sex=sex)
+  e40foreAPC <- apply(exp(ETAforeAPC),2,lifetable.ex,x=ages,sex=sex)
+  g40foreAPC <- apply(exp(ETAforeAPC),2,GINI_func,ages=ages,sex=sex)
   
   if (PLOT){
     par(mfrow=c(1,2))
     plot(periods.fit,e40obs,ylim=range(e40obs,e40BT),xlim=range(periods),pch=19)
     points(periods.fore,e40BT)
-    lines(periods.fore,e40foreLC,lwd=2,col=2)
+    lines(periods.fore,e40foreAPC,lwd=2,col=2)
     plot(periods.fit,g40obs,ylim=range(g40obs,g40BT),xlim=range(periods),pch=19)
     points(periods.fore,g40BT)
-    lines(periods.fore,g40foreLC,lwd=2,col=2)
+    lines(periods.fore,g40foreAPC,lwd=2,col=2)
     par(mfrow=c(1,1))
   }
   
   ## extract LC cohorts from fitted and forecast rates
-  ETA_LC <- cbind(ETAhatLC,ETAforeLC)
-  AGES_LC <- matrix(ages.lc,nrow=length(ages.lc),ncol=np)  
-  PERIODS_LC <- matrix(rep(periods,each=length(ages.lc)),
-                       nrow=length(ages.lc))
-  COHORTS_LC <- PERIODS_LC - AGES_LC
+  ETA_APC <- cbind(ETAhatAPC,ETAforeAPC)
+  AGES_APC <- matrix(ages,nrow=length(ages),ncol=np)  
+  PERIODS_APC <- matrix(rep(periods,each=length(ages)),
+                       nrow=length(ages))
+  COHORTS_APC <- PERIODS_APC - AGES_APC
   
-  LMXc.LC <- matrix(NA,length(ages.lc),H)
+  LMXc.APC <- matrix(NA,length(ages),H)
   j <- 1
   for (j in 1:H){
-    LMXc.LC[,j] <- ETA_LC[COHORTS_LC==cBT[j]]
+    LMXc.APC[,j] <- ETA_APC[COHORTS_APC==cBT[j]]
   }
   if (PLOT){
     matplot(ages,log(MX[,y%in%cBT]),t="l",lty=1,lwd = 0.8,col=rainbow_hcl(H))
-    matlines(ages.lc,LMXc.LC,t="l",lty=1,lwd = 0.8,col=rainbow(H))
+    matlines(ages,LMXc.APC,t="l",lty=1,lwd = 0.8,col=rainbow(H))
   }
   
-  e40LCbt <- apply(exp(LMXc.LC),2,lifetable.ex,x=ages.lc,sex=sex)
-  g40LCbt <- apply(exp(LMXc.LC),2,GINI_func,ages=ages.lc,sex=sex)
+  e40APCbt <- apply(exp(LMXc.APC),2,lifetable.ex,x=ages,sex=sex)
+  g40APCbt <- apply(exp(LMXc.APC),2,GINI_func,ages=ages,sex=sex)
   if (PLOT){
     par(mfrow=c(1,2))
-    plot(c1,e40.act);points(cBT,e40.BT,pch=16);lines(cBT,e40LCbt,col=2,lwd=2)
-    plot(c1,g40.act);points(cBT,g40.BT,pch=16);lines(cBT,g40LCbt,col=2,lwd=2)
+    plot(c1,e40.act);points(cBT,e40.BT,pch=16);lines(cBT,e40APCbt,col=2,lwd=2)
+    plot(c1,g40.act);points(cBT,g40.BT,pch=16);lines(cBT,g40APCbt,col=2,lwd=2)
     par(mfrow=c(1,1))
   }
   
-  RMSE.errLC[t,1] <- rmse(actual=e40.BT, predicted=e40LCbt)
-  RMSE.errLC[t,2] <- rmse(actual=g40.BT*100, predicted=g40LCbt*100)
+  RMSE.errAPC[t,1] <- rmse(actual=e40.BT, predicted=e40APCbt)
+  RMSE.errAPC[t,2] <- rmse(actual=g40.BT*100, predicted=g40APCbt*100)
   
-  MAPE.errLC[t,1] <- MAPE(x=e40LCbt, ref=e40.BT, na.rm = T)
-  MAPE.errLC[t,2] <- MAPE(x=g40LCbt*100, ref=g40.BT*100, na.rm = T)
+  MAPE.errAPC[t,1] <- MAPE(x=e40APCbt, ref=e40.BT, na.rm = T)
+  MAPE.errAPC[t,2] <- MAPE(x=g40APCbt*100, ref=g40.BT*100, na.rm = T)
   
-  MAE.errLC[t,1] <- MAE(x=e40LCbt, ref=e40.BT, na.rm = T)
-  MAE.errLC[t,2] <- MAE(x=g40LCbt*100, ref=g40.BT*100, na.rm = T)
+  MAE.errAPC[t,1] <- MAE(x=e40APCbt, ref=e40.BT, na.rm = T)
+  MAE.errAPC[t,2] <- MAE(x=g40APCbt*100, ref=g40.BT*100, na.rm = T)
   
   FittingPeriod[t,1] <- periods[1]
   FittingPeriod[t,2] <- periods.fit[n.fit]
 }
 
-colnames(RMSE.errLC) <- colnames(MAPE.errLC) <- 
-  colnames(MAE.errLC) <- c("e LC","g LC")
-rownames(RMSE.errLC) <- rownames(MAPE.errLC) <- rownames(MAE.errLC) <- ih.opt
+colnames(RMSE.errAPC) <- colnames(MAPE.errAPC) <- 
+  colnames(MAE.errAPC) <- c("e APC","g APC")
+rownames(RMSE.errAPC) <- rownames(MAPE.errAPC) <- rownames(MAE.errAPC) <- ih.opt
 
-var.keep <- c("RMSE.errLC","MAPE.errLC","MAE.errLC","ih.opt","cou","FittingPeriod")
+var.keep <- c("RMSE.errAPC","MAPE.errAPC","MAE.errAPC","ih.opt","cou","FittingPeriod")
 rm(list=setdiff(ls(),var.keep))
 
 ## save results
 setwd("~/Documents/Demography/Work/STADcohorts/99_Github/C-STAD/R/Out-of-sample/Results")
-name <- paste0(cou,"_LC.Rdata")
+name <- paste0(cou,"_APC.Rdata")
 save.image(name)
 
