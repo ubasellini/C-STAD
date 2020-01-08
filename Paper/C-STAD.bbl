@@ -12,17 +12,17 @@ Barbieri, M., Wilmoth, J.~R., Shkolnikov, V.~M., Glei, D., Jasilionis, D.,
 \newblock {Data Resource Profile: The Human Mortality Database (HMD)}.
 \newblock {\em International Journal of Epidemiology}, 44(5):1549--1556.
 
-\bibitem[Basellini and Camarda, 2019a]{basellini2019three}
-Basellini, U. and Camarda, C.~G. (2019a).
+\bibitem[Basellini and Camarda, 2019]{basellini2019modelling}
+Basellini, U. and Camarda, C.~G. (2019).
+\newblock Modelling and forecasting adult age-at-death distributions.
+\newblock {\em Population Studies}, 73(1):119--138.
+
+\bibitem[Basellini and Camarda, 2020]{basellini2020three}
+Basellini, U. and Camarda, C.~G. (2020).
 \newblock {A Three-component Approach to Model and Forecast Age-at-death
   Distributions}.
 \newblock In Mazzuco, S. and Keilman, N., editors, {\em Developments in
   Demographic Forecasting}. Springer (forthcoming).
-
-\bibitem[Basellini and Camarda, 2019b]{basellini2019modelling}
-Basellini, U. and Camarda, C.~G. (2019b).
-\newblock Modelling and forecasting adult age-at-death distributions.
-\newblock {\em Population Studies}, 73(1):119--138.
 
 \bibitem[Bergeron-Boucher et~al., 2017]{bergeron2017coherent}
 Bergeron-Boucher, M.-P., Canudas-Romo, V., Oeppen, J., and Vaupel, J.~W.

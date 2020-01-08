@@ -7,25 +7,25 @@ Warning--empty institution in cmi2007stochastic
 Warning--empty journal in wilmoth2019protocol
 You've used 80 entries,
             1935 wiz_defined-function locations,
-            931 strings with 18012 characters,
+            932 strings with 18016 characters,
 and the built_in function-call counts, 31496 in all, are:
 = -- 3116
 > -- 1237
 < -- 55
-+ -- 426
++ -- 425
 - -- 406
 * -- 2697
 := -- 5487
 add.period$ -- 247
 call.type$ -- 80
 change.case$ -- 592
-chr.to.int$ -- 78
+chr.to.int$ -- 79
 cite$ -- 82
 duplicate$ -- 1182
 empty$ -- 2253
 format.name$ -- 534
 if$ -- 6118
-int.to.chr$ -- 3
+int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 85
 newline$ -- 405
@@ -34,7 +34,7 @@ pop$ -- 503
 preamble$ -- 1
 purify$ -- 600
 quote$ -- 0
-skip$ -- 870
+skip$ -- 871
 stack$ -- 0
 substring$ -- 2297
 swap$ -- 116
