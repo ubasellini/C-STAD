@@ -892,11 +892,11 @@
   timestamp = {2016.10.05},
 }
 
-@Article{currie2020constraints,
+@Article{currie2019constraints,
   author  = {Iain D. Currie},
   title   = {Constraints, the identifiability problem and the forecasting of mortality},
   journal = {Annals of Acturial Science},
-  year    = {2020},
+  year    = {2019},
   note    = {Forthcoming.},
 }
 
