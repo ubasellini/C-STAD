@@ -46,14 +46,16 @@
 	
 	\title{An age-at-death distribution approach \\ to forecast cohort mortality}	
 	
-	\author[1,2]{Ugofilippo Basellini\thanks{Corresponding author: \url{ugofilippo.basellini@ined.fr}\\
-	\hspace*{1.8em}Address: 9 cours des Humanit\'{e}s, 93322 Aubervilliers, France}}
-	\author[2]{S{\o}ren Kj{\ae}rgaard}
-	\author[1]{Carlo Giovanni Camarda}
-	\affil[1]{\small \textit{Institut national d'\'{e}tudes d\'emographiques (INED), Aubervilliers}}
-	\affil[2]{\small \textit{Interdisciplinary Centre on Population Dynamics (CPop), Department of Public Health,} \authorcr \textit{University of Southern Denmark, Odense}}
+\author[1,2,3]{Ugofilippo Basellini\thanks{Corresponding author: \url{basellini@demogr.mpg.de}\\
+\hspace*{1.8em}Address: Konrad-Zuse-Str.~1, 18057 Rostock, Germany\\ \hspace*{1.8em}Phone: +49 381 2081 264}}
+\author[3]{S{\o}ren Kj{\ae}rgaard}
+\author[2]{Carlo Giovanni Camarda}
+\affil[1]{\small \textit{Max Planck Institute for
+Demographic Research (MPIDR), Rostock}}
+\affil[2]{\small \textit{Institut national d'\'{e}tudes d\'emographiques (INED), Aubervilliers}}
+\affil[3]{\small \textit{Interdisciplinary Centre on Population Dynamics (CPop), Department of Public Health,} \authorcr \textit{University of Southern Denmark, Odense}}
 	
-	\maketitle 
+\maketitle 
  
 \begin{abstract}
 
@@ -282,7 +284,7 @@ for each cohort in $\bm{c}'_3=\left[\tilde{c}+1,\ldots,1970\right]$. In contrast
 
 The estimate $\hat{\bm{\theta}}$ for each cohort in 1835--1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $\bm{c}_3$).}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty related to: (i) the estimated parameters, and (ii) the forecast values of $\bm{s}$ and $\bm{b}_U$. The first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. The second source of uncertainty is considered by simulating future values of the VAR model. We employ 40 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 40 future values of $\bm{s}$ and $\bm{b}_U$. From the 1600 resulting simulations, we take the lowest and highest deciles to construct 80\% pointwise confidence intervals.
 
-Finally, routines developed to fit and forecast the C-STAD model were implemented in \texttt{R} \citep{Rcite} and are publicly available, and all the results presented in the following Section are fully reproducible at \url{https://github.com/ubasellini/C-STAD} [this GitHub repository will be made public upon eventual acceptance of the manuscript]. 
+Finally, routines developed to fit and forecast the C-STAD model were implemented in \texttt{R} \citep{Rcite} and are publicly available, and all the results presented in the following Section are fully reproducible at \url{https://github.com/ubasellini/C-STAD}. 
 
 \section{Results}
 \label{Sec:Results}
@@ -463,13 +465,7 @@ To conclude, the C-STAD model offers great prospects for mortality forecasting f
 \label{Sec:Acknowledgements}
 The authors would like to thank Mar\'{i}lia Nepomuceno, Roland Rau, Jim Oeppen and an anonymous reviewer for providing useful comments and discussions on this paper. 
 
-
 \newpage
-
-% BIBLIOGRAPHY: 
-\bibliographystyle{apalike}
-%\small
-\bibliography{Biblio_CSTAD} 
 
 %\newpage
 %\bigskip
@@ -478,7 +474,7 @@ The authors would like to thank Mar\'{i}lia Nepomuceno, Roland Rau, Jim Oeppen a
 \counterwithin{table}{section}
 %\normalsize
 
-\section{Deviance residuals and bootstrap death counts}
+\section{Appendix A. Deviance residuals and bootstrap death counts}
 \label{Appendix:ResidualDeath}     
 Model residuals are routinely analysed to explore the goodness-of-fit of a model as well as the adequacy of assumptions about error terms. Within a GLM setting (such as the Poisson considered here), deviance residuals are often used to measure discrepancy between fitted and actual data. For the Poisson distribution they are given by: 
 \begin{equation}\label{Eq:DevRes}
@@ -491,7 +487,7 @@ where $d_{x,c}$ and $\hat{d}_{x,c}$ denote the observed and fitted death counts 
 
 Deviance residuals can be further employed to take into account the uncertainty related to the estimation of model parameters as suggested by \cite{koissi2006evaluating}. Specifically, bootstrap death counts can be computed by resampling deviance residuals with replacement and mapping them to corresponding death counts. We refer the interested reader to \cite{renshaw2008simulation} for details of the inverse formulas, which are based on the seminal work of \cite{efron1994introduction}.  
 
-\section{Section \ref{Sec:Results}: additional results}
+\section{Appendix B. Section \ref{Sec:Results}: additional results}
 \label{Appendix:AdditResults}     
 
 In this appendix, we present additional results related to Section \ref{Sec:Results}. 
@@ -690,6 +686,10 @@ We performed diagnostic checks on the fitted C-STAD model for the two population
 	\end{figure}
 \end{landscape}
 
+% BIBLIOGRAPHY: 
+\bibliographystyle{apalike}
+%\small
+\bibliography{Biblio_CSTAD} 
 
  
 \end{document} 
