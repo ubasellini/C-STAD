@@ -24,7 +24,7 @@
 	colorlinks=true,
 	linkcolor=blue,
 	filecolor=magenta,      
-	urlcolor=black,
+	urlcolor=cyan,
 	citecolor=blue,
 }
 
@@ -209,7 +209,7 @@ for each cohort $c=\tilde{c}+1,\ldots,1970$. In contrast to the estimation proce
 
 The estimate $\hat{\bm{\theta}}$ for each cohort in 1835--1970 allows us to derive a complete set of age-specific mortality measures, i.e.~we can complete the mortality experience for the partially observed cohorts of our analysis. In order to derive the C-STAD confidence intervals (CI)\footnote{to avoid confusion, we use the general term CI for all cohorts analysed, even when intervals are constructed from the mixture of forecast and estimated parameters (i.e.~cohorts $c_3$).}, we employ a bootstrapping procedure \citep{efron1994introduction}. As suggested by \cite{keilman2006prediction}, we consider the uncertainty related to: (i) the estimated parameters, and (ii) the forecast values of $\bm{s}$ and $\bm{b}_U$. The first source of uncertainty is accounted for by generating bootstrap death counts from the C-STAD deviance residuals \cite[as in, for example,][]{koissi2006evaluating,renshaw2008simulation,ouellette2012regional}. Appendix \ref{Appendix:ResidualDeath} provides more details on the computation of deviance residuals and bootstrap death counts. The second source of uncertainty is considered by simulating future values of the VAR model. We employ 40 different matrices of bootstrap death counts, and for each of these, we refit the C-STAD model and simulate 40 future values of $\bm{s}$ and $\bm{b}_U$. From the 1600 resulting simulations, we take the lower and higher deciles to construct 80\% pointwise confidence intervals.
 
-Finally, routines developed to fit and forecast the C-STAD model were implemented in \texttt{R} \citep{Rcite} and are publicly available, and all the results presented in the following Section are fully reproducible at [this GitHub repository will be made public upon eventual acceptance of the manuscript]. 
+Finally, routines developed to fit and forecast the C-STAD model were implemented in \texttt{R} \citep{Rcite} and are publicly available, and all the results presented in the following Section are fully reproducible at \url{https://github.com/ubasellini/C-STAD}. 
 
 \section{Results}
 \label{Sec:Results}
