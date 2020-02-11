@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: BaselliniEtAl_C-STAD_Pre-print.aux
+The style file: apalike.bst
+Database file #1: Biblio_CSTAD.bib
+Warning--empty institution in cmi2007stochastic
+You've used 53 entries,
+            1935 wiz_defined-function locations,
+            793 strings with 13286 characters,
+and the built_in function-call counts, 20909 in all, are:
+= -- 2066
+> -- 807
+< -- 38
++ -- 278
+- -- 265
+* -- 1791
+:= -- 3624
+add.period$ -- 163
+call.type$ -- 53
+change.case$ -- 389
+chr.to.int$ -- 52
+cite$ -- 54
+duplicate$ -- 792
+empty$ -- 1513
+format.name$ -- 352
+if$ -- 4081
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 59
+newline$ -- 269
+num.names$ -- 161
+pop$ -- 348
+preamble$ -- 1
+purify$ -- 397
+quote$ -- 0
+skip$ -- 572
+stack$ -- 0
+substring$ -- 1527
+swap$ -- 81
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 300
+warning$ -- 1
+while$ -- 182
+width$ -- 0
+write$ -- 686
+(There was 1 warning)
